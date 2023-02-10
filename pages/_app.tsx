@@ -1,7 +1,9 @@
 import 'styles/index.css'
 
-import { JetBrains_Mono, Manrope, Noto_Serif_Display } from '@next/font/google'
+import { JetBrains_Mono, Manrope, EB_Garamond } from '@next/font/google'
 import { AppProps } from 'next/app'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 const mono = JetBrains_Mono({
   variable: '--font-mono',
@@ -15,28 +17,56 @@ const sans = Manrope({
   weight: ['300','500', '700', '800'],
 })
 
-const serif = Noto_Serif_Display({
+const serif = EB_Garamond({
   variable: '--font-serif',
   style: ['normal', 'italic'],
   subsets: ['latin'],
-  weight: ['100','500','700', '900']
+  weight: ['500','700']
 })
 
 export default function App({ Component, pageProps }: AppProps) {
+  const spring = {
+    type: "spring",
+    damping: 20,
+    stiffness: 100,
+    when: "afterChildren",
+    duration: {
+      enter: 0.2,
+      exit: 0.2,
+    }
+  };
+
+  const router = useRouter()
+
+  const transition = spring
+  const initial = router.pathname === "/" ? { x: -300, opacity: 0 } : { x: 300, opacity: 0 }
+  const animate = router.pathname === "/" ? {x: 0,  opacity: 1 } : { x: 0, opacity: 1 }
+  const exit = router.pathname === "/" ? { x: 300, opacity: 0 } : { x: -300, opacity: 0 }
+
   return (
-    <>
+    <AnimatePresence mode={"wait"}>
       <style jsx global>
         {`
           :root {
             --font-mono: ${mono.style.fontFamily};
             --font-sans: ${sans.style.fontFamily};
-            --font-serif: ${sans.style.fontFamily}; 
-          //  TODO: find a serif font that works well with the sans font
+            --font-serif: ${serif.style.fontFamily}; 
           }
         `}
       </style>
+      <div className="page-transition-wrapper">
+        <motion.div
+          transition={transition}
+          key={router.pathname}
+          initial={initial}
+          animate={animate}
+          exit={exit}
+          id="page-transition-container"
+        >
 
       <Component {...pageProps} />
-    </>
+        </motion.div>
+      </div>
+    </AnimatePresence>
   )
 }

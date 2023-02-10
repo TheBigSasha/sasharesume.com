@@ -1,4 +1,6 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
+import { FaChevronLeft } from 'react-icons/fa'
+import Link from 'next/link'
 
 interface HeaderProps {
   centered?: boolean
@@ -13,8 +15,15 @@ export function Header(props: HeaderProps) {
   return (
     <div className={`${centered ? 'text-center' : 'w-5/6 lg:w-3/5'}`}>
       {/* Title */}
+      {!centered && <Link href="/">
+        <p className="font-bold text-gray-600 text-sm">
+        <FaChevronLeft className="inline-block" /> Back to gallery
+        </p>
+      </Link>}
+
       {title && (
         <div className="text-3xl font-extrabold tracking-tight md:text-5xl">
+
           {title}
         </div>
       )}
