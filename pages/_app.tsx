@@ -1,6 +1,6 @@
 import 'styles/index.css'
 
-import { JetBrains_Mono, Manrope, Cormorant } from '@next/font/google'
+import { JetBrains_Mono, Manrope, Noto_Serif_Display } from '@next/font/google'
 import { AppProps } from 'next/app'
 
 const mono = JetBrains_Mono({
@@ -15,11 +15,11 @@ const sans = Manrope({
   weight: ['300','500', '700', '800'],
 })
 
-const serif = Cormorant({
+const serif = Noto_Serif_Display({
   variable: '--font-serif',
   style: ['normal', 'italic'],
   subsets: ['latin'],
-  weight: ['600','700']
+  weight: ['100','500','700', '900']
 })
 
 export default function App({ Component, pageProps }: AppProps) {
