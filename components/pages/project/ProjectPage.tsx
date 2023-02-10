@@ -95,8 +95,8 @@ export function ProjectPage({
                   <div className="text-xs md:text-sm">Tags</div>
                   <div className="text-md flex flex-row flex-wrap md:text-lg">
                     {tags?.map((tag, key) => (
-                      <div key={key} className="mr-1 break-words ">
-                        #{tag}
+                      <div key={key} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 mr-1 break-words ">
+                        {tag}
                       </div>
                     ))}
                   </div>
