@@ -16,5 +16,6 @@ module.exports = {
       serif: 'var(--font-serif)',
     },
   },
+  darkMode: 'media',
   plugins: [require('@tailwindcss/typography')],
 }
