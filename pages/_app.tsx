@@ -30,7 +30,8 @@ export default function App({ Component, pageProps }: AppProps) {
           :root {
             --font-mono: ${mono.style.fontFamily};
             --font-sans: ${sans.style.fontFamily};
-            --font-serif: ${serif.style.fontFamily};
+            --font-serif: ${sans.style.fontFamily}; 
+          //  TODO: find a serif font that works well with the sans font
           }
         `}
       </style>
