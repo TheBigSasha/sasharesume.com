@@ -53,7 +53,7 @@ export function ProjectPage({
         <ProjectPageHead project={project} title={homePageTitle} />
       </Head>
 
-      <Layout settings={settings} preview={preview}>
+      <Layout settings={settings} preview={preview} constrainWidth>
         <div>
           <SProjectList>
             {/* Header */}
