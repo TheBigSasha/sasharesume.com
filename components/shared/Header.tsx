@@ -1,7 +1,12 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 import Link from 'next/link'
 import { FaChevronLeft } from 'react-icons/fa'
-import { SHeaderBackButton, SHeaderDescription, SHeaderTitle, SHeaderWrapper } from '../styled/Basic'
+import {
+  SHeaderBackButton,
+  SHeaderDescription,
+  SHeaderTitle,
+  SHeaderWrapper,
+} from '../styled/Basic'
 
 interface HeaderProps {
   centered?: boolean
@@ -19,13 +24,13 @@ export function Header(props: HeaderProps) {
       {!centered && (
         <Link href="/">
           <SHeaderBackButton>
-            <FaChevronLeft/> Back to gallery
+            <FaChevronLeft /> Back to gallery
           </SHeaderBackButton>
         </Link>
       )}
 
       {title && (
-        <SHeaderTitle className={centered ? "textTrackSweep" : ""}>
+        <SHeaderTitle className={centered ? 'textTrackSweep' : ''}>
           {title}
         </SHeaderTitle>
       )}

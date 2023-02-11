@@ -8,7 +8,16 @@ import type { ProjectPayload, SettingsPayload } from 'types'
 
 import Layout from '../../shared/Layout'
 import ProjectPageHead from './ProjectPageHead'
-import { SHeaderBorder, SProjectBox, SProjectDetailsGrid, SProjectList, STag, STagGroup, STagText, SProjectDetailsGridBox } from '../../styled/Basic'
+import {
+  SHeaderBorder,
+  SProjectBox,
+  SProjectDetailsGrid,
+  SProjectList,
+  STag,
+  STagGroup,
+  STagText,
+  SProjectDetailsGridBox,
+} from '../../styled/Basic'
 
 export interface ProjectPageProps {
   project: ProjectPayload | undefined
@@ -96,11 +105,7 @@ export function ProjectPage({
                   <STagText>Tags</STagText>
                   <STagGroup>
                     {tags?.map((tag, key) => (
-                      <STag
-                        key={key}
-                      >
-                        {tag}
-                      </STag>
+                      <STag key={key}>{tag}</STag>
                     ))}
                   </STagGroup>
                 </SProjectDetailsGridBox>

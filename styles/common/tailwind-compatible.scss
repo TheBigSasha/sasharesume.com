@@ -1,45 +1,43 @@
 $gray_levels_dark: (
-        50: #1a202c,
-        100: #1a202c,
-        200: #2d3748,
-        300: #4a5568,
-        400: #718096,
-        500: #a0aec0,
-        600: #cbd5e0,
-        700: #e2e8f0,
-        800: #edf2f7,
-        900: #f7fafc,
+  50: #1a202c,
+  100: #1a202c,
+  200: #2d3748,
+  300: #4a5568,
+  400: #718096,
+  500: #a0aec0,
+  600: #cbd5e0,
+  700: #e2e8f0,
+  800: #edf2f7,
+  900: #f7fafc,
 );
 
 $gray_levels_light: (
-          50: #f7fafc,
-          100: #f7fafc,
-          200: #edf2f7,
-          300: #e2e8f0,
-          400: #cbd5e0,
-          500: #a0aec0,
-          600: #718096,
-          700: #4a5568,
-          800: #2d3748,
-          900: #1a202c,
+  50: #f7fafc,
+  100: #f7fafc,
+  200: #edf2f7,
+  300: #e2e8f0,
+  400: #cbd5e0,
+  500: #a0aec0,
+  600: #718096,
+  700: #4a5568,
+  800: #2d3748,
+  900: #1a202c,
 );
 
-
-
 @each $level, $color in $gray_levels_dark {
-    .bg-gray-#{$level} {
-      background-color: map-get($gray_levels_dark, $level);
-    }
-    .text-gray-#{$level} {
-      color: map-get($gray_levels_dark, $level);
-    }
-    .border-gray-#{$level} {
-      border-color: map-get($gray_levels_dark, $level);
-    }
-    :root {
-      --gray-#{$level}: #{map-get($gray_levels_dark, $level)};
-    }
-  @media (prefers-color-scheme: light){
+  .bg-gray-#{$level} {
+    background-color: map-get($gray_levels_dark, $level);
+  }
+  .text-gray-#{$level} {
+    color: map-get($gray_levels_dark, $level);
+  }
+  .border-gray-#{$level} {
+    border-color: map-get($gray_levels_dark, $level);
+  }
+  :root {
+    --gray-#{$level}: #{map-get($gray_levels_dark, $level)};
+  }
+  @media (prefers-color-scheme: light) {
     .bg-gray-#{$level} {
       background-color: map-get($gray_levels_light, $level);
     }
@@ -55,8 +53,6 @@ $gray_levels_light: (
   }
 }
 
-
-
 $text-sizes: (
   xs: 0.75rem,
   sm: 0.875rem,
@@ -68,24 +64,24 @@ $text-sizes: (
   '4xl': 2.25rem,
   '5xl': 3rem,
   '6xl': 3.75rem,
-    '7xl': 4.5rem,
-    '8xl': 6rem,
-    '9xl': 8rem,
+  '7xl': 4.5rem,
+  '8xl': 6rem,
+  '9xl': 8rem,
 );
 
 $line-heights: (
   xs: 1rem,
-    sm: 1.25rem,
-    base: 1.5rem,
-    lg: 1.75rem,
-    xl: 1.75rem,
-    '2xl': 2rem,
-    '3xl': 2.25rem,
-    '4xl': 2.5rem,
-    '5xl': 1,
-    '6xl': 1,
-    '7xl': 1,
-    '8xl': 1,
+  sm: 1.25rem,
+  base: 1.5rem,
+  lg: 1.75rem,
+  xl: 1.75rem,
+  '2xl': 2rem,
+  '3xl': 2.25rem,
+  '4xl': 2.5rem,
+  '5xl': 1,
+  '6xl': 1,
+  '7xl': 1,
+  '8xl': 1,
 );
 
 @each $size, $value in $text-sizes {
@@ -135,9 +131,7 @@ $tracking: (
   @include divide-x;
 }
 
-
-
-$border-radii : (
+$border-radii: (
   none: 0,
   sm: 0.125rem,
   default: 0.25rem,
@@ -179,8 +173,7 @@ $font-weights: (
   }
 }
 
-
-$spaces : (
+$spaces: (
   0: 0,
   1: 0.25rem,
   2: 0.5rem,

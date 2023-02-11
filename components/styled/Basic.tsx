@@ -204,7 +204,6 @@ export const SHeaderWrapper = styled.div`
   }
 `
 
-
 // text-sm font-bold text-gray-600
 export const SHeaderText = styled.div`
   font-size: var(--text-sm);
@@ -218,12 +217,12 @@ export const SHeaderText = styled.div`
 export const SHeaderBackButton = styled(SHeaderText)`
   padding: 0 0.5rem 0 0;
   &:hover {
-  background-color: var(--gray-100);
-  border-radius: var(--rounded-full);
-  transition: 0.4s ease-in-out;
-  width: fit-content;
-}
-  `
+    background-color: var(--gray-100);
+    border-radius: var(--rounded-full);
+    transition: 0.4s ease-in-out;
+    width: fit-content;
+  }
+`
 
 // text-3xl font-extrabold tracking-tight md:text-5xl
 export const SHeaderTitle = styled.div`
@@ -268,7 +267,6 @@ export const STagGroup = styled.div`
   }
 `
 
-
 //text-xs md:text-sm
 export const STagText = styled.div`
   font-size: var(--text-xs);
@@ -305,9 +303,6 @@ export const SProjectBox = styled.div`
   border: 1px solid var(--gray-200);
 `
 
-
-
-
 //grid grid-cols-1 divide-y divide-inherit lg:grid-cols-4 lg:divide-y-0 lg:divide-x
 export const SProjectDetailsGrid = styled.div`
   display: grid;
@@ -322,8 +317,8 @@ export const SProjectDetailsGrid = styled.div`
       border-left: 1px solid var(--gray-200);
     }
   }
-  
-  @media(max-width: 1023px) {
+
+  @media (max-width: 1023px) {
     & > * + * {
       border-top: 1px solid var(--gray-200);
     }
@@ -338,6 +333,3 @@ export const SLink = styled.a`
     opacity: 0.5;
   }
 `
-
-
-

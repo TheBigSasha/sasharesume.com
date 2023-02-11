@@ -20,10 +20,7 @@ export function CustomPortableText({
     marks: {
       link: ({ children, value }) => {
         return (
-          <SLink
-            href={value?.href}
-            rel="noreferrer noopener"
-          >
+          <SLink href={value?.href} rel="noreferrer noopener">
             {children}
           </SLink>
         )

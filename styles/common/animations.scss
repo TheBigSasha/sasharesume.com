@@ -59,7 +59,11 @@
 /*
    Start at the first value, and end at the second value, then stop
  */
-@mixin SweepTextTracking($startTrackingValue, $endTrackingValue, $duration: 15s) {
+@mixin SweepTextTracking(
+  $startTrackingValue,
+  $endTrackingValue,
+  $duration: 15s
+) {
   letter-spacing: $startTrackingValue;
   animation: tracking $duration ease forwards;
   @keyframes tracking {

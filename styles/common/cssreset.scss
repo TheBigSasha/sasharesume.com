@@ -597,7 +597,7 @@ html {
   color: var(--text-color);
 }
 
-*{
+* {
   font-variant-ligatures: normal;
   font-feature-settings: normal;
   scrollbar-track-color: transparent;
@@ -605,5 +605,5 @@ html {
 }
 
 body::-webkit-scrollbar-track {
-  background: transparent;        /* color of the tracking area */
+  background: transparent; /* color of the tracking area */
 }

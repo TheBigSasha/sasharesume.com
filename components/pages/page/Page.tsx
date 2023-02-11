@@ -42,7 +42,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
             {/* Workaround: scroll to top on route change */}
             <ScrollUp />
           </div>
-          <SHeaderBorder/>
+          <SHeaderBorder />
         </div>
       </Layout>
     </>
