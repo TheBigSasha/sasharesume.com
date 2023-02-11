@@ -178,6 +178,7 @@ export const SLayout = styled.div`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  ${(props) => (props.constrainWidth ? 'max-width: 1200px' : '')};
 `
 
 // mt-20 flex-grow px-4 md:px-16 lg:px-32
@@ -301,6 +302,7 @@ export const SProjectList = styled.div`
 export const SProjectBox = styled.div`
   border-radius: var(--rounded-md);
   border: 1px solid var(--gray-200);
+  max-width: 1200px;
 `
 
 //grid grid-cols-1 divide-y divide-inherit lg:grid-cols-4 lg:divide-y-0 lg:divide-x
