@@ -8,6 +8,7 @@ import type { ProjectPayload, SettingsPayload } from 'types'
 
 import Layout from '../../shared/Layout'
 import ProjectPageHead from './ProjectPageHead'
+import { SHeaderBorder, SProjectBox, SProjectDetailsGrid, SProjectList, STag, STagGroup, STagText, SProjectDetailsGridBox } from '../../styled/Basic'
 
 export interface ProjectPageProps {
   project: ProjectPayload | undefined
@@ -45,38 +46,38 @@ export function ProjectPage({
 
       <Layout settings={settings} preview={preview}>
         <div>
-          <div className="mb-20 space-y-6">
+          <SProjectList>
             {/* Header */}
             <Header title={title} description={overview} />
 
-            <div className="rounded-md border">
+            <SProjectBox>
               {/* Image  */}
               <ImageBox
                 image={coverImage}
                 alt={`Cover image for ${title}`}
-                classesWrapper="relative aspect-[16/9]"
+                classesWrapper="relative aspect-dci"
               />
 
-              <div className="grid grid-cols-1 divide-y divide-inherit lg:grid-cols-4 lg:divide-y-0 lg:divide-x">
+              <SProjectDetailsGrid>
                 {/* Duration */}
                 {!!(startYear && endYear) && (
-                  <div className="p-3 lg:p-4">
+                  <SProjectDetailsGridBox>
                     <div className="text-xs md:text-sm">Duration</div>
                     <div className="text-md md:text-lg">{`${startYear} -  ${endYear}`}</div>
-                  </div>
+                  </SProjectDetailsGridBox>
                 )}
 
                 {/* Client */}
                 {client && (
-                  <div className="p-3 lg:p-4">
+                  <SProjectDetailsGridBox>
                     <div className="text-xs md:text-sm">Client</div>
                     <div className="text-md md:text-lg">{client}</div>
-                  </div>
+                  </SProjectDetailsGridBox>
                 )}
 
                 {/* Site */}
                 {site && (
-                  <div className="p-3 lg:p-4">
+                  <SProjectDetailsGridBox>
                     <div className="text-xs md:text-sm">Site</div>
                     {site && (
                       <Link
@@ -87,25 +88,24 @@ export function ProjectPage({
                         {site}
                       </Link>
                     )}
-                  </div>
+                  </SProjectDetailsGridBox>
                 )}
 
                 {/* Tags */}
-                <div className="p-3 lg:p-4">
-                  <div className="text-xs md:text-sm">Tags</div>
-                  <div className="text-md flex flex-row flex-wrap md:text-lg">
+                <SProjectDetailsGridBox>
+                  <STagText>Tags</STagText>
+                  <STagGroup>
                     {tags?.map((tag, key) => (
-                      <div
+                      <STag
                         key={key}
-                        className="mr-2 mb-2 mr-1 inline-block break-words rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700 "
                       >
                         {tag}
-                      </div>
+                      </STag>
                     ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </STagGroup>
+                </SProjectDetailsGridBox>
+              </SProjectDetailsGrid>
+            </SProjectBox>
 
             {/* Description */}
             {description && (
@@ -116,8 +116,8 @@ export function ProjectPage({
             )}
             {/* Workaround: scroll to top on route change */}
             <ScrollUp />
-          </div>
-          <div className="absolute left-0 w-screen border-t" />
+          </SProjectList>
+          <SHeaderBorder />
         </div>
       </Layout>
     </>

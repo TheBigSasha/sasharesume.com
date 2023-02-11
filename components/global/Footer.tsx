@@ -2,7 +2,7 @@ import { CustomPortableText } from 'components/shared/CustomPortableText'
 import React from 'react'
 import { PortableTextBlock } from 'sanity'
 
-import { SFooter } from '../../components/styled/Basic'
+import { SFooter } from '../styled/Basic'
 
 export function Footer({ footer }: { footer: PortableTextBlock[] }) {
   return (

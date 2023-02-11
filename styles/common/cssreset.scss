@@ -590,15 +590,20 @@ pre tt:after {
   :root {
     color-scheme: dark;
   }
-
-  * {
-    //  Scroll bar container fully transparent
-    scrollbar-gutter: auto;
-    scrollbar-color: transparent transparent;
-  }
 }
 
 html {
   font-family: var(--font-sans);
   color: var(--text-color);
+}
+
+*{
+  font-variant-ligatures: normal;
+  font-feature-settings: normal;
+  scrollbar-track-color: transparent;
+  scrollbar-color: var(--gray-300) transparent !important;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
 }

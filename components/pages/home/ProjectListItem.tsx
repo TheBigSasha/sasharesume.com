@@ -27,7 +27,7 @@ export function ProjectListItem(props: ProjectProps) {
         <ImageBox
           image={project.coverImage}
           alt={`Cover image from ${project.title}`}
-          classesWrapper="relative aspect-3x4"
+          classesWrapper="relative aspect-photo"
         />
       </SImageWrapper>
       <STextBoxWrapper>

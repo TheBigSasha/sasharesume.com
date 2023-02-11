@@ -1,0 +1,14 @@
+@mixin responsive-image{
+  max-height: 60vh;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+  max-width: 100vw;
+}
+
+.resp-img{
+  @include responsive-image;
+}

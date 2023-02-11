@@ -5,12 +5,12 @@ import styled from 'styled-components'
 export const SFooter = styled.footer`
   bottom: 0;
   width: 100%;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
   text-align: center;
   @media (min-width: 768px) {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
   }
 `
 
@@ -22,18 +22,12 @@ export const SHeader = styled.header`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.25rem;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  gap: var(--space-5);
+  background-color: var(--tpcard-background-color);
+  padding: 0.5rem;
   backdrop-filter: blur(10px);
   @media (min-width: 768px) {
-    padding-top: 0.625rem;
-    padding-bottom: 0.625rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0.625rem 1rem;
   }
   @media (min-width: 1024px) {
     padding-left: 2rem;
@@ -48,10 +42,11 @@ export const SListItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  border-radius: var(--rounded-md);
   padding: 0.5rem;
   transition: background-color 0.2s ease-in-out;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--card-background-color);
   }
   @media (min-width: 1024px) {
     flex-direction: row;
@@ -65,7 +60,7 @@ export const SListItem = styled.div`
 export const SImageBox = styled.div`
   width: 100%;
   overflow: hidden;
-  border-radius: 0.75rem;
+  border-radius: var(--rounded-md);
   background-color: var(--second-background-color);
   ${(props) => props.classesWrapper}
 `
@@ -98,7 +93,7 @@ export const STextBoxWrapper = styled.div`
 // Tailwind: relative mt-2 flex w-full flex-col justify-between p-3 xl:mt-0
 export const STextBox = styled.div`
   position: relative;
-  margin-top: 0.5rem;
+  margin-top: var(--space-1);
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -111,12 +106,12 @@ export const STextBox = styled.div`
 
 // mb-2 text-xl font-extrabold tracking-tight md:text-2xl
 export const STextBoxTitle = styled.div`
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 0.025em;
+  margin-bottom: var(--space-1);
+  font-size: var(--text-xl);
+  font-weight: var(--font-extrabold);
+  letter-spacing: var(--tracking-tight);
   @media (min-width: 768px) {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
   }
 `
 
@@ -128,10 +123,10 @@ export const STextBoxOverview = styled.div`
 
 //mt-4 flex flex-row gap-x-2 overflow-x-auto
 export const STextBoxTags = styled.div`
-  margin-top: 1rem;
+  margin-top: var(--space-2);
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: var(--space-2);
   overflow-x: auto;
 `
 
@@ -144,14 +139,16 @@ export const STag = styled.div`
   padding-right: 0.75rem;
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-right: 0.25rem;
-  margin-bottom: 0.25rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  margin-right: var(--space-1);
+  margin-bottom: var(--space-1);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-width: 5rem;
+  min-width: var(--space-24);
+  width: max-content;
+  max-width: var(--space-56);
   text-align: center;
   color: var(--gray-700);
 `
@@ -216,8 +213,19 @@ export const SHeaderText = styled.div`
   line-height: var(--lineheight-sm);
   font-weight: 700;
   color: var(--gray-600);
+  // characters should be vertically aligned to centerline
+  vertical-align: super;
 `
 
+export const SHeaderBackButton = styled(SHeaderText)`
+  padding: 0 0.5rem 0 0;
+  &:hover {
+  background-color: var(--gray-100);
+  border-radius: var(--rounded-full);
+  transition: 0.4s ease-in-out;
+  width: fit-content;
+}
+  `
 
 // text-3xl font-extrabold tracking-tight md:text-5xl
 export const SHeaderTitle = styled.div`
@@ -232,7 +240,7 @@ export const SHeaderTitle = styled.div`
 `
 //mt-4 font-serif text-xl text-gray-600 md:text-2xl
 export const SHeaderDescription = styled.div`
-  margin-top: 1rem;
+  margin-top: var(--space-2);
   font-family: var(--font-serif);
   font-size: var(--text-xl);
   line-height: var(--lineheight-xl);
@@ -242,3 +250,96 @@ export const SHeaderDescription = styled.div`
     line-height: var(--lineheight-2xl);
   }
 `
+
+// absolute left-0 w-screen border-t
+export const SHeaderBorder = styled.div`
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid var(--gray-200);
+`
+
+//text-md flex flex-row flex-wrap md:text-lg
+export const STagGroup = styled.div`
+  font-size: var(--text-md);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  @media (min-width: 768px) {
+    font-size: var(--text-lg);
+  }
+`
+
+
+//text-xs md:text-sm
+export const STagText = styled.div`
+  font-size: var(--text-xs);
+  @media (min-width: 768px) {
+    font-size: var(--text-sm);
+  }
+`
+
+//p-3 lg:p-4
+export const SProjectDetailsGridBox = styled.div`
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  @media (min-width: 1024px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+`
+
+// mb-20 space-y-6
+export const SProjectList = styled.div`
+  margin-bottom: 5rem;
+  & > * + * {
+    margin-top: 1.5rem;
+  }
+`
+
+//rounded-md border
+export const SProjectBox = styled.div`
+  border-radius: var(--rounded-md);
+  border: 1px solid var(--gray-200);
+`
+
+
+
+
+//grid grid-cols-1 divide-y divide-inherit lg:grid-cols-4 lg:divide-y-0 lg:divide-x
+export const SProjectDetailsGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--gray-200);
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 0;
+    border-right: 1px solid var(--gray-200);
+    & > * + * {
+      border-left: 1px solid var(--gray-200);
+    }
+  }
+  
+  @media(max-width: 1023px) {
+    & > * + * {
+      border-top: 1px solid var(--gray-200);
+    }
+  }
+`
+
+//underline transition hover:opacity-50
+export const SLink = styled.a`
+  text-decoration: underline;
+  transition: opacity 0.2s ease-in-out;
+  &:hover {
+    opacity: 0.5;
+  }
+`
+
+
+
