@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 // tailwind: bottom-0 w-full bg-white py-12 text-center md:py-20
 export const SFooter = styled.footer`
@@ -38,7 +39,7 @@ export const SHeader = styled.header`
 // Tailwind: `flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
 //         odd && 'border-t border-b xl:flex-row-reverse'
 //       }`
-export const SListItem = styled.div`
+export const SListItem = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -157,7 +158,7 @@ export const SCenter = styled.div`
 `
 
 // mx-auto max-w-[100rem] rounded-md border
-export const SShowcaseProjectWrapper = styled.div`
+export const SShowcaseProjectWrapper = styled(motion.div)`
   margin-left: auto;
   margin-right: auto;
   max-width: 62.5rem;

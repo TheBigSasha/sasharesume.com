@@ -31,7 +31,9 @@ i {
   font-family: var(--font-serif);
 }
 
-
+.textTrackSweep{
+  @include SweepTextTracking(var(--tracking-wide), var(--tracking-tight), 3s);
+}
 
 code {
   font-family: var(--font-mono);

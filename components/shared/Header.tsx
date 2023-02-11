@@ -25,7 +25,7 @@ export function Header(props: HeaderProps) {
       )}
 
       {title && (
-        <SHeaderTitle>
+        <SHeaderTitle className={centered ? "textTrackSweep" : ""}>
           {title}
         </SHeaderTitle>
       )}

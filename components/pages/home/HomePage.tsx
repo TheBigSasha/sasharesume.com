@@ -8,8 +8,9 @@ import Link from 'next/link'
 import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
-import { SShowcaseProjectWrapper, SSpacing } from '../../styled/Basic'
+import { SSpacing } from '../../styled/Basic'
 import HomePageHead from './HomePageHead'
+import { AnimShowcaseProjectWrapper } from '../../styled/Animated'
 
 export interface HomePageProps {
   settings?: SettingsPayload
@@ -32,7 +33,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           {title && <Header centered title={title} description={overview} />}
           {/* Showcase projects */}
           {showcaseProjects && showcaseProjects.length > 0 && (
-            <SShowcaseProjectWrapper>
+            <AnimShowcaseProjectWrapper>
               {showcaseProjects.map((project, key) => {
                 const href = resolveHref(project._type, project.slug)
                 if (!href) {
@@ -44,7 +45,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   </Link>
                 )
               })}
-            </SShowcaseProjectWrapper>
+            </AnimShowcaseProjectWrapper>
           )}
 
           {/* Workaround: scroll to top on route change */}
