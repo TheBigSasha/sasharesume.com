@@ -1,13 +1,9 @@
 @import 'cssreset';
 @import 'variables';
+@import 'tailwind-compatible.scss';
 @import 'colors';
 @import 'colors-autotheme';
 @import 'animations';
-
-* {
-  font-family: var(--font-sans);
-  color: var(--text-color);
-}
 
 .card {
   background-color: var(--card-background-color);

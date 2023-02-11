@@ -200,3 +200,45 @@ export const SLayoutBody = styled.div`
     padding-right: 8rem;
   }
 `
+
+// `${centered ? 'text-center' : 'w-5/6 lg:w-3/5'}`
+export const SHeaderWrapper = styled.div`
+  ${(props) => (props.centered ? 'text-align: center' : 'width: 83.333333%')};
+  @media (min-width: 1024px) {
+    ${(props) => (props.centered ? 'text-align: center' : 'width: 60%')};
+  }
+`
+
+
+// text-sm font-bold text-gray-600
+export const SHeaderText = styled.div`
+  font-size: var(--text-sm);
+  line-height: var(--lineheight-sm);
+  font-weight: 700;
+  color: var(--gray-600);
+`
+
+
+// text-3xl font-extrabold tracking-tight md:text-5xl
+export const SHeaderTitle = styled.div`
+  font-size: var(--text-3xl);
+  line-height: var(--lineheight-3xl);
+  font-weight: 800;
+  letter-spacing: var(--tracking-tight);
+  @media (min-width: 768px) {
+    font-size: var(--text-5xl);
+    line-height: var(--lineheight-5xl);
+  }
+`
+//mt-4 font-serif text-xl text-gray-600 md:text-2xl
+export const SHeaderDescription = styled.div`
+  margin-top: 1rem;
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  line-height: var(--lineheight-xl);
+  color: var(--gray-600);
+  @media (min-width: 768px) {
+    font-size: var(--text-2xl);
+    line-height: var(--lineheight-2xl);
+  }
+`

@@ -37,7 +37,7 @@ $gray_levels: (
     border-color: $color;
   }
   :root {
-    --gray-#{$level}: $color;
+    --gray-#{$level}: #{$color};
   }
 }
 
@@ -79,8 +79,22 @@ $line-heights: (
     line-height: map-get($line-heights, $size);
   }
   :root {
-    --text-#{$size}: $value;
-    --lineheight-#{$size}: map-get($line-heights, $size);
+    --text-#{$size}: #{$value};
+    --lineheight-#{$size}: #{map-get($line-heights, $size)};
   }
 }
 
+$tracking: (
+  tight: -0.05em,
+  normal: 0,
+  wide: 0.05em,
+);
+
+@each $size, $value in $tracking {
+  .tracking-#{$size} {
+    letter-spacing: $value;
+  }
+  :root {
+    --tracking-#{$size}: #{$value};
+  }
+}

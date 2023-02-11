@@ -1,5 +1,4 @@
 @import 'common/sashaphoto-base';
-@import 'common/tailwind-compatible.scss';
 
 html,
 body,
@@ -29,12 +28,6 @@ ul {
 
 ol {
   list-style-type: disc;
-}
-
-a {
-  /*    underline transition hover:opacity-50*/
-  text-decoration: none;
-  color: #000;
 }
 
 .font-sans {
