@@ -133,13 +133,10 @@ export const STextBoxTags = styled.div`
 //inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 mr-1 whitespace-nowrap text-ellipsis
 export const STag = styled.div`
   display: inline-block;
-  background-color: var(--gray-200);
+  background-color: var(--gray-50);
   border-radius: 9999px;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  font-size: var(--text-sm);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
   font-weight: var(--font-semibold);
   margin-right: var(--space-1);
   margin-bottom: var(--space-1);
@@ -261,12 +258,12 @@ export const SHeaderBorder = styled.div`
 
 //text-md flex flex-row flex-wrap md:text-lg
 export const STagGroup = styled.div`
-  font-size: var(--text-md);
+  font-size: var(--text-xs);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   @media (min-width: 768px) {
-    font-size: var(--text-lg);
+    font-size: var(--text-md);
   }
 `
 
