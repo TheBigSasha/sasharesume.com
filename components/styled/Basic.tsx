@@ -48,6 +48,7 @@ export const SListItem = styled(motion.div)`
   margin: 0.5rem;
   transition: background-color 0.2s ease-in-out;
   &:hover {
+    transition: all 0.3s ease-in-out;
     background-color: var(--card-background-color);
   }
   border: 1px solid var(--gray-300);
