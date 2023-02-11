@@ -8,7 +8,9 @@ import Link from 'next/link'
 import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
+import { SSpacing } from '../../styled/Basic'
 import HomePageHead from './HomePageHead'
+import { AnimShowcaseProjectWrapper } from '../../styled/Animated'
 
 export interface HomePageProps {
   settings?: SettingsPayload
@@ -26,12 +28,12 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
       </Head>
 
       <Layout settings={settings} preview={preview}>
-        <div className="space-y-20">
+        <SSpacing>
           {/* Header */}
           {title && <Header centered title={title} description={overview} />}
           {/* Showcase projects */}
           {showcaseProjects && showcaseProjects.length > 0 && (
-            <div className="mx-auto max-w-[100rem] rounded-md border">
+            <AnimShowcaseProjectWrapper>
               {showcaseProjects.map((project, key) => {
                 const href = resolveHref(project._type, project.slug)
                 if (!href) {
@@ -43,12 +45,12 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   </Link>
                 )
               })}
-            </div>
+            </AnimShowcaseProjectWrapper>
           )}
 
           {/* Workaround: scroll to top on route change */}
           <ScrollUp />
-        </div>
+        </SSpacing>
       </Layout>
     </>
   )

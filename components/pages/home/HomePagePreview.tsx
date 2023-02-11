@@ -2,6 +2,7 @@ import { usePreview } from 'lib/sanity.preview'
 import { homePageQuery } from 'lib/sanity.queries'
 import type { HomePagePayload } from 'types'
 
+import { SCenter } from '../../styled/Basic'
 import { HomePage, HomePageProps } from './HomePage'
 
 export default function HomePagePreview({
@@ -13,9 +14,9 @@ export default function HomePagePreview({
 
   if (!home) {
     return (
-      <div className="text-center">
+      <SCenter>
         Please start editing your Home document to see the preview!
-      </div>
+      </SCenter>
     )
   }
 

@@ -2,6 +2,17 @@ import { CustomPortableText } from 'components/shared/CustomPortableText'
 import ImageBox from 'components/shared/ImageBox'
 import type { ShowcaseProject } from 'types'
 
+import {
+  SImageWrapper,
+  STag,
+  STextBox,
+  STextBoxOverview,
+  STextBoxTags,
+  STextBoxTitle,
+  STextBoxWrapper,
+} from '../../styled/Basic'
+import { AnimListItem } from '../../styled/Animated'
+
 interface ProjectProps {
   project: ShowcaseProject
   odd: number
@@ -11,46 +22,38 @@ export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
 
   return (
-    <div
-      className={`flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
-        odd && 'border-t border-b xl:flex-row-reverse'
-      }`}
-    >
-      <div className="w-full xl:w-9/12">
+    <AnimListItem odd={odd}>
+      <SImageWrapper>
         <ImageBox
           image={project.coverImage}
           alt={`Cover image from ${project.title}`}
-          classesWrapper="relative aspect-[16/9]"
+          classesWrapper="relative aspect-photo"
         />
-      </div>
-      <div className="flex xl:w-1/4">
+      </SImageWrapper>
+      <STextBoxWrapper>
         <TextBox project={project} />
-      </div>
-    </div>
+      </STextBoxWrapper>
+    </AnimListItem>
   )
 }
 
 function TextBox({ project }: { project: ShowcaseProject }) {
   return (
-    <div className="relative mt-2 flex w-full flex-col justify-between p-3 xl:mt-0">
+    <STextBox>
       <div>
         {/* Title */}
-        <div className="mb-2 text-xl font-extrabold tracking-tight md:text-2xl">
-          {project.title}
-        </div>
+        <STextBoxTitle>{project.title}</STextBoxTitle>
         {/* Overview  */}
-        <div className="font-serif text-gray-500">
+        <STextBoxOverview>
           <CustomPortableText value={project.overview} />
-        </div>
+        </STextBoxOverview>
       </div>
       {/* Tags */}
-      <div className="mt-4 flex flex-row gap-x-2 overflow-x-auto">
+      <STextBoxTags>
         {project.tags?.map((tag, key) => (
-          <div key={key} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 mr-1 whitespace-nowrap text-ellipsis ">
-            {tag}
-          </div>
+          <STag key={key}>{tag}</STag>
         ))}
-      </div>
-    </div>
+      </STextBoxTags>
+    </STextBox>
   )
 }

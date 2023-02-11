@@ -1,0 +1,73 @@
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@mixin SweepBackground($gradient) {
+  background: $gradient;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  background-clip: border-box;
+}
+
+@mixin SweepTextBackground($gradient) {
+  @include SweepBackground($gradient);
+  background-clip: text;
+  text-shadow: none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@mixin SweepBoxShadow($gradient) {
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  box-shadow: 0 0 10px 1px $gradient;
+}
+
+@mixin SweepBorder($gradient) {
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  border: 1px solid $gradient;
+}
+
+/*
+    Loop between two values, starting at the first value, forever
+ */
+@mixin SweepTextTrackingLoop($startTrackingValue, $endTrackingValue) {
+  letter-spacing: $startTrackingValue;
+  animation: tracking 30s ease infinite;
+  @keyframes tracking {
+    0% {
+      letter-spacing: $startTrackingValue;
+    }
+    50% {
+      letter-spacing: $endTrackingValue;
+    }
+    100% {
+      letter-spacing: $startTrackingValue;
+    }
+  }
+}
+
+/*
+   Start at the first value, and end at the second value, then stop
+ */
+@mixin SweepTextTracking($startTrackingValue, $endTrackingValue, $duration: 15s) {
+  letter-spacing: $startTrackingValue;
+  animation: tracking $duration ease forwards;
+  @keyframes tracking {
+    0% {
+      letter-spacing: $startTrackingValue;
+    }
+    100% {
+      letter-spacing: $endTrackingValue;
+    }
+  }
+}

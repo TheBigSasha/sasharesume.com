@@ -1,8 +1,8 @@
-import 'styles/index.css'
+import 'styles/index.scss'
 
-import { JetBrains_Mono, Manrope, EB_Garamond } from '@next/font/google'
-import { AppProps } from 'next/app'
+import { EB_Garamond, JetBrains_Mono, Manrope } from '@next/font/google'
 import { AnimatePresence, motion } from 'framer-motion'
+import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 
 const mono = JetBrains_Mono({
@@ -13,44 +13,47 @@ const mono = JetBrains_Mono({
 
 const sans = Manrope({
   variable: '--font-sans',
-  subsets: ['latin'],
-  weight: ['300','500', '700', '800'],
+  subsets: ['latin', 'latin-ext'],
+  weight: ['300', '500', '700', '800'],
 })
 
 const serif = EB_Garamond({
   variable: '--font-serif',
   style: ['normal', 'italic'],
   subsets: ['latin'],
-  weight: ['500','700']
+  weight: ['500', '700'],
 })
 
 export default function App({ Component, pageProps }: AppProps) {
   const spring = {
-    type: "spring",
+    type: 'spring',
     damping: 20,
     stiffness: 100,
-    when: "afterChildren",
+    when: 'afterChildren',
     duration: {
       enter: 0.2,
       exit: 0.2,
-    }
-  };
+    },
+  }
 
   const router = useRouter()
 
   const transition = spring
-  const initial = router.pathname === "/" ? { x: -300, opacity: 0 } : { x: 300, opacity: 0 }
-  const animate = router.pathname === "/" ? {x: 0,  opacity: 1 } : { x: 0, opacity: 1 }
-  const exit = router.pathname === "/" ? { x: 300, opacity: 0 } : { x: -300, opacity: 0 }
+  const initial =
+    router.pathname === '/' ? { x: -300, opacity: 0 } : { x: 300, opacity: 0 }
+  const animate =
+    router.pathname === '/' ? { x: 0, opacity: 1 } : { x: 0, opacity: 1 }
+  const exit =
+    router.pathname === '/' ? { x: 300, opacity: 0 } : { x: -300, opacity: 0 }
 
   return (
-    <AnimatePresence mode={"wait"}>
+    <AnimatePresence mode={'wait'}>
       <style jsx global>
         {`
           :root {
             --font-mono: ${mono.style.fontFamily};
             --font-sans: ${sans.style.fontFamily};
-            --font-serif: ${serif.style.fontFamily}; 
+            --font-serif: ${serif.style.fontFamily};
           }
         `}
       </style>
@@ -63,8 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
           exit={exit}
           id="page-transition-container"
         >
-
-      <Component {...pageProps} />
+          <Component {...pageProps} />
         </motion.div>
       </div>
     </AnimatePresence>

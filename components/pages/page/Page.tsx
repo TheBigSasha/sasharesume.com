@@ -6,6 +6,7 @@ import Head from 'next/head'
 import type { PagePayload, SettingsPayload } from 'types'
 
 import PageHead from './PageHead'
+import { SHeaderBorder } from '../../styled/Basic'
 
 export interface PageProps {
   page: PagePayload | undefined
@@ -41,7 +42,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
             {/* Workaround: scroll to top on route change */}
             <ScrollUp />
           </div>
-          <div className="absolute left-0 w-screen border-t" />
+          <SHeaderBorder/>
         </div>
       </Layout>
     </>

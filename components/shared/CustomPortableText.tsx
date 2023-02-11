@@ -2,6 +2,7 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import ImageBox from 'components/shared/ImageBox'
 import { TimelineSection } from 'components/shared/TimelineSection'
 import { Image, PortableTextBlock } from 'sanity'
+import { SLink } from '../styled/Basic'
 
 export function CustomPortableText({
   paragraphClasses,
@@ -19,13 +20,12 @@ export function CustomPortableText({
     marks: {
       link: ({ children, value }) => {
         return (
-          <a
-            className="underline transition hover:opacity-50"
+          <SLink
             href={value?.href}
             rel="noreferrer noopener"
           >
             {children}
-          </a>
+          </SLink>
         )
       },
     },
@@ -40,7 +40,7 @@ export function CustomPortableText({
             <ImageBox
               image={value}
               alt={value.alt}
-              classesWrapper="relative aspect-[16/9]"
+              classesWrapper="relative aspect-hd"
             />
             {value?.caption && (
               <div className="font-sans text-sm text-gray-600">

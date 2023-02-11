@@ -1,0 +1,278 @@
+$gray_levels_dark: (
+        50: #1a202c,
+        100: #1a202c,
+        200: #2d3748,
+        300: #4a5568,
+        400: #718096,
+        500: #a0aec0,
+        600: #cbd5e0,
+        700: #e2e8f0,
+        800: #edf2f7,
+        900: #f7fafc,
+);
+
+$gray_levels_light: (
+          50: #f7fafc,
+          100: #f7fafc,
+          200: #edf2f7,
+          300: #e2e8f0,
+          400: #cbd5e0,
+          500: #a0aec0,
+          600: #718096,
+          700: #4a5568,
+          800: #2d3748,
+          900: #1a202c,
+);
+
+
+
+@each $level, $color in $gray_levels_dark {
+    .bg-gray-#{$level} {
+      background-color: map-get($gray_levels_dark, $level);
+    }
+    .text-gray-#{$level} {
+      color: map-get($gray_levels_dark, $level);
+    }
+    .border-gray-#{$level} {
+      border-color: map-get($gray_levels_dark, $level);
+    }
+    :root {
+      --gray-#{$level}: #{map-get($gray_levels_dark, $level)};
+    }
+  @media (prefers-color-scheme: light){
+    .bg-gray-#{$level} {
+      background-color: map-get($gray_levels_light, $level);
+    }
+    .text-gray-#{$level} {
+      color: map-get($gray_levels_light, $level);
+    }
+    .border-gray-#{$level} {
+      border-color: map-get($gray_levels_light, $level);
+    }
+    :root {
+      --gray-#{$level}: #{map-get($gray_levels_light, $level)};
+    }
+  }
+}
+
+
+
+$text-sizes: (
+  xs: 0.75rem,
+  sm: 0.875rem,
+  base: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  '2xl': 1.5rem,
+  '3xl': 1.875rem,
+  '4xl': 2.25rem,
+  '5xl': 3rem,
+  '6xl': 3.75rem,
+    '7xl': 4.5rem,
+    '8xl': 6rem,
+    '9xl': 8rem,
+);
+
+$line-heights: (
+  xs: 1rem,
+    sm: 1.25rem,
+    base: 1.5rem,
+    lg: 1.75rem,
+    xl: 1.75rem,
+    '2xl': 2rem,
+    '3xl': 2.25rem,
+    '4xl': 2.5rem,
+    '5xl': 1,
+    '6xl': 1,
+    '7xl': 1,
+    '8xl': 1,
+);
+
+@each $size, $value in $text-sizes {
+  .text-#{$size} {
+    font-size: $value;
+    line-height: map-get($line-heights, $size);
+  }
+  :root {
+    --text-#{$size}: #{$value};
+    --lineheight-#{$size}: #{map-get($line-heights, $size)};
+  }
+}
+
+$tracking: (
+  tight: -0.05em,
+  normal: 0,
+  wide: 0.05em,
+);
+
+@each $size, $value in $tracking {
+  .tracking-#{$size} {
+    letter-spacing: $value;
+  }
+  :root {
+    --tracking-#{$size}: #{$value};
+  }
+}
+@mixin divide-y {
+  // divide-y
+  & > * + * {
+    border-top: 1px solid var(--gray-200);
+  }
+}
+
+@mixin divide-x {
+  // divide-x
+  & > * + * {
+    border-left: 1px solid var(--gray-200);
+  }
+}
+
+.divide-y {
+  @include divide-y;
+}
+
+.divide-x {
+  @include divide-x;
+}
+
+
+
+$border-radii : (
+  none: 0,
+  sm: 0.125rem,
+  default: 0.25rem,
+  md: 0.375rem,
+  lg: 0.5rem,
+  xl: 0.75rem,
+  '2xl': 1rem,
+  '3xl': 1.5rem,
+  full: 9999px,
+);
+
+@each $size, $value in $border-radii {
+  .rounded-#{$size} {
+    border-radius: $value;
+  }
+  :root {
+    --rounded-#{$size}: #{$value};
+  }
+}
+
+$font-weights: (
+  hairline: 100,
+  thin: 200,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+  black: 900,
+);
+
+@each $size, $value in $font-weights {
+  .font-#{$size} {
+    font-weight: $value;
+  }
+  :root {
+    --font-#{$size}: #{$value};
+  }
+}
+
+
+$spaces : (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 0.75rem,
+  4: 1rem,
+  5: 1.25rem,
+  6: 1.5rem,
+  7: 1.75rem,
+  8: 2rem,
+  9: 2.25rem,
+  10: 2.5rem,
+  11: 2.75rem,
+  12: 3rem,
+  14: 3.5rem,
+  16: 4rem,
+  20: 5rem,
+  24: 6rem,
+  28: 7rem,
+  32: 8rem,
+  36: 9rem,
+  40: 10rem,
+  44: 11rem,
+  48: 12rem,
+  52: 13rem,
+  56: 14rem,
+  60: 15rem,
+  64: 16rem,
+  72: 18rem,
+  80: 20rem,
+  96: 24rem,
+);
+
+@each $size, $value in $spaces {
+  .p-#{$size} {
+    padding: $value;
+  }
+  .pt-#{$size} {
+    padding-top: $value;
+  }
+  .pr-#{$size} {
+    padding-right: $value;
+  }
+  .pb-#{$size} {
+    padding-bottom: $value;
+  }
+  .pl-#{$size} {
+    padding-left: $value;
+  }
+  .px-#{$size} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .py-#{$size} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+  .m-#{$size} {
+    margin: $value;
+  }
+  .mt-#{$size} {
+    margin-top: $value;
+  }
+  .mr-#{$size} {
+    margin-right: $value;
+  }
+  .mb-#{$size} {
+    margin-bottom: $value;
+  }
+  .ml-#{$size} {
+    margin-left: $value;
+  }
+  .mx-#{$size} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .my-#{$size} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+  :root {
+    --space-#{$size}: #{$value};
+  }
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}

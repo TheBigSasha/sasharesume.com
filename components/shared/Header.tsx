@@ -1,6 +1,7 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
-import { FaChevronLeft } from 'react-icons/fa'
 import Link from 'next/link'
+import { FaChevronLeft } from 'react-icons/fa'
+import { SHeaderBackButton, SHeaderDescription, SHeaderTitle, SHeaderWrapper } from '../styled/Basic'
 
 interface HeaderProps {
   centered?: boolean
@@ -13,26 +14,27 @@ export function Header(props: HeaderProps) {
     return null
   }
   return (
-    <div className={`${centered ? 'text-center' : 'w-5/6 lg:w-3/5'}`}>
+    <SHeaderWrapper centered={centered}>
       {/* Title */}
-      {!centered && <Link href="/">
-        <p className="font-bold text-gray-600 text-sm">
-        <FaChevronLeft className="inline-block" /> Back to gallery
-        </p>
-      </Link>}
+      {!centered && (
+        <Link href="/">
+          <SHeaderBackButton>
+            <FaChevronLeft/> Back to gallery
+          </SHeaderBackButton>
+        </Link>
+      )}
 
       {title && (
-        <div className="text-3xl font-extrabold tracking-tight md:text-5xl">
-
+        <SHeaderTitle className={centered ? "textTrackSweep" : ""}>
           {title}
-        </div>
+        </SHeaderTitle>
       )}
       {/* Description */}
       {description && (
-        <div className="mt-4 font-serif text-xl text-gray-600 md:text-2xl">
+        <SHeaderDescription>
           <CustomPortableText value={description} />
-        </div>
+        </SHeaderDescription>
       )}
-    </div>
+    </SHeaderWrapper>
   )
 }
