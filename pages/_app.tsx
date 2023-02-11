@@ -4,6 +4,8 @@ import { EB_Garamond, JetBrains_Mono, Manrope } from '@next/font/google'
 import { AnimatePresence, motion } from 'framer-motion'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
+import React from 'react'
+import Script from 'next/script'
 
 const mono = JetBrains_Mono({
   variable: '--font-mono',
@@ -47,7 +49,22 @@ export default function App({ Component, pageProps }: AppProps) {
     router.pathname === '/' ? { x: 300, opacity: 0 } : { x: -300, opacity: 0 }
 
   return (
-    <AnimatePresence mode={'wait'}>
+    <>
+      <Script
+        id={'ga1'}
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
+      />
+      <Script id={'ga2'} strategy="lazyOnload">
+        {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID}', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+      </Script>
       <style jsx global>
         {`
           :root {
@@ -57,18 +74,20 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-      <div className="page-transition-wrapper">
-        <motion.div
-          transition={transition}
-          key={router.pathname}
-          initial={initial}
-          animate={animate}
-          exit={exit}
-          id="page-transition-container"
-        >
-          <Component {...pageProps} />
-        </motion.div>
-      </div>
-    </AnimatePresence>
+      <AnimatePresence mode={'wait'}>
+        <div className="page-transition-wrapper">
+          <motion.div
+            transition={transition}
+            key={router.pathname}
+            initial={initial}
+            animate={animate}
+            exit={exit}
+            id="page-transition-container"
+          >
+            <Component {...pageProps} />
+          </motion.div>
+        </div>
+      </AnimatePresence>
+    </>
   )
 }
