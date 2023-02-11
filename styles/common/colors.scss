@@ -1,0 +1,20 @@
+$accent: #0e9fff;
+$complement: complement($accent);
+$complement_bg: lightest($complement);
+
+html {
+  --border-dark: rgba(invert(var(--base-color)), 0.88);
+  --background: rgba(236, 236, 236, 1);
+  --base-color: #ffffff;
+  --text-main: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  $complement_bg: darkest($complement);
+  html {
+    --base-color: #000000;
+    --border-dark: rgba(invert(var(--base-color)), 0.88);
+    --background: rgb(10, 10, 14);
+    --text-main: white;
+  }
+}

@@ -57,7 +57,7 @@ export function ProjectPage({
                 classesWrapper="relative aspect-[16/9]"
               />
 
-              <div className="divide-inherit grid grid-cols-1 divide-y lg:grid-cols-4 lg:divide-y-0 lg:divide-x">
+              <div className="grid grid-cols-1 divide-y divide-inherit lg:grid-cols-4 lg:divide-y-0 lg:divide-x">
                 {/* Duration */}
                 {!!(startYear && endYear) && (
                   <div className="p-3 lg:p-4">
@@ -95,7 +95,10 @@ export function ProjectPage({
                   <div className="text-xs md:text-sm">Tags</div>
                   <div className="text-md flex flex-row flex-wrap md:text-lg">
                     {tags?.map((tag, key) => (
-                      <div key={key} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 mr-1 break-words ">
+                      <div
+                        key={key}
+                        className="mr-2 mb-2 mr-1 inline-block break-words rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700 "
+                      >
                         {tag}
                       </div>
                     ))}

@@ -2,13 +2,15 @@ import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import { MenuItem } from 'types'
 
+import { SHeader } from '../styled/Basic'
+
 interface NavbarProps {
   menuItems?: MenuItem[]
 }
 
 export function Navbar({ menuItems }: NavbarProps) {
   return (
-    <div className="sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-white/80 py-4 px-4 backdrop-blur md:py-5 md:px-16 lg:px-32">
+    <SHeader>
       {menuItems &&
         menuItems.map((menuItem, key) => {
           const href = resolveHref(menuItem?._type, menuItem?.slug)
@@ -29,6 +31,6 @@ export function Navbar({ menuItems }: NavbarProps) {
             </Link>
           )
         })}
-    </div>
+    </SHeader>
   )
 }

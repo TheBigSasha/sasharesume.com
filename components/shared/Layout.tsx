@@ -3,6 +3,8 @@ import { Navbar } from 'components/global/Navbar'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import { SettingsPayload } from 'types'
 
+import { SLayout, SLayoutBody } from '../styled/Basic'
+
 const fallbackSettings: SettingsPayload = {
   menuItems: [],
   footer: [],
@@ -20,11 +22,11 @@ export default function Layout({
   preview,
 }: LayoutProps) {
   return (
-    <div className={`flex min-h-screen flex-col bg-white text-black`}>
+    <SLayout>
       {preview && <PreviewBanner />}
       <Navbar menuItems={settings?.menuItems} />
-      <div className="mt-20 flex-grow px-4 md:px-16 lg:px-32">{children}</div>
+      <SLayoutBody>{children}</SLayoutBody>
       <Footer footer={settings?.footer} />
-    </div>
+    </SLayout>
   )
 }

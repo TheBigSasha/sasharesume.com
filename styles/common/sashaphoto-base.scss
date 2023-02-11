@@ -1,0 +1,85 @@
+@import 'cssreset';
+@import 'variables';
+@import 'colors';
+@import 'colors-autotheme';
+@import 'animations';
+
+* {
+  font-family: var(--font-sans);
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--card-background-color);
+  border-radius: $border-radius;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.pill {
+  border-radius: 100px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  display: inline-block;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+i {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+.leftRight {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.centerVertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+$aspects: (
+  '1x1': 1,
+  '4x3': 3/4,
+  '16x9': 9/16,
+  '21x9': 9/21,
+  '2x3': 3/2,
+  '3x4': 4/3,
+  '9x16': 16/9,
+  '9x21': 21/9,
+);
+
+@each $name, $ratio in $aspects {
+  .aspect-#{$name} {
+    aspect-ratio: $ratio;
+  }
+}

@@ -1,6 +1,8 @@
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
 
+import { SImage, SImageBox } from '../styled/Basic'
+
 interface ImageBoxProps {
   image?: { asset?: any }
   alt?: string
@@ -22,12 +24,9 @@ export default function ImageBox({
     image && urlForImage(image)?.height(height).width(width).fit('crop').url()
 
   return (
-    <div
-      className={`w-full overflow-hidden rounded-[3px] bg-gray-50 ${classesWrapper}`}
-    >
+    <SImageBox className={classesWrapper}>
       {imageUrl && (
-        <Image
-          className="absolute h-full w-full"
+        <SImage
           alt={alt}
           width={width}
           height={height}
@@ -35,6 +34,6 @@ export default function ImageBox({
           src={imageUrl}
         />
       )}
-    </div>
+    </SImageBox>
   )
 }

@@ -1,0 +1,24 @@
+$border-radius: 10px;
+
+$primary-color: #ffacff;
+$secondary-color: complement($primary-color);
+
+:root {
+  --primary-color: $primary-color;
+  --secondary-color: $secondary-color;
+  --text-color: #000000;
+  --background-color: rgba(253, 252, 255, 0.89);
+  --second-background-color: #ffffff;
+  --disabled-color: hsla(0, 100%, 77%, 0.04);
+  --card-background-color: rgba(253, 252, 255, 0.89);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --background-color: #282c34;
+    --second-background-color: #181118;
+    --card-background-color: #17171a;
+    --disabled-color: hsla(330, 18%, 4%, 0.7);
+  }
+}

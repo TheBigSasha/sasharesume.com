@@ -39,7 +39,10 @@ export function TimelineItem({
         {/* Tags */}
         <div className="text-sm">
           {tags?.map((tag, key) => (
-            <div key={key} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 mr-1 break-words ">
+            <div
+              key={key}
+              className="mr-2 mb-2 mr-1 inline-block break-words rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700 "
+            >
               {tag}
             </div>
           ))}

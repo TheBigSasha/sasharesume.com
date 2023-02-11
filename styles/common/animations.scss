@@ -1,0 +1,38 @@
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@mixin SweepBackground($gradient) {
+  background: $gradient;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  background-clip: border-box;
+}
+
+@mixin SweepTextBackground($gradient) {
+  @include SweepBackground($gradient);
+  background-clip: text;
+  text-shadow: none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@mixin SweepBoxShadow($gradient) {
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  box-shadow: 0 0 10px 1px $gradient;
+}
+
+@mixin SweepBorder($gradient) {
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  border: 1px solid $gradient;
+}
