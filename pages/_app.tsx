@@ -83,6 +83,7 @@ export default function App({ Component, pageProps }: AppProps) {
             animate={animate}
             exit={exit}
             id="page-transition-container"
+            style={{margin: 0, padding: 0}}
           >
             <Component {...pageProps} />
           </motion.div>

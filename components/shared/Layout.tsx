@@ -24,9 +24,9 @@ export default function Layout({
   constrainWidth
 }: LayoutProps) {
   return (
-    <SLayout constrainWidth={constrainWidth}>
+  <SLayout constrainWidth={constrainWidth}>
       {preview && <PreviewBanner />}
-      <Navbar menuItems={settings?.menuItems} />
+      <Navbar menuItems={settings?.menuItems} siteTitle={"sasharesume"} />
       <SLayoutBody>{children}</SLayoutBody>
       <Footer footer={settings?.footer} />
     </SLayout>
