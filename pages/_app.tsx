@@ -42,11 +42,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const transition = spring
   const initial =
-    router.pathname === '/' ? { x: -300, opacity: 0 } : { x: 300, opacity: 0 }
+    router.pathname === '/' ? { translateX: -300, opacity: 0 } : { translateX: 300, opacity: 0 }
   const animate =
-    router.pathname === '/' ? { x: 0, opacity: 1 } : { x: 0, opacity: 1 }
+    router.pathname === '/' ? { translateX: 0, opacity: 1 } : { translateX: 0, opacity: 1 }
   const exit =
-    router.pathname === '/' ? { x: 300, opacity: 0 } : { x: -300, opacity: 0 }
+    router.pathname === '/' ? { translateX: 300, opacity: 0 } : { translateX: -300, opacity: 0 }
 
   return (
     <>

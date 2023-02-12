@@ -10,6 +10,10 @@ interface NavbarProps {
   siteTitle?: string
 }
 
+const NavLink = styled(Link)`
+    color: var(--gray-800)
+  `
+
 export function Navbar({ menuItems, siteTitle }: NavbarProps) {
   const items: MenuItem[] = menuItems.map((menuItem: types.MenuItem) => {
     const { title, slug, _type } = menuItem
@@ -22,9 +26,6 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
     }
   })
 
-  const NavLink = styled(Link)`
-    color: var(--gray-800)
-  `
 
   const linkComponent = ({to, children}: {to: string, children: React.ReactNode}) => {
     return <NavLink to={to}>{children}</NavLink>
@@ -38,7 +39,7 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
         setMenuOpen(!menuOpen)
       }
       } linkComponent={linkComponent}/>
-      <Header siteTitle={<Link href={"/"}>{siteTitle}</Link>} active={true} blur={false} showName={false} leftSlot={<MenuToggle strokeColor={"var(--gray-700)"} toggle={() => setMenuOpen(!menuOpen)} isOpen={menuOpen}/>}/>
+      <Header siteTitle={<Link href={"/"}>{siteTitle}</Link>} active={true} blur={false} leftSlot={<MenuToggle strokeColor={"var(--gray-700)"} toggle={() => setMenuOpen(!menuOpen)} isOpen={menuOpen}/>}/>
     </>
   )
 }
