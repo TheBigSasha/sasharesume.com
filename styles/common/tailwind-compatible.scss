@@ -112,14 +112,14 @@ $tracking: (
 @mixin divide-y {
   // divide-y
   & > * + * {
-    border-top: 1px solid var(--gray-200);
+    border-top: 1px solid var(--gray-600);
   }
 }
 
 @mixin divide-x {
   // divide-x
   & > * + * {
-    border-left: 1px solid var(--gray-200);
+    border-left: 1px solid var(--gray-600);
   }
 }
 

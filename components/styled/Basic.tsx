@@ -45,14 +45,17 @@ export const SListItem = styled(motion.div)`
   gap: 1.25rem;
   border-radius: var(--rounded-md);
   padding: 0.5rem;
+  margin: 0.5rem;
   transition: background-color 0.2s ease-in-out;
   &:hover {
+    transition: all 0.3s ease-in-out;
     background-color: var(--card-background-color);
   }
+  border: 1px solid var(--gray-300);
   @media (min-width: 1024px) {
     flex-direction: row;
-    border-top: 1px solid var(--border-dark);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    //border-top: 1px solid var(--border-dark);
+    //border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     ${(props) => (props.odd ? 'flex-direction: row-reverse' : '')};
   }
 `
@@ -119,7 +122,7 @@ export const STextBoxTitle = styled.div`
 // font-serif text-gray-500
 export const STextBoxOverview = styled.div`
   font-family: var(--font-serif);
-  color: var(--gray-500);
+  color: var(--gray-600);
 `
 
 //mt-4 flex flex-row gap-x-2 overflow-x-auto
@@ -163,8 +166,9 @@ export const SShowcaseProjectWrapper = styled(motion.div)`
   margin-right: auto;
   max-width: 62.5rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-`
+  & > * + * {
+    border-top: 1px solid var(--gray-300);
+  }`
 
 //space-y-20
 export const SSpacing = styled.div`
@@ -178,6 +182,7 @@ export const SLayout = styled.div`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  ${(props) => (props.constrainWidth ? 'max-width: 1200px' : '')};
 `
 
 // mt-20 flex-grow px-4 md:px-16 lg:px-32
@@ -253,7 +258,7 @@ export const SHeaderBorder = styled.div`
   position: absolute;
   left: 0;
   width: 100%;
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid var(--gray-300);
 `
 
 //text-md flex flex-row flex-wrap md:text-lg
@@ -262,6 +267,8 @@ export const STagGroup = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  max-height: var(--space-24);
+  overflow-x: auto;
   @media (min-width: 768px) {
     font-size: var(--text-md);
   }
@@ -300,27 +307,28 @@ export const SProjectList = styled.div`
 //rounded-md border
 export const SProjectBox = styled.div`
   border-radius: var(--rounded-md);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--gray-300);
+  max-width: 1200px;
 `
 
 //grid grid-cols-1 divide-y divide-inherit lg:grid-cols-4 lg:divide-y-0 lg:divide-x
 export const SProjectDetailsGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid var(--gray-300);
   @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     border-top: 0;
-    border-right: 1px solid var(--gray-200);
+    border-right: 1px solid var(--gray-300);
     & > * + * {
-      border-left: 1px solid var(--gray-200);
+      border-left: 1px solid var(--gray-300);
     }
   }
 
   @media (max-width: 1023px) {
     & > * + * {
-      border-top: 1px solid var(--gray-200);
+      border-top: 1px solid var(--gray-300);
     }
   }
 `

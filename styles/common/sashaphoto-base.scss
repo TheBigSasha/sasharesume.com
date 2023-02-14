@@ -6,6 +6,12 @@
 @import 'colors-autotheme';
 @import 'animations';
 
+:root {
+  --card-border: var(--gray-100);
+  --border-radius: var(--rounded-md);
+  --card-bg: var(--card-background-color);
+}
+
 .card {
   background-color: var(--card-background-color);
   border-radius: $border-radius;

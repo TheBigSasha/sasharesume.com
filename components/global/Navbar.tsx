@@ -1,36 +1,45 @@
-import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
-import { MenuItem } from 'types'
-
-import { SHeader } from '../styled/Basic'
+import * as types from 'types'
+import { Header, NavMenu, MenuItem, MenuToggle } from 'tbsui'
+import { FaDotCircle } from 'react-icons/fa'
+import React from 'react'
+import styled from 'styled-components'
 
 interface NavbarProps {
-  menuItems?: MenuItem[]
+  menuItems?: types.MenuItem[],
+  siteTitle?: string
 }
 
-export function Navbar({ menuItems }: NavbarProps) {
+const NavLink = styled(Link)`
+    color: var(--gray-800)
+  `
+
+export function Navbar({ menuItems, siteTitle }: NavbarProps) {
+  const items: MenuItem[] = menuItems.map((menuItem: types.MenuItem) => {
+    const { title, slug, _type } = menuItem
+
+    return {
+      name: title,
+      icon: <FaDotCircle/>,
+      internal: true,
+      url: slug ? `/${slug}` : '/',
+    }
+  })
+
+
+  const linkComponent = ({to, children}: {to: string, children: React.ReactNode}) => {
+    return <NavLink to={to}>{children}</NavLink>
+  }
+
+  const [menuOpen, setMenuOpen] = React.useState(false)
+
   return (
-    <SHeader>
-      {menuItems &&
-        menuItems.map((menuItem, key) => {
-          const href = resolveHref(menuItem?._type, menuItem?.slug)
-          if (!href) {
-            return null
-          }
-          return (
-            <Link
-              key={key}
-              className={`text-lg hover:text-black md:text-xl ${
-                menuItem?._type === 'home'
-                  ? 'font-extrabold text-black'
-                  : 'text-gray-600'
-              }`}
-              href={href}
-            >
-              {menuItem.title}
-            </Link>
-          )
-        })}
-    </SHeader>
+    <>
+      <NavMenu navItems={items} menuOpen={menuOpen} toggleMenu={() => {
+        setMenuOpen(!menuOpen)
+      }
+      } linkComponent={linkComponent}/>
+      <Header siteTitle={<Link href={"/"}>{siteTitle}</Link>} active={true} blur={false} leftSlot={<MenuToggle strokeColor={"var(--gray-700)"} toggle={() => setMenuOpen(!menuOpen)} isOpen={menuOpen}/>}/>
+    </>
   )
 }

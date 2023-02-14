@@ -14,17 +14,19 @@ export interface LayoutProps {
   children: React.ReactNode
   settings: SettingsPayload | undefined
   preview?: boolean
+  constrainWidth?: boolean
 }
 
 export default function Layout({
   children,
   settings = fallbackSettings,
   preview,
+  constrainWidth
 }: LayoutProps) {
   return (
-    <SLayout>
+  <SLayout constrainWidth={constrainWidth}>
       {preview && <PreviewBanner />}
-      <Navbar menuItems={settings?.menuItems} />
+      <Navbar menuItems={settings?.menuItems} siteTitle={"sasharesume"} />
       <SLayoutBody>{children}</SLayoutBody>
       <Footer footer={settings?.footer} />
     </SLayout>
