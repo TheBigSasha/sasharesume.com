@@ -42,7 +42,7 @@
  */
 @mixin SweepTextTrackingLoop($startTrackingValue, $endTrackingValue) {
   letter-spacing: $startTrackingValue;
-  animation: tracking 30s ease infinite;
+  animation: tracking 28s ease infinite;
   @keyframes tracking {
     0% {
       letter-spacing: $startTrackingValue;
