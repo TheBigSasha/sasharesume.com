@@ -6,6 +6,7 @@ import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import React from 'react'
 import Script from 'next/script'
+import styled from 'styled-components'
 
 const mono = JetBrains_Mono({
   variable: '--font-mono',
@@ -26,6 +27,18 @@ const serif = EB_Garamond({
   weight: ['500', '700'],
 })
 
+
+// The job of this is to allow the child to translate in and out of the page
+const TransitionContainer = styled.span`
+  overflow: hidden;
+  object-fit: none;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+`
+
 export default function App({ Component, pageProps }: AppProps) {
   const spring = {
     type: 'spring',
@@ -42,11 +55,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const transition = spring
   const initial =
-    router.pathname === '/' ? { translateX: -300, opacity: 0 } : { translateX: 300, opacity: 0 }
+    router.pathname === '/' ? { translateX: -300, translateZ: 0, opacity: 0 } : { translateX: 300, translateZ: 0,  opacity: 0 }
   const animate =
-    router.pathname === '/' ? { translateX: 0, opacity: 1 } : { translateX: 0, opacity: 1 }
+    router.pathname === '/' ? { translateX: 0, translateZ: 0,  opacity: 1 } : { translateX: 0, translateZ: 0,  opacity: 1 }
   const exit =
-    router.pathname === '/' ? { translateX: 300, opacity: 0 } : { translateX: -300, opacity: 0 }
+    router.pathname === '/' ? { translateX: 300, translateZ: 0,  opacity: 0 } : { translateX: -300, translateZ: 0,  opacity: 0 }
 
   return (
     <>
@@ -74,8 +87,8 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
+      <TransitionContainer>
       <AnimatePresence mode={'wait'}>
-        <div className="page-transition-wrapper">
           <motion.div
             transition={transition}
             key={router.pathname}
@@ -83,12 +96,12 @@ export default function App({ Component, pageProps }: AppProps) {
             animate={animate}
             exit={exit}
             id="page-transition-container"
-            style={{margin: 0, padding: 0}}
+            style={{margin: 0, padding: 0, overflowX: 'hidden'}}
           >
             <Component {...pageProps} />
           </motion.div>
-        </div>
       </AnimatePresence>
+      </TransitionContainer>
     </>
   )
 }

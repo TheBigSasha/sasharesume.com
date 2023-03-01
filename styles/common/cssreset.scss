@@ -607,3 +607,7 @@ html {
 body::-webkit-scrollbar-track {
   background: transparent; /* color of the tracking area */
 }
+
+#__next{
+  overflow-x: hidden;
+}
