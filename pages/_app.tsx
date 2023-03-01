@@ -55,11 +55,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const transition = spring
   const initial =
-    router.pathname === '/' ? { translateX: -300, translateZ: 0, opacity: 0 } : { translateX: 300, translateZ: 0,  opacity: 0 }
+    router.pathname === '/' ? { translateX: "-100vw", translateZ: 0 } : { translateX: "100vw", translateZ: 0 }
   const animate =
     router.pathname === '/' ? { translateX: 0, translateZ: 0,  opacity: 1 } : { translateX: 0, translateZ: 0,  opacity: 1 }
   const exit =
-    router.pathname === '/' ? { translateX: 300, translateZ: 0,  opacity: 0 } : { translateX: -300, translateZ: 0,  opacity: 0 }
+    router.pathname === '/' ? { translateX: "-100vw", translateZ: 0 } : { translateX: "100vw", translateZ: 0 }
 
   return (
     <>
@@ -88,7 +88,7 @@ export default function App({ Component, pageProps }: AppProps) {
         `}
       </style>
       <TransitionContainer>
-      <AnimatePresence mode={'wait'}>
+      <AnimatePresence mode={'popLayout'}>
           <motion.div
             transition={transition}
             key={router.pathname}

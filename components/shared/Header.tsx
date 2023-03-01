@@ -12,9 +12,10 @@ interface HeaderProps {
   centered?: boolean
   description?: any[]
   title?: string
+  slug?: string
 }
 export function Header(props: HeaderProps) {
-  const { title, description, centered = false } = props
+  const { title, description, centered = false, slug = "title" } = props
   if (!description && !title) {
     return null
   }
@@ -22,7 +23,7 @@ export function Header(props: HeaderProps) {
     <SHeaderWrapper centered={centered}>
       {/* Title */}
       {!centered && (
-        <Link href="/">
+        <Link href={`/#${slug}`}>
           <SHeaderBackButton>
             <FaChevronLeft /> Back to gallery
           </SHeaderBackButton>
@@ -30,7 +31,10 @@ export function Header(props: HeaderProps) {
       )}
 
       {title && (
-        <SHeaderTitle className={centered ? 'textTrackSweep' : ''}>
+        <SHeaderTitle
+          id={"title"}
+          // className={centered ? 'textTrackSweep' : ''}
+        >
           {title}
         </SHeaderTitle>
       )}

@@ -42,6 +42,7 @@ export function ProjectPage({
     site,
     tags,
     title,
+    slug
   } = project || {}
 
   const startYear = new Date(duration?.start).getFullYear()
@@ -57,7 +58,7 @@ export function ProjectPage({
         <div>
           <SProjectList>
             {/* Header */}
-            <Header title={title} description={overview} />
+            <Header title={title} description={overview} slug={slug} />
 
             <SProjectBox>
               {/* Image  */}
