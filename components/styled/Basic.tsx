@@ -17,7 +17,7 @@ export const SFooter = styled.footer`
 
 // tailwind: sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-white/80 py-4 px-4 backdrop-blur md:py-5 md:px-16 lg:px-32
 export const SHeader = styled.header`
-  position: sticky;
+  position: sticky !important;
   top: 0;
   z-index: 10;
   display: flex;

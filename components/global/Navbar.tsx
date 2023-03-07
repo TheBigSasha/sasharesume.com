@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import * as types from 'types'
 import { Header, NavMenu, MenuItem, MenuToggle } from 'tbsui'
-import { FaDotCircle } from 'react-icons/fa'
+import { FaDotCircle, FaFilePdf, FaHome, FaMailBulk, FaPersonBooth } from 'react-icons/fa'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -14,13 +14,29 @@ const NavLink = styled(Link)`
     color: var(--gray-800)
   `
 
+function getIcon(title: "Contact" | "PDF" | "Alexander Aleshchenko" | string){
+  const iconProps = {
+    size: 16,
+  }
+  switch(title){
+    case "Contact":
+      return <FaMailBulk {...iconProps}/>
+    case "PDF":
+      return <FaFilePdf {...iconProps}/>
+    case "Alexander Aleshchenko":
+      return <FaHome {...iconProps}/>
+    default:
+      return <FaDotCircle {...iconProps}/>
+  }
+}
+
 export function Navbar({ menuItems, siteTitle }: NavbarProps) {
   const items: MenuItem[] = menuItems.map((menuItem: types.MenuItem) => {
     const { title, slug, _type } = menuItem
 
     return {
       name: title,
-      icon: <FaDotCircle/>,
+      icon: getIcon(title),
       internal: true,
       url: slug ? `/${slug}` : '/',
     }

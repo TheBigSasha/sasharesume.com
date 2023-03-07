@@ -3,15 +3,14 @@ import ImageBox from 'components/shared/ImageBox'
 import type { ShowcaseProject } from 'types'
 
 import {
-  SImageWrapper,
+  SImageWrapper, SListItem,
   STag,
   STextBox,
   STextBoxOverview,
   STextBoxTags,
   STextBoxTitle,
-  STextBoxWrapper,
+  STextBoxWrapper
 } from '../../styled/Basic'
-import { AnimListItem } from '../../styled/Animated'
 
 interface ProjectProps {
   project: ShowcaseProject
@@ -22,7 +21,7 @@ export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
 
   return (
-    <AnimListItem odd={odd}>
+    <SListItem odd={odd}>
       <SImageWrapper>
         <ImageBox
           image={project.coverImage}
@@ -33,7 +32,7 @@ export function ProjectListItem(props: ProjectProps) {
       <STextBoxWrapper>
         <TextBox project={project} />
       </STextBoxWrapper>
-    </AnimListItem>
+    </SListItem>
   )
 }
 
