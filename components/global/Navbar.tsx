@@ -11,7 +11,7 @@ import styled from 'styled-components'
 import { Header, MenuItem, MenuToggle, NavMenu } from 'tbsui'
 import * as types from 'types'
 
-import { SHeaderWrapper, SNavHeaderWrapper } from '../styled/Basic'
+import { SNavHeaderWrapper } from '../styled/Basic'
 
 interface NavbarProps {
   menuItems?: types.MenuItem[]
@@ -76,16 +76,19 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
             />
           }
           className={'header'}
-        />
+        >
+          <NavMenu
+            navItems={items}
+            menuOpen={menuOpen}
+            toggleMenu={() => {
+              setMenuOpen(!menuOpen)
+            }}
+            linkComponent={linkComponent}
+          />
+        </Header>
+
       </SNavHeaderWrapper>
-      <NavMenu
-        navItems={items}
-        menuOpen={menuOpen}
-        toggleMenu={() => {
-          setMenuOpen(!menuOpen)
-        }}
-        linkComponent={linkComponent}
-      />
+
     </>
   )
 }

@@ -222,12 +222,27 @@ export const SLayoutBody = styled.div`
 `
 
 export const SNavHeaderWrapper = styled.span`
+  //position: relative;
   & > header {
     position: sticky;
     top: 0;
     left: 0;
   }
+  
+  & > nav {
+    position: sticky !important;
+    height: 0 !important;
+    & > ul {
+      position: static !important;
+      top: 0;
+      left: 0;
+      height: 100vh !important;
+    }
+  }
+  
 `
+
+
 
 // `${centered ? 'text-center' : 'w-5/6 lg:w-3/5'}`
 export const SHeaderWrapper = styled.div`
