@@ -42,8 +42,9 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   <Link
                     replace
                     key={key}
-                    href={`${href}#title`}
+                    href={`${href}`}
                     id={`${project.slug}`}
+                    scroll={false}
                   >
                     <ProjectListItem project={project} odd={key % 2} />
                   </Link>
