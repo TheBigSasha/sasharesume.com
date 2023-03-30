@@ -8,8 +8,10 @@ import {
   FaPersonBooth,
 } from 'react-icons/fa'
 import styled from 'styled-components'
-import { Header, MenuItem, MenuToggle,NavMenu } from 'tbsui'
+import { Header, MenuItem, MenuToggle, NavMenu } from 'tbsui'
 import * as types from 'types'
+
+import { SHeaderWrapper, SNavHeaderWrapper } from '../styled/Basic'
 
 interface NavbarProps {
   menuItems?: types.MenuItem[]
@@ -62,19 +64,20 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
 
   return (
     <>
-      <Header
-        siteTitle={<Link href={'/'}>{siteTitle}</Link>}
-        active={true}
-        blur={false}
-        leftSlot={
-          <MenuToggle
-            strokeColor={'var(--gray-700)'}
-            toggle={() => setMenuOpen(!menuOpen)}
-            isOpen={menuOpen}
-          />
-        }
-        className={'header'}
-      />
+      <SNavHeaderWrapper>
+        <Header
+          siteTitle={<Link href={'/'}>{siteTitle}</Link>}
+          active={true}
+          leftSlot={
+            <MenuToggle
+              strokeColor={'var(--gray-700)'}
+              toggle={() => setMenuOpen(!menuOpen)}
+              isOpen={menuOpen}
+            />
+          }
+          className={'header'}
+        />
+      </SNavHeaderWrapper>
       <NavMenu
         navItems={items}
         menuOpen={menuOpen}

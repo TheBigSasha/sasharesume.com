@@ -29,7 +29,6 @@ const serif = EB_Garamond({
 
 // The job of this is to allow the child to translate in and out of the page
 const TransitionContainer = styled.span`
-  overflow: hidden;
   object-fit: none;
   position: relative;
   width: 100vw;
@@ -101,7 +100,7 @@ export default function App({ Component, pageProps }: AppProps) {
             animate={animate}
             exit={exit}
             id="page-transition-container"
-            style={{ margin: 0, padding: 0, overflowX: 'hidden' }}
+            style={{ margin: 0, padding: 0 }}
           >
             <Component {...pageProps} />
           </motion.div>

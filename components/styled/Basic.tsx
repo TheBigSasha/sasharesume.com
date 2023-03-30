@@ -221,6 +221,14 @@ export const SLayoutBody = styled.div`
   }
 `
 
+export const SNavHeaderWrapper = styled.span`
+  & > header {
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+`
+
 // `${centered ? 'text-center' : 'w-5/6 lg:w-3/5'}`
 export const SHeaderWrapper = styled.div`
   ${(props) => (props.centered ? 'text-align: center' : 'width: 83.333333%')};

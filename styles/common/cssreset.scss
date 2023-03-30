@@ -6,6 +6,7 @@ html {
 }
 body {
   margin: 0;
+  height: unset !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: normal;
@@ -609,5 +610,4 @@ body::-webkit-scrollbar-track {
 }
 
 #__next {
-  overflow-x: hidden;
 }
