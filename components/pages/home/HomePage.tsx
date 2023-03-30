@@ -17,7 +17,6 @@ export interface HomePageProps {
   preview?: boolean
 }
 
-
 export function HomePage({ page, settings, preview }: HomePageProps) {
   const { overview, showcaseProjects, title = 'Sasha Resume' } = page ?? {}
 
@@ -40,7 +39,12 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   return null
                 }
                 return (
-                  <Link replace key={key} href={`${href}#title`} id={`${project.slug}`}>
+                  <Link
+                    replace
+                    key={key}
+                    href={`${href}#title`}
+                    id={`${project.slug}`}
+                  >
                     <ProjectListItem project={project} odd={key % 2} />
                   </Link>
                 )

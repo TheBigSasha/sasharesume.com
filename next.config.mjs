@@ -6,7 +6,6 @@ const config = {
   compiler: {
     styledComponents: true,
   },
-
   images: {
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },

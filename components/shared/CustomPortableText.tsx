@@ -2,6 +2,7 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import ImageBox from 'components/shared/ImageBox'
 import { TimelineSection } from 'components/shared/TimelineSection'
 import { Image, PortableTextBlock } from 'sanity'
+
 import { SLink } from '../styled/Basic'
 
 export function CustomPortableText({
@@ -37,7 +38,7 @@ export function CustomPortableText({
             <ImageBox
               image={value}
               alt={value.alt}
-              classesWrapper="relative aspect-hd resp-img"
+              classesWrapper="relative aspect-hd resp-img contain"
             />
             {value?.caption && (
               <div className="font-sans text-sm text-gray-600">

@@ -2,6 +2,12 @@ $accent: #0e9fff;
 $complement: complement($accent);
 $complement_bg: lightest($complement);
 
+:root {
+  --accent: #{$accent};
+  --complement: #{$complement};
+  --complement-bg: #{$complement_bg};
+}
+
 html {
   --border-dark: rgba(invert(var(--base-color)), 0.88);
   --background: rgba(236, 236, 236, 1);

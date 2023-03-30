@@ -1,7 +1,7 @@
 import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
 
-import { SImage, SImageBox } from '../styled/Basic'
+import { SImage, SImageBox, SImageTp } from '../styled/Basic'
 
 interface ImageBoxProps {
   image?: { asset?: any }
@@ -20,8 +20,7 @@ export default function ImageBox({
   size = '100vw',
   classesWrapper,
 }: ImageBoxProps) {
-  const imageUrl =
-    image && urlForImage(image)?.height(height).width(width).fit('crop').url()
+  const imageUrl = image && urlForImage(image)?.url()
 
   return (
     <SImageBox className={classesWrapper}>

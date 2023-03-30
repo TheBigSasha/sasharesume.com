@@ -1,4 +1,5 @@
 import ImageBox from 'components/shared/ImageBox'
+import { DotsBackground } from 'tbsui'
 import type { MilestoneItem } from 'types'
 
 export function TimelineItem({
@@ -26,8 +27,8 @@ export function TimelineItem({
             image={image}
             alt={title || 'Timeline item icon'}
             size="10vw"
-            width={65}
-            height={65}
+            width={200}
+            height={200}
           />
         </div>
         {/* Vertical line */}

@@ -1,32 +1,38 @@
 import Link from 'next/link'
-import * as types from 'types'
-import { Header, NavMenu, MenuItem, MenuToggle } from 'tbsui'
-import { FaDotCircle, FaFilePdf, FaHome, FaMailBulk, FaPersonBooth } from 'react-icons/fa'
 import React from 'react'
+import {
+  FaDotCircle,
+  FaFilePdf,
+  FaHome,
+  FaMailBulk,
+  FaPersonBooth,
+} from 'react-icons/fa'
 import styled from 'styled-components'
+import { Header, MenuItem, MenuToggle,NavMenu } from 'tbsui'
+import * as types from 'types'
 
 interface NavbarProps {
-  menuItems?: types.MenuItem[],
+  menuItems?: types.MenuItem[]
   siteTitle?: string
 }
 
 const NavLink = styled(Link)`
-    color: var(--gray-800)
-  `
+  color: var(--gray-800);
+`
 
-function getIcon(title: "Contact" | "PDF" | "Alexander Aleshchenko" | string){
+function getIcon(title: 'Contact' | 'PDF' | 'Alexander Aleshchenko' | string) {
   const iconProps = {
     size: 16,
   }
-  switch(title){
-    case "Contact":
-      return <FaMailBulk {...iconProps}/>
-    case "PDF":
-      return <FaFilePdf {...iconProps}/>
-    case "Alexander Aleshchenko":
-      return <FaHome {...iconProps}/>
+  switch (title) {
+    case 'Contact':
+      return <FaMailBulk {...iconProps} />
+    case 'PDF':
+      return <FaFilePdf {...iconProps} />
+    case 'Alexander Aleshchenko':
+      return <FaHome {...iconProps} />
     default:
-      return <FaDotCircle {...iconProps}/>
+      return <FaDotCircle {...iconProps} />
   }
 }
 
@@ -42,8 +48,13 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
     }
   })
 
-
-  const linkComponent = ({to, children}: {to: string, children: React.ReactNode}) => {
+  const linkComponent = ({
+    to,
+    children,
+  }: {
+    to: string
+    children: React.ReactNode
+  }) => {
     return <NavLink to={to}>{children}</NavLink>
   }
 
@@ -51,11 +62,27 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
 
   return (
     <>
-      <NavMenu navItems={items} menuOpen={menuOpen} toggleMenu={() => {
-        setMenuOpen(!menuOpen)
-      }
-      } linkComponent={linkComponent}/>
-      <Header siteTitle={<Link href={"/"}>{siteTitle}</Link>} active={true} blur={false} leftSlot={<MenuToggle strokeColor={"var(--gray-700)"} toggle={() => setMenuOpen(!menuOpen)} isOpen={menuOpen}/>}/>
+      <Header
+        siteTitle={<Link href={'/'}>{siteTitle}</Link>}
+        active={true}
+        blur={false}
+        leftSlot={
+          <MenuToggle
+            strokeColor={'var(--gray-700)'}
+            toggle={() => setMenuOpen(!menuOpen)}
+            isOpen={menuOpen}
+          />
+        }
+        className={'header'}
+      />
+      <NavMenu
+        navItems={items}
+        menuOpen={menuOpen}
+        toggleMenu={() => {
+          setMenuOpen(!menuOpen)
+        }}
+        linkComponent={linkComponent}
+      />
     </>
   )
 }

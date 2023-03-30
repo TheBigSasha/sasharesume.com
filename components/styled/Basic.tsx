@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
 
 // tailwind: bottom-0 w-full bg-white py-12 text-center md:py-20
 export const SFooter = styled.footer`
@@ -19,7 +19,7 @@ export const SFooter = styled.footer`
 export const SHeader = styled.header`
   position: sticky !important;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -43,10 +43,12 @@ export const SListItem = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  z-index: 5;
   border-radius: var(--rounded-md);
   padding: 0.5rem;
   margin: 0.5rem;
   transition: background-color 0.2s ease-in-out;
+  background-color: var(--tpcard-background-color);
   &:hover {
     transition: all 0.3s ease-in-out;
     background-color: var(--card-background-color);
@@ -65,7 +67,8 @@ export const SImageBox = styled.div`
   width: 100%;
   overflow: hidden;
   border-radius: var(--rounded-md);
-  background-color: var(--second-background-color);
+  //background-color: var(--second-background-color);
+  background-color: transparent;
   ${(props) => props.classesWrapper}
 `
 
@@ -75,6 +78,11 @@ export const SImage = styled(Image)`
   width: 100%;
   position: absolute;
   object-fit: cover;
+  object-position: center;
+`
+
+export const SImageTp = styled(SImage)`
+  object-fit: contain;
   object-position: center;
 `
 
@@ -168,7 +176,8 @@ export const SShowcaseProjectWrapper = styled(motion.div)`
   border-radius: 0.75rem;
   & > * + * {
     border-top: 1px solid var(--gray-300);
-  }`
+  }
+`
 
 //space-y-20
 export const SSpacing = styled.div`
@@ -185,11 +194,22 @@ export const SLayout = styled.div`
   ${(props) => (props.constrainWidth ? 'max-width: 1200px' : '')};
 `
 
+export const SBackground = styled.span`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  z-index: -1;
+`
+
 // mt-20 flex-grow px-4 md:px-16 lg:px-32
 export const SLayoutBody = styled.div`
   margin-top: 5rem;
   flex-grow: 1;
   padding-left: 1rem;
+  z-index: 10;
   padding-right: 1rem;
   @media (min-width: 768px) {
     padding-left: 4rem;

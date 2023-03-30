@@ -7,17 +7,17 @@ import Link from 'next/link'
 import type { ProjectPayload, SettingsPayload } from 'types'
 
 import Layout from '../../shared/Layout'
-import ProjectPageHead from './ProjectPageHead'
 import {
   SHeaderBorder,
   SProjectBox,
   SProjectDetailsGrid,
+  SProjectDetailsGridBox,
   SProjectList,
   STag,
   STagGroup,
   STagText,
-  SProjectDetailsGridBox,
 } from '../../styled/Basic'
+import ProjectPageHead from './ProjectPageHead'
 
 export interface ProjectPageProps {
   project: ProjectPayload | undefined
@@ -42,7 +42,7 @@ export function ProjectPage({
     site,
     tags,
     title,
-    slug
+    slug,
   } = project || {}
 
   const startYear = new Date(duration?.start).getFullYear()

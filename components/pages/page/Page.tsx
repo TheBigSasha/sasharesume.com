@@ -3,10 +3,11 @@ import { Header } from 'components/shared/Header'
 import Layout from 'components/shared/Layout'
 import ScrollUp from 'components/shared/ScrollUp'
 import Head from 'next/head'
+import { HoverDotsBackground } from 'tbsui'
 import type { PagePayload, SettingsPayload } from 'types'
 
-import PageHead from './PageHead'
 import { SHeaderBorder } from '../../styled/Basic'
+import PageHead from './PageHead'
 
 export interface PageProps {
   page: PagePayload | undefined

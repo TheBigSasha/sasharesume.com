@@ -3,13 +3,14 @@ import ImageBox from 'components/shared/ImageBox'
 import type { ShowcaseProject } from 'types'
 
 import {
-  SImageWrapper, SListItem,
+  SImageWrapper,
+  SListItem,
   STag,
   STextBox,
   STextBoxOverview,
   STextBoxTags,
   STextBoxTitle,
-  STextBoxWrapper
+  STextBoxWrapper,
 } from '../../styled/Basic'
 
 interface ProjectProps {

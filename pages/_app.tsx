@@ -4,8 +4,8 @@ import { EB_Garamond, JetBrains_Mono, Manrope } from '@next/font/google'
 import { AnimatePresence, motion } from 'framer-motion'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
-import React from 'react'
 import Script from 'next/script'
+import React from 'react'
 import styled from 'styled-components'
 
 const mono = JetBrains_Mono({
@@ -26,7 +26,6 @@ const serif = EB_Garamond({
   subsets: ['latin'],
   weight: ['500', '700'],
 })
-
 
 // The job of this is to allow the child to translate in and out of the page
 const TransitionContainer = styled.span`
@@ -55,11 +54,17 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const transition = spring
   const initial =
-    router.pathname === '/' ? { translateX: "-100vw", translateZ: 0 } : { translateX: "100vw", translateZ: 0 }
+    router.pathname === '/'
+      ? { translateX: '-100vw', translateZ: 0 }
+      : { translateX: '100vw', translateZ: 0 }
   const animate =
-    router.pathname === '/' ? { translateX: 0, translateZ: 0,  opacity: 1 } : { translateX: 0, translateZ: 0,  opacity: 1 }
+    router.pathname === '/'
+      ? { translateX: 0, translateZ: 0, opacity: 1 }
+      : { translateX: 0, translateZ: 0, opacity: 1 }
   const exit =
-    router.pathname === '/' ? { translateX: "-100vw", translateZ: 0 } : { translateX: "100vw", translateZ: 0 }
+    router.pathname === '/'
+      ? { translateX: '-100vw', translateZ: 0 }
+      : { translateX: '100vw', translateZ: 0 }
 
   return (
     <>
@@ -88,7 +93,7 @@ export default function App({ Component, pageProps }: AppProps) {
         `}
       </style>
       <TransitionContainer>
-      <AnimatePresence mode={'popLayout'}>
+        <AnimatePresence mode={'popLayout'}>
           <motion.div
             transition={transition}
             key={router.pathname}
@@ -96,11 +101,11 @@ export default function App({ Component, pageProps }: AppProps) {
             animate={animate}
             exit={exit}
             id="page-transition-container"
-            style={{margin: 0, padding: 0, overflowX: 'hidden'}}
+            style={{ margin: 0, padding: 0, overflowX: 'hidden' }}
           >
             <Component {...pageProps} />
           </motion.div>
-      </AnimatePresence>
+        </AnimatePresence>
       </TransitionContainer>
     </>
   )

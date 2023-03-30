@@ -1,6 +1,7 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 import Link from 'next/link'
 import { FaChevronLeft } from 'react-icons/fa'
+
 import {
   SHeaderBackButton,
   SHeaderDescription,
@@ -15,7 +16,7 @@ interface HeaderProps {
   slug?: string
 }
 export function Header(props: HeaderProps) {
-  const { title, description, centered = false, slug = "title" } = props
+  const { title, description, centered = false, slug = 'title' } = props
   if (!description && !title) {
     return null
   }
@@ -32,7 +33,7 @@ export function Header(props: HeaderProps) {
 
       {title && (
         <SHeaderTitle
-          id={"title"}
+          id={'title'}
           // className={centered ? 'textTrackSweep' : ''}
         >
           {title}

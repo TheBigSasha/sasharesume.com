@@ -12,3 +12,10 @@
 .resp-img {
   @include responsive-image;
 }
+
+.contain {
+  & > img {
+    @include responsive-image;
+    object-fit: contain;
+  }
+}
