@@ -32,9 +32,9 @@ export default function Layout({
           auraColor={'var(--accent)'}
           background={'var(--background)'}
           dotColor={'var(--background)'}
-          ambient={0.2}
-          dotSize={0.5}
-          dotOpacity={1}
+          ambient={0.15}
+          dotSize={1}
+          dotOpacity={0.6}
           style={{ position: 'fixed', top: 0, left: 0 }}
         />
       </SBackground>
