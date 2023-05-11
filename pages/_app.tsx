@@ -9,6 +9,8 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Analytics } from '@vercel/analytics/react'
 import { PageAnimationProvider, usePageAnimation } from '../components/shared/AnimateContext'
+import { SBackground } from '../components/styled/Basic'
+import { HoverDotsBackground } from 'tbsui'
 
 const mono = JetBrains_Mono({
   variable: '--font-mono',
@@ -129,6 +131,18 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
+      <SBackground>
+        <HoverDotsBackground
+          auraSize={450}
+          auraColor={'var(--accent)'}
+          background={'var(--background)'}
+          dotColor={'var(--background)'}
+          ambient={0.15}
+          dotSize={1}
+          dotOpacity={0.6}
+          style={{ position: 'fixed', top: 0, left: 0 }}
+        />
+      </SBackground>
      <PageAnimationProvider>
        <ContextWrappedPage Component={Component} pageProps={pageProps} pathname={router.pathname}/>
       </PageAnimationProvider>
