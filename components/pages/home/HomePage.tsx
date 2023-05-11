@@ -29,11 +29,14 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
       <Layout settings={settings} preview={preview}>
         <SSpacing>
           {/* Header */}
-          {title && <Header centered title={title} description={overview} />}
+          {title && <Header centered title={title} animateTitle description={overview} />}
           {/* Showcase projects */}
           {showcaseProjects && showcaseProjects.length > 0 && (
             <SShowcaseProjectWrapper>
               {showcaseProjects.map((project, key) => {
+                if (!project) {
+                  return null
+                }
                 const href = resolveHref(project._type, project.slug)
                 if (!href) {
                   return null

@@ -5,8 +5,10 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { Analytics } from '@vercel/analytics/react'
+import { PageAnimationProvider, usePageAnimation } from '../components/shared/AnimateContext'
 
 const mono = JetBrains_Mono({
   variable: '--font-mono',
@@ -37,8 +39,23 @@ const TransitionContainer = styled.span`
   padding: 0;
 `
 
-export default function App({ Component, pageProps }: AppProps) {
-  const spring = {
+const ContextWrappedPage = (props) => {
+  const { Component, pageProps, pathname } = props
+  const { pageAnimation, setPageAnimation } = usePageAnimation()
+  const [prevPath, setPrevPath] = useState<string | undefined>(undefined)
+  useEffect(() => {
+      if(prevPath !== undefined) {
+        setPageAnimation(true)
+      }
+      setPrevPath(pathname)
+  }, [setPageAnimation, pathname])
+  if(!pageAnimation) {
+    return (
+      <Component {...pageProps} />
+    )
+  }
+
+  const transition = {
     type: 'spring',
     damping: 20,
     stiffness: 100,
@@ -48,22 +65,42 @@ export default function App({ Component, pageProps }: AppProps) {
       exit: 0.2,
     },
   }
-
-  const router = useRouter()
-
-  const transition = spring
   const initial =
-    router.pathname === '/'
+    pathname === '/'
       ? { translateX: '-100vw', translateZ: 0 }
       : { translateX: '100vw', translateZ: 0 }
   const animate =
-    router.pathname === '/'
+    pathname === '/'
       ? { translateX: 0, translateZ: 0, opacity: 1 }
       : { translateX: 0, translateZ: 0, opacity: 1 }
   const exit =
-    router.pathname === '/'
+    pathname === '/'
       ? { translateX: '-100vw', translateZ: 0 }
       : { translateX: '100vw', translateZ: 0 }
+
+
+
+  return  <TransitionContainer>
+    <AnimatePresence mode={'popLayout'}>
+      <motion.div
+        transition={transition}
+        key={pathname}
+        initial={initial}
+        animate={animate}
+        exit={exit}
+        id="page-transition-container"
+        style={{ margin: 0, padding: 0 }}
+      >
+        {/*@ts-ignore*/}
+        <Component {...pageProps} />
+      </motion.div>
+    </AnimatePresence>
+  </TransitionContainer>
+}
+
+export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+  // only animate if coming from a page in the site
 
   return (
     <>
@@ -72,6 +109,7 @@ export default function App({ Component, pageProps }: AppProps) {
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
       />
+      <Analytics debug={false} />
       <Script id={'ga2'} strategy="lazyOnload">
         {`
                     window.dataLayer = window.dataLayer || [];
@@ -91,21 +129,9 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-      <TransitionContainer>
-        <AnimatePresence mode={'popLayout'}>
-          <motion.div
-            transition={transition}
-            key={router.pathname}
-            initial={initial}
-            animate={animate}
-            exit={exit}
-            id="page-transition-container"
-            style={{ margin: 0, padding: 0 }}
-          >
-            <Component {...pageProps} />
-          </motion.div>
-        </AnimatePresence>
-      </TransitionContainer>
+     <PageAnimationProvider>
+       <ContextWrappedPage Component={Component} pageProps={pageProps} pathname={router.pathname}/>
+      </PageAnimationProvider>
     </>
   )
 }

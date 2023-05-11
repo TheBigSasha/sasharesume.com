@@ -18,8 +18,10 @@
     "@portabletext/react": "^2.0.0",
     "@sanity/demo": "^1.0.1",
     "@sanity/image-url": "^1.0.1",
+    "@sanity/preview-kit": "^1.5.2",
     "@sanity/vision": "^3.2.1",
     "@tailwindcss/typography": "^0.5.9",
+    "@vercel/analytics": "^1.0.1",
     "@vercel/og": "^0.0.21",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
@@ -38,7 +40,7 @@
     "server-only": "^0.0.1",
     "styled-components": "^5.3.6",
     "suspend-react": "^0.0.9",
-    "tbsui": "^0.0.12"
+    "tbsui": "^0.0.18"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

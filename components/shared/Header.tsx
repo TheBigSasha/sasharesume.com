@@ -1,6 +1,8 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 import Link from 'next/link'
+import React from 'react'
 import { FaChevronLeft } from 'react-icons/fa'
+import { CascadeText } from 'tbsui'
 
 import {
   SHeaderBackButton,
@@ -8,12 +10,14 @@ import {
   SHeaderTitle,
   SHeaderWrapper,
 } from '../styled/Basic'
+//TODO: page transition animation not to play on first opening of the page (only on route change)
 
 interface HeaderProps {
   centered?: boolean
   description?: any[]
   title?: string
   slug?: string
+  animateTitle?: boolean
 }
 export function Header(props: HeaderProps) {
   const { title, description, centered = false, slug = 'title' } = props
@@ -36,7 +40,9 @@ export function Header(props: HeaderProps) {
           id={'title'}
           // className={centered ? 'textTrackSweep' : ''}
         >
-          {title}
+          {props.animateTitle ?
+          <CascadeText text={title} direction={"down"} staggerLetters={0.05} />
+            : title}
         </SHeaderTitle>
       )}
       {/* Description */}
