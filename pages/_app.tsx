@@ -116,7 +116,7 @@ export default function App({ Component, pageProps }: AppProps) {
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
       />
-      <Analytics debug={false} />
+      <Analytics />
       <Script id={'ga2'} strategy="lazyOnload">
         {`
                     window.dataLayer = window.dataLayer || [];
