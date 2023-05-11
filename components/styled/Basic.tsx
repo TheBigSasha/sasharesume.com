@@ -228,7 +228,7 @@ export const SNavHeaderWrapper = styled.span`
     top: 0;
     left: 0;
   }
-  
+
   & > nav {
     position: sticky !important;
     height: 0 !important;
@@ -239,10 +239,7 @@ export const SNavHeaderWrapper = styled.span`
       height: 100vh !important;
     }
   }
-  
 `
-
-
 
 // `${centered ? 'text-center' : 'w-5/6 lg:w-3/5'}`
 export const SHeaderWrapper = styled.div`

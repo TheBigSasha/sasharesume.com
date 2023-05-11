@@ -86,9 +86,7 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
             linkComponent={linkComponent}
           />
         </Header>
-
       </SNavHeaderWrapper>
-
     </>
   )
 }

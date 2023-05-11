@@ -40,9 +40,15 @@ export function Header(props: HeaderProps) {
           id={'title'}
           // className={centered ? 'textTrackSweep' : ''}
         >
-          {props.animateTitle ?
-          <CascadeText text={title} direction={"down"} staggerLetters={0.05} />
-            : title}
+          {props.animateTitle ? (
+            <CascadeText
+              text={title}
+              direction={'down'}
+              staggerLetters={0.05}
+            />
+          ) : (
+            title
+          )}
         </SHeaderTitle>
       )}
       {/* Description */}

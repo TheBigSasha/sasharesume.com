@@ -29,7 +29,14 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
       <Layout settings={settings} preview={preview}>
         <SSpacing>
           {/* Header */}
-          {title && <Header centered title={title} animateTitle description={overview} />}
+          {title && (
+            <Header
+              centered
+              title={title}
+              animateTitle
+              description={overview}
+            />
+          )}
           {/* Showcase projects */}
           {showcaseProjects && showcaseProjects.length > 0 && (
             <SShowcaseProjectWrapper>

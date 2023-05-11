@@ -8,7 +8,10 @@ import Script from 'next/script'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Analytics } from '@vercel/analytics/react'
-import { PageAnimationProvider, usePageAnimation } from '../components/shared/AnimateContext'
+import {
+  PageAnimationProvider,
+  usePageAnimation,
+} from '../components/shared/AnimateContext'
 import { SBackground } from '../components/styled/Basic'
 import { HoverDotsBackground } from 'tbsui'
 
@@ -46,15 +49,17 @@ const ContextWrappedPage = (props) => {
   const { pageAnimation, setPageAnimation } = usePageAnimation()
   const [prevPath, setPrevPath] = useState<string | undefined>(undefined)
   useEffect(() => {
-      if(prevPath !== undefined) {
-        setPageAnimation(true)
-      }
-      setPrevPath(pathname)
+    if (prevPath !== undefined) {
+      setPageAnimation(true)
+    }
+    setPrevPath(pathname)
   }, [setPageAnimation, pathname])
-  if(!pageAnimation) {
-    return (
-      <Component {...pageProps} />
-    )
+
+  const component = (
+    <Component {...pageProps} />
+  )
+  if (!pageAnimation) {
+    return component
   }
 
   const transition = {
@@ -80,24 +85,24 @@ const ContextWrappedPage = (props) => {
       ? { translateX: '-100vw', translateZ: 0 }
       : { translateX: '100vw', translateZ: 0 }
 
-
-
-  return  <TransitionContainer>
-    <AnimatePresence mode={'popLayout'}>
-      <motion.div
-        transition={transition}
-        key={pathname}
-        initial={initial}
-        animate={animate}
-        exit={exit}
-        id="page-transition-container"
-        style={{ margin: 0, padding: 0 }}
-      >
-        {/*@ts-ignore*/}
-        <Component {...pageProps} />
-      </motion.div>
-    </AnimatePresence>
-  </TransitionContainer>
+  return (
+    <TransitionContainer>
+      <AnimatePresence mode={'popLayout'}>
+        <motion.div
+          transition={transition}
+          key={pathname}
+          initial={initial}
+          animate={animate}
+          exit={exit}
+          id="page-transition-container"
+          style={{ margin: 0, padding: 0 }}
+        >
+          {/*@ts-ignore*/}
+          {component}
+        </motion.div>
+      </AnimatePresence>
+    </TransitionContainer>
+  )
 }
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -143,8 +148,12 @@ export default function App({ Component, pageProps }: AppProps) {
           style={{ position: 'fixed', top: 0, left: 0 }}
         />
       </SBackground>
-     <PageAnimationProvider>
-       <ContextWrappedPage Component={Component} pageProps={pageProps} pathname={router.pathname}/>
+      <PageAnimationProvider>
+        <ContextWrappedPage
+          Component={Component}
+          pageProps={pageProps}
+          pathname={router.pathname}
+        />
       </PageAnimationProvider>
     </>
   )

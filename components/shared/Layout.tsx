@@ -3,7 +3,7 @@ import { Navbar } from 'components/global/Navbar'
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import { SettingsPayload } from 'types'
 
-import {  SLayout, SLayoutBody } from '../styled/Basic'
+import { SLayout, SLayoutBody } from '../styled/Basic'
 
 const fallbackSettings: SettingsPayload = {
   menuItems: [],
@@ -25,7 +25,6 @@ export default function Layout({
 }: LayoutProps) {
   return (
     <>
-
       <Navbar menuItems={settings?.menuItems} siteTitle={'sasharesume'} />
       <SLayout constrainWidth={constrainWidth}>
         {preview && <PreviewBanner />}
