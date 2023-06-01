@@ -1,6 +1,6 @@
 import 'styles/index.scss'
 
-import { EB_Garamond, Instrument_Serif, JetBrains_Mono, Manrope } from '@next/font/google'
+import { EB_Garamond, JetBrains_Mono, Manrope } from '@next/font/google'
 import { AnimatePresence, motion } from 'framer-motion'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
@@ -27,11 +27,11 @@ const sans = Manrope({
   weight: ['300', '500', '700', '800'],
 })
 
-const serif = Instrument_Serif({
-  weight: ['400'],
+const serif = EB_Garamond({
   variable: '--font-serif',
   style: ['normal', 'italic'],
-  subsets: ['latin']
+  subsets: ['latin'],
+  weight: ['500', '700'],
 })
 
 // The job of this is to allow the child to translate in and out of the page
