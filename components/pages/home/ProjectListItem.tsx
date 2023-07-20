@@ -13,6 +13,7 @@ import {
   STextBoxWrapper,
 } from '../../styled/Basic'
 import { PerspectiveImage } from 'tbsui'
+import { useMediaQuery } from '../../../hooks/useMediaQuery'
 
 interface ProjectProps {
   project: ShowcaseProject
@@ -21,15 +22,22 @@ interface ProjectProps {
 
 export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
+  const width = useMediaQuery('(min-width: 1024px)')
+
+  const imageComponent = width ?  <PerspectiveImage style={{height: 320, perspective: 1000}} amount={30} flattenOnHover={true} image={ <ImageBox
+    image={project.coverImage}
+    alt={`Cover image from ${project.title}`}
+    classesWrapper="relative aspect-photo"
+  />} direction={odd ? "right" : "left"}/> : <ImageBox
+    image={project.coverImage}
+    alt={`Cover image from ${project.title}`}
+    classesWrapper="relative aspect-photo"
+  />;
 
   return (
     <SListItem odd={odd}>
       <SImageWrapper>
-        <PerspectiveImage style={{height: 320, perspective: 1000}} amount={30} flattenOnHover={true} image={ <ImageBox
-          image={project.coverImage}
-          alt={`Cover image from ${project.title}`}
-          classesWrapper="relative aspect-photo"
-        />} direction={odd ? "right" : "left"}/>
+        {imageComponent}
       </SImageWrapper>
       <STextBoxWrapper>
         <TextBox project={project} />
