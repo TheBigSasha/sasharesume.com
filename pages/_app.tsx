@@ -55,9 +55,7 @@ const ContextWrappedPage = (props) => {
     setPrevPath(pathname)
   }, [setPageAnimation, pathname])
 
-  const component = (
-    <Component {...pageProps} />
-  )
+  const component = <Component {...pageProps} />
   if (!pageAnimation) {
     return component
   }

@@ -12,6 +12,7 @@ import {
   STextBoxTitle,
   STextBoxWrapper,
 } from '../../styled/Basic'
+import { PerspectiveImage } from 'tbsui'
 
 interface ProjectProps {
   project: ShowcaseProject
@@ -24,11 +25,11 @@ export function ProjectListItem(props: ProjectProps) {
   return (
     <SListItem odd={odd}>
       <SImageWrapper>
-        <ImageBox
+        <PerspectiveImage style={{height: 320, perspective: 1000}} amount={30} flattenOnHover={true} image={ <ImageBox
           image={project.coverImage}
           alt={`Cover image from ${project.title}`}
           classesWrapper="relative aspect-photo"
-        />
+        />} direction={odd ? "right" : "left"}/>
       </SImageWrapper>
       <STextBoxWrapper>
         <TextBox project={project} />

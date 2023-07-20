@@ -40,7 +40,7 @@
     "server-only": "^0.0.1",
     "styled-components": "^5.3.6",
     "suspend-react": "^0.0.9",
-    "tbsui": "^0.3.6"
+    "tbsui": "^0.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

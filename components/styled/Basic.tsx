@@ -53,7 +53,7 @@ export const SListItem = styled(motion.div)`
     transition: all 0.3s ease-in-out;
     background-color: var(--card-background-color);
   }
-  border: 1px solid var(--gray-300);
+  //border: 1px solid var(--gray-300);
   @media (min-width: 1024px) {
     flex-direction: row;
     //border-top: 1px solid var(--border-dark);
