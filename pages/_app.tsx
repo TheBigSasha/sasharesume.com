@@ -106,7 +106,7 @@ const ContextWrappedPage = (props) => {
 
   return (
     <>
-      <TransitionContainer>
+      <TransitionContainer id={"outer-transition-container"}>
         <AnimatePresence mode={'popLayout'}>
           <TransitionInterior
             transition={transition}
@@ -114,6 +114,14 @@ const ContextWrappedPage = (props) => {
             initial={initial}
             animate={animate}
             exit={exit}
+            onAnimationStart={() => {
+              if (pathname !== '/') {
+                  const outer = document.getElementById('outer-transition-container')
+                  if (outer) {
+                    outer.scrollTop = 0
+                  }
+              }
+            }}
             id="page-transition-container"
           >
             {/*@ts-ignore*/}
