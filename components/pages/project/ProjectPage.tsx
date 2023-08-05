@@ -11,7 +11,7 @@ import {
   SGap,
   SHeaderBorder,
   SProjectBox, SProjectDetails,
-  SProjectDetailsGridBox, SProjectLinkButton,
+  SProjectLinkButton,
   SProjectList,
   STag,
   STagGroup, STags,

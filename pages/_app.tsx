@@ -17,6 +17,7 @@ import { HoverDotsBackground } from 'tbsui'
 import { Navbar } from '../components/global/Navbar'
 import { SettingsPayload } from '../types'
 import { Footer } from '../components/global/Footer'
+import ScrollUp from '../components/shared/ScrollUp'
 
 const mono = JetBrains_Mono({
   variable: '--font-mono',
@@ -39,10 +40,10 @@ const serif = EB_Garamond({
 
 // The job of this is to allow the child to translate in and out of the page
 const TransitionContainer = styled.body`
-  object-fit: cover;
   position: relative;
   width: 100vw;
-  height: 100vh;
+  overflow-x: hidden;
+  max-width: 100vw;
   margin: 0;
   padding: 0;
 `
@@ -52,7 +53,7 @@ const TransitionInterior = styled(motion.main)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  maring: 0;
+  margin: 0;
   padding: 0;
 `
 
@@ -118,6 +119,7 @@ const ContextWrappedPage = (props) => {
             {/*@ts-ignore*/}
             {component}
             <Footer footer={settings?.footer} />
+            {pathname !== '/' && <ScrollUp/>}
           </TransitionInterior>
         </AnimatePresence>
       </TransitionContainer>
@@ -157,20 +159,7 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-      <SBackground>
-        <HoverDotsBackground
-          auraSize={450}
-          auraColor={'var(--accent)'}
-          background={'var(--background)'}
-          dotColor={'var(--background)'}
-          ambient={0.15}
-          dotSize={1}
-          dotOpacity={0.6}
-          style={{ position: 'fixed', top: 0, left: 0 }}
-        />
-      </SBackground>
       <Navbar menuItems={settings?.menuItems} siteTitle={'sasharesume'} />
-      <SGap/>
       <PageAnimationProvider>
         <ContextWrappedPage
           Component={Component}

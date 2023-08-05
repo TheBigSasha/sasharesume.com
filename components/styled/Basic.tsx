@@ -189,6 +189,7 @@ export const SSpacing = styled.div`
 export const SLayout = styled.div`
   display: flex;
   min-height: 100vh;
+  max-width: 100vw;
   flex-direction: column;
   ${(props) => (props.constrainWidth ? 'max-width: 1200px' : '')};
 `
@@ -197,8 +198,8 @@ export const SBackground = styled.span`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--background-color);
   z-index: -1;
 `
@@ -210,6 +211,7 @@ export const SLayoutBody = styled.div`
   padding-left: 1rem;
   z-index: 10;
   padding-right: 1rem;
+  max-width: 100vw;
   @media (min-width: 768px) {
     padding-left: 4rem;
     padding-right: 4rem;
@@ -226,6 +228,7 @@ export const SNavHeaderWrapper = styled.span`
     position: fixed;
     top: 0;
     left: 0;
+    max-width: 100vw;
   }
 
   & > nav {

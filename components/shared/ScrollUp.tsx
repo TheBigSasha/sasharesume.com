@@ -7,7 +7,7 @@ import { useEffect } from 'react'
  */
 
 export default function ScrollUp() {
-  useEffect(() => window.document.scrollingElement?.scrollTo(0, 0), [])
+  useEffect(() => {window.document.scrollingElement?.scrollTo(0, 0); document.body.scrollTop = document.documentElement.scrollTop = 0;}, [])
 
   return null
 }

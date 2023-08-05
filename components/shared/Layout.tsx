@@ -1,7 +1,7 @@
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import { SettingsPayload } from 'types'
 
-import { SLayout, SLayoutBody } from '../styled/Basic'
+import { SGap, SLayout, SLayoutBody } from '../styled/Basic'
 
 
 export interface LayoutProps {
@@ -20,6 +20,7 @@ export default function Layout({
     <>
       <SLayout constrainWidth={constrainWidth}>
         {preview && <PreviewBanner />}
+        <SGap />
         <SLayoutBody>{children}</SLayoutBody>
       </SLayout>
     </>
