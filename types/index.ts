@@ -24,6 +24,7 @@ export interface ShowcaseProject {
   slug?: string
   tags?: string[]
   title?: string
+  usePerspective?: boolean
 }
 
 // Page payloads
@@ -56,6 +57,7 @@ export interface ProjectPayload {
   slug: string
   tags?: string[]
   title?: string
+  usePerspective?: boolean
 }
 
 export interface SettingsPayload {

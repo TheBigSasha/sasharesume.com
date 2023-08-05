@@ -12,6 +12,7 @@ export const homePageQuery = groq`
       "slug": slug.current,
       tags,
       title,
+      usePerspective,
     },
     title,
   }
@@ -43,6 +44,7 @@ export const projectBySlugQuery = groq`
     "slug": slug.current,
     tags,
     title,
+    usePerspective,
   }
 `
 

@@ -166,6 +166,12 @@ export default defineType({
             }),
           ],
         }),
+        defineField({
+          name: 'usePerspective',
+          title: 'Use Perspective',
+          type: 'boolean',
+          initialValue: true,
+        }),
       ],
     }),
   ],
