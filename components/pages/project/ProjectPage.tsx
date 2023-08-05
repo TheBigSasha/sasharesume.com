@@ -20,6 +20,7 @@ import {
 import ProjectPageHead from './ProjectPageHead'
 import { FaArrowCircleRight } from 'react-icons/fa'
 import React from 'react'
+import { Tag } from '../../shared/Tag'
 
 export interface ProjectPageProps {
   project: ProjectPayload | undefined
@@ -68,7 +69,7 @@ export function ProjectPage({
                 {/* Tags */}
                   <STagGroup>
                     {tags?.map((tag, key) => (
-                      <STag key={key}>{tag}</STag>
+                      <Tag key={key} tag={tag} />
                     ))}
                   </STagGroup>
                 {/* Site */}

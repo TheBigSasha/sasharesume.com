@@ -399,6 +399,7 @@ export const SProjectList = styled.div`
 export const SProjectBox = styled.div`
   border-radius: var(--rounded-md);
   max-width: 1200px;
+  width: 100%;
 `
 
 //grid grid-cols-1 divide-y divide-inherit lg:grid-cols-4 lg:divide-y-0 lg:divide-x
