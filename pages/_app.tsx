@@ -115,7 +115,8 @@ const ContextWrappedPage = (props) => {
             animate={animate}
             exit={exit}
             onAnimationStart={() => {
-              if (pathname !== '/') {
+              const hashArg = window.location.hash
+              if (pathname !== '/' && !hashArg ) {
                   const outer = document.getElementById('outer-transition-container')
                   if (outer) {
                     outer.scrollTop = 0
@@ -127,7 +128,6 @@ const ContextWrappedPage = (props) => {
             {/*@ts-ignore*/}
             {component}
             <Footer footer={settings?.footer} />
-            {pathname !== '/' && <ScrollUp/>}
           </TransitionInterior>
         </AnimatePresence>
       </TransitionContainer>

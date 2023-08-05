@@ -62,9 +62,6 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               })}
             </SShowcaseProjectWrapper>
           )}
-
-          {/* Workaround: scroll to top on route change */}
-          <ScrollUp />
         </SSpacing>
       </Layout>
     </>
