@@ -66,14 +66,11 @@ export function ProjectPage({
               <SProjectDetails>
 
                 {/* Tags */}
-                <STags>
-                  <STagText>Tags</STagText>
                   <STagGroup>
                     {tags?.map((tag, key) => (
                       <STag key={key}>{tag}</STag>
                     ))}
                   </STagGroup>
-                </STags>
                 {/* Site */}
                 {site && (
                   <Link

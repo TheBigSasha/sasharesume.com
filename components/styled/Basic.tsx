@@ -307,11 +307,11 @@ export const SHeaderBorder = styled.div`
 export const STagGroup = styled.div`
   font-size: var(--text-xs);
   overflow-x: auto;
-  overflow-y: revert;
-  max-width: 100%;
+  overflow-y: hidden;
   flex-wrap: nowrap;
-  flex-direction: row;
-  max-height: var(--space-24);
+  width: calc(100% - 2rem);
+  flex-direction: column;
+  max-height: var(--space-6);
   @media (min-width: 768px) {
     font-size: var(--text-md);
   }
