@@ -24,8 +24,7 @@ export const SHeader = styled.header`
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-5);
-  background-color: var(--tpcard-background-color);
-  padding: 0.5rem;
+ma  padding: 0.5rem;
   backdrop-filter: blur(10px);
   @media (min-width: 768px) {
     padding: 0.625rem 1rem;
@@ -245,7 +244,7 @@ export const SNavHeaderWrapper = styled.span`
 export const SHeaderWrapper = styled.div`
   ${(props) => (props.centered ? 'text-align: center' : 'width: 83.333333%')};
   @media (min-width: 1024px) {
-    ${(props) => (props.centered ? 'text-align: center' : 'width: 60%')};
+    ${(props) => (props.centered ? 'text-align: center' : 'width: 100%')};
   }
 `
 
@@ -271,25 +270,25 @@ export const SHeaderBackButton = styled(SHeaderText)`
 
 // text-3xl font-extrabold tracking-tight md:text-5xl
 export const SHeaderTitle = styled.div`
-  font-size: var(--text-3xl);
-  line-height: var(--lineheight-3xl);
+  font-size: var(--text-2xl);
+  line-height: var(--lineheight-2xl);
   font-weight: 800;
   letter-spacing: var(--tracking-tight);
   @media (min-width: 768px) {
-    font-size: var(--text-5xl);
-    line-height: var(--lineheight-5xl);
+    font-size: var(--text-3xl);
+    line-height: var(--lineheight-3xl);
   }
 `
 //mt-4 font-serif text-xl text-gray-600 md:text-2xl
 export const SHeaderDescription = styled.div`
   margin-top: var(--space-2);
   font-family: var(--font-serif);
-  font-size: var(--text-xl);
-  line-height: var(--lineheight-xl);
+  font-size: var(--text-md);
+  line-height: var(--lineheight-md);
   color: var(--gray-600);
   @media (min-width: 768px) {
-    font-size: var(--text-2xl);
-    line-height: var(--lineheight-2xl);
+    font-size: var(--text-lg);
+    line-height: var(--lineheight-lg);
   }
 `
 
@@ -304,21 +303,69 @@ export const SHeaderBorder = styled.div`
 //text-md flex flex-row flex-wrap md:text-lg
 export const STagGroup = styled.div`
   font-size: var(--text-xs);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-height: var(--space-24);
   overflow-x: auto;
+  overflow-y: revert;
+  max-width: 100%;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  max-height: var(--space-24);
   @media (min-width: 768px) {
     font-size: var(--text-md);
   }
 `
 
+export const STags = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: max-content;
+`
+
+
+export const SProjectDetails = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const SGap = styled.div`
+  height: 1rem;
+`
+
+export const SProjectLinkButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--accent);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: var(--lineheight-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  min-width: 8rem;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  &:hover {
+    background: var(--second-background-color);
+    transition: 0.4s ease-in-out;
+  }
+  gap: 0.5rem;
+  width: fit-content;
+  
+`
 //text-xs md:text-sm
 export const STagText = styled.div`
   font-size: var(--text-xs);
   @media (min-width: 768px) {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
   }
 `
 
@@ -347,7 +394,6 @@ export const SProjectList = styled.div`
 //rounded-md border
 export const SProjectBox = styled.div`
   border-radius: var(--rounded-md);
-  border: 1px solid var(--gray-300);
   max-width: 1200px;
 `
 

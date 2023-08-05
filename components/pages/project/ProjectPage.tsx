@@ -8,16 +8,18 @@ import type { ProjectPayload, SettingsPayload } from 'types'
 
 import Layout from '../../shared/Layout'
 import {
+  SGap,
   SHeaderBorder,
-  SProjectBox,
-  SProjectDetailsGrid,
-  SProjectDetailsGridBox,
+  SProjectBox, SProjectDetails,
+  SProjectDetailsGridBox, SProjectLinkButton,
   SProjectList,
   STag,
-  STagGroup,
-  STagText,
+  STagGroup, STags,
+  STagText
 } from '../../styled/Basic'
 import ProjectPageHead from './ProjectPageHead'
+import { FaArrowCircleRight } from 'react-icons/fa'
+import React from 'react'
 
 export interface ProjectPageProps {
   project: ProjectPayload | undefined
@@ -61,6 +63,32 @@ export function ProjectPage({
             <Header title={title} description={overview} slug={slug} />
 
             <SProjectBox>
+              <SProjectDetails>
+
+                {/* Tags */}
+                <STags>
+                  <STagText>Tags</STagText>
+                  <STagGroup>
+                    {tags?.map((tag, key) => (
+                      <STag key={key}>{tag}</STag>
+                    ))}
+                  </STagGroup>
+                </STags>
+                {/* Site */}
+                {site && (
+                  <Link
+                    target="_blank"
+                    className="text-md break-words md:text-lg"
+                    href={site}
+                  >
+
+                    <SProjectLinkButton>
+                      Visit Site <FaArrowCircleRight />
+                    </SProjectLinkButton>
+                  </Link>
+                )}
+              </SProjectDetails>
+              <SGap />
               {/* Image  */}
               <ImageBox
                 image={coverImage}
@@ -68,49 +96,7 @@ export function ProjectPage({
                 classesWrapper="relative aspect-dci"
               />
 
-              <SProjectDetailsGrid>
-                {/* Duration */}
-                {!!(startYear && endYear) && (
-                  <SProjectDetailsGridBox>
-                    <div className="text-xs md:text-sm">Duration</div>
-                    <div className="text-md md:text-lg">{`${startYear} -  ${endYear}`}</div>
-                  </SProjectDetailsGridBox>
-                )}
 
-                {/* Client */}
-                {client && (
-                  <SProjectDetailsGridBox>
-                    <div className="text-xs md:text-sm">Client</div>
-                    <div className="text-md md:text-lg">{client}</div>
-                  </SProjectDetailsGridBox>
-                )}
-
-                {/* Site */}
-                {site && (
-                  <SProjectDetailsGridBox>
-                    <div className="text-xs md:text-sm">Site</div>
-                    {site && (
-                      <Link
-                        target="_blank"
-                        className="text-md break-words md:text-lg"
-                        href={site}
-                      >
-                        {site}
-                      </Link>
-                    )}
-                  </SProjectDetailsGridBox>
-                )}
-
-                {/* Tags */}
-                <SProjectDetailsGridBox>
-                  <STagText>Tags</STagText>
-                  <STagGroup>
-                    {tags?.map((tag, key) => (
-                      <STag key={key}>{tag}</STag>
-                    ))}
-                  </STagGroup>
-                </SProjectDetailsGridBox>
-              </SProjectDetailsGrid>
             </SProjectBox>
 
             {/* Description */}
