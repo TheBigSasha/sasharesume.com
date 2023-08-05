@@ -12,8 +12,11 @@ import {
   PageAnimationProvider,
   usePageAnimation,
 } from '../components/shared/AnimateContext'
-import { SBackground } from '../components/styled/Basic'
+import { SBackground, SGap } from '../components/styled/Basic'
 import { HoverDotsBackground } from 'tbsui'
+import { Navbar } from '../components/global/Navbar'
+import { SettingsPayload } from '../types'
+import { Footer } from '../components/global/Footer'
 
 const mono = JetBrains_Mono({
   variable: '--font-mono',
@@ -35,7 +38,7 @@ const serif = EB_Garamond({
 })
 
 // The job of this is to allow the child to translate in and out of the page
-const TransitionContainer = styled.span`
+const TransitionContainer = styled.body`
   object-fit: cover;
   position: relative;
   width: 100vw;
@@ -43,6 +46,21 @@ const TransitionContainer = styled.span`
   margin: 0;
   padding: 0;
 `
+
+const TransitionInterior = styled(motion.main)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  maring: 0;
+  padding: 0;
+`
+
+const fallbackSettings: SettingsPayload = {
+  menuItems: [],
+  footer: [],
+}
+
 
 const ContextWrappedPage = (props) => {
   const { Component, pageProps, pathname } = props
@@ -83,29 +101,34 @@ const ContextWrappedPage = (props) => {
       ? { translateX: '-100vw', translateZ: 0 }
       : { translateX: '100vw', translateZ: 0 }
 
+  const settings: SettingsPayload = pageProps?.settings || fallbackSettings
+
   return (
-    <TransitionContainer>
-      <AnimatePresence mode={'popLayout'}>
-        <motion.div
-          transition={transition}
-          key={pathname}
-          initial={initial}
-          animate={animate}
-          exit={exit}
-          id="page-transition-container"
-          style={{ margin: 0, padding: 0 }}
-        >
-          {/*@ts-ignore*/}
-          {component}
-        </motion.div>
-      </AnimatePresence>
-    </TransitionContainer>
+    <>
+      <TransitionContainer>
+        <AnimatePresence mode={'popLayout'}>
+          <TransitionInterior
+            transition={transition}
+            key={pathname}
+            initial={initial}
+            animate={animate}
+            exit={exit}
+            id="page-transition-container"
+          >
+            {/*@ts-ignore*/}
+            {component}
+            <Footer footer={settings?.footer} />
+          </TransitionInterior>
+        </AnimatePresence>
+      </TransitionContainer>
+    </>
   )
 }
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
   // only animate if coming from a page in the site
+  const settings: SettingsPayload = pageProps?.settings || fallbackSettings
 
   return (
     <>
@@ -146,6 +169,8 @@ export default function App({ Component, pageProps }: AppProps) {
           style={{ position: 'fixed', top: 0, left: 0 }}
         />
       </SBackground>
+      <Navbar menuItems={settings?.menuItems} siteTitle={'sasharesume'} />
+      <SGap/>
       <PageAnimationProvider>
         <ContextWrappedPage
           Component={Component}

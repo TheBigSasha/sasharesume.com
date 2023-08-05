@@ -24,7 +24,7 @@ export const SHeader = styled.header`
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-5);
-ma  padding: 0.5rem;
+  padding: 0.5rem;
   backdrop-filter: blur(10px);
   @media (min-width: 768px) {
     padding: 0.625rem 1rem;
@@ -223,13 +223,13 @@ export const SLayoutBody = styled.div`
 export const SNavHeaderWrapper = styled.span`
   //position: relative;
   & > header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
   }
 
   & > nav {
-    position: sticky !important;
+    position: fixed !important;
     height: 0 !important;
     & > ul {
       position: static !important;

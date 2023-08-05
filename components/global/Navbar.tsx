@@ -68,6 +68,7 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
         <Header
           siteTitle={<Link href={'/'}>{siteTitle}</Link>}
           active={true}
+          activeBackground={"var(--tpcard-background-color"}
           leftSlot={
             <MenuToggle
               strokeColor={'var(--gray-700)'}
