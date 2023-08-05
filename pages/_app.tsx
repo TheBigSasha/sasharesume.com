@@ -36,7 +36,7 @@ const serif = EB_Garamond({
 
 // The job of this is to allow the child to translate in and out of the page
 const TransitionContainer = styled.span`
-  object-fit: none;
+  object-fit: cover;
   position: relative;
   width: 100vw;
   height: 100vh;
