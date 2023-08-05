@@ -14,6 +14,7 @@ import {
 } from '../../styled/Basic'
 import { PerspectiveImage } from 'tbsui'
 import { useMediaQuery } from '../../../hooks/useMediaQuery'
+import { Tag } from '../../shared/Tag'
 
 interface ProjectProps {
   project: ShowcaseProject
@@ -61,7 +62,7 @@ function TextBox({ project }: { project: ShowcaseProject }) {
       {/* Tags */}
       <STextBoxTags>
         {project.tags?.map((tag, key) => (
-          <STag key={key}>{tag}</STag>
+          <Tag key={key} tag={tag}></Tag>
         ))}
       </STextBoxTags>
 

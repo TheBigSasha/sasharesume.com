@@ -52,6 +52,10 @@ export const projectPaths = groq`
   *[_type == "project" && slug.current != null].slug.current
 `
 
+export const tagPaths = groq`
+  *[_type == "tag" && slug.current != null].slug.current
+`
+
 export const pagePaths = groq`
   *[_type == "page" && slug.current != null].slug.current
 `
@@ -65,5 +69,18 @@ export const settingsQuery = groq`
       title
     },
     ogImage,
+  }
+`
+
+// tags are just strings with no properties
+export const projectsByTagQuery = groq`
+  *[_type == "project" && $tag in tags]{
+    _type,
+     coverImage,
+     overview,
+     "slug": slug.current,
+      tags,
+      title,
+      usePerspective,
   }
 `

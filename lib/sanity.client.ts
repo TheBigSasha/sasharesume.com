@@ -5,15 +5,15 @@ import {
   pagePaths,
   pagesBySlugQuery,
   projectBySlugQuery,
-  projectPaths,
-  settingsQuery,
+  projectPaths, projectsByTagQuery,
+  settingsQuery, tagPaths
 } from 'lib/sanity.queries'
 import { createClient } from 'next-sanity'
 import type {
   HomePagePayload,
   PagePayload,
   ProjectPayload,
-  SettingsPayload,
+  SettingsPayload, ShowcaseProject
 } from 'types'
 
 /**
@@ -61,6 +61,17 @@ export async function getProjectBySlug({
   return await sanityClient(token)?.fetch(projectBySlugQuery, { slug })
 }
 
+export async function getProjectsByTag({
+  tag,
+  token,
+}: {
+  tag: string
+  token?: string
+}): Promise<ShowcaseProject[] | undefined> {
+  return await sanityClient(token)?.fetch(projectsByTagQuery,
+    { tag }
+  )
+}
 export async function getSettings({
   token,
 }: {
@@ -71,6 +82,10 @@ export async function getSettings({
 
 export async function getProjectPaths(): Promise<string[]> {
   return await sanityClient()?.fetch(projectPaths)
+}
+
+export async function getTagPaths(): Promise<string[]> {
+  return await sanityClient()?.fetch(tagPaths)
 }
 
 export async function getPagePaths(): Promise<string[]> {

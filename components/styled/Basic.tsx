@@ -159,6 +159,7 @@ export const STag = styled.div`
   max-width: var(--space-56);
   text-align: center;
   color: var(--gray-700);
+  cursor: pointer;
 `
 
 export const SCenter = styled.div`

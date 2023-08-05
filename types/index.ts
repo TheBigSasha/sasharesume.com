@@ -45,6 +45,7 @@ export interface PagePayload {
 }
 
 export interface ProjectPayload {
+  _type: string
   client?: string
   coverImage?: Image
   description?: PortableTextBlock[]
