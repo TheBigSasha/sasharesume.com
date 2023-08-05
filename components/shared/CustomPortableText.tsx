@@ -4,6 +4,7 @@ import { TimelineSection } from 'components/shared/TimelineSection'
 import { Image, PortableTextBlock } from 'sanity'
 
 import { SLink } from '../styled/Basic'
+import { PTh1, PTh2, PTh3, PTh4, PTImage, PTImageCaption, PTParagraph } from '../styled/PortableText'
 
 export function CustomPortableText({
   paragraphClasses,
@@ -15,7 +16,19 @@ export function CustomPortableText({
   const components: PortableTextComponents = {
     block: {
       normal: ({ children }) => {
-        return <p className={paragraphClasses}>{children}</p>
+        return <PTParagraph className={paragraphClasses}>{children}</PTParagraph>
+      },
+      h1: ({ children }) => {
+        return <PTh1>{children}</PTh1>
+      },
+      h2: ({ children }) => {
+        return <PTh2>{children}</PTh2>
+      },
+      h3: ({ children }) => {
+        return <PTh3>{children}</PTh3>
+      },
+      h4: ({ children }) => {
+        return <PTh4>{children}</PTh4>
       },
     },
     marks: {
@@ -34,18 +47,18 @@ export function CustomPortableText({
         value: Image & { alt?: string; caption?: string }
       }) => {
         return (
-          <div className="my-6 space-y-2">
+          <PTImage>
             <ImageBox
               image={value}
               alt={value.alt}
               classesWrapper="relative aspect-hd resp-img contain"
             />
             {value?.caption && (
-              <div className="font-sans text-sm text-gray-600">
+              <PTImageCaption>
                 {value.caption}
-              </div>
+              </PTImageCaption>
             )}
-          </div>
+          </PTImage>
         )
       },
       timeline: ({ value }) => {
