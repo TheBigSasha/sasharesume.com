@@ -4,13 +4,13 @@ import type { ShowcaseProject } from 'types'
 
 import {
   SImageWrapper,
-  SListItem,
+  SListItem, SProjectListItemTextAndTag,
   STag,
   STextBox,
   STextBoxOverview,
   STextBoxTags,
   STextBoxTitle,
-  STextBoxWrapper,
+  STextBoxWrapper
 } from '../../styled/Basic'
 import { PerspectiveImage } from 'tbsui'
 import { useMediaQuery } from '../../../hooks/useMediaQuery'
@@ -24,7 +24,7 @@ export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
   const width = useMediaQuery('(min-width: 1024px)')
 
-  const imageComponent = width ?  <PerspectiveImage style={{height: 320, perspective: 1000}} amount={18} flattenOnHover={true} image={ <ImageBox
+  const imageComponent = width ?  <PerspectiveImage style={{height: "320px", perspective: 1000}} amount={18} flattenOnHover={true} image={ <ImageBox
     image={project.coverImage}
     alt={`Cover image from ${project.title}`}
     classesWrapper="relative aspect-photo"
@@ -53,9 +53,10 @@ function TextBox({ project }: { project: ShowcaseProject }) {
         {/* Title */}
         <STextBoxTitle>{project.title}</STextBoxTitle>
         {/* Overview  */}
-        <STextBoxOverview>
+           <STextBoxOverview>
           <CustomPortableText value={project.overview} />
         </STextBoxOverview>
+
       </div>
       {/* Tags */}
       <STextBoxTags>
@@ -63,6 +64,7 @@ function TextBox({ project }: { project: ShowcaseProject }) {
           <STag key={key}>{tag}</STag>
         ))}
       </STextBoxTags>
+
     </STextBox>
   )
 }

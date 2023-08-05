@@ -427,3 +427,11 @@ export const SLink = styled.a`
     opacity: 0.5;
   }
 `
+
+export const SProjectListItemTextAndTag = styled.span`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100%;
+`

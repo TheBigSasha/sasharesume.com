@@ -11,9 +11,6 @@ dependencies:
   '@portabletext/react':
     specifier: ^2.0.0
     version: 2.0.3(react@18.2.0)
-  '@sanity/demo':
-    specifier: ^1.0.1
-    version: 1.0.2(@sanity/color@2.2.5)
   '@sanity/image-url':
     specifier: ^1.0.1
     version: 1.0.2
@@ -23,9 +20,6 @@ dependencies:
   '@sanity/vision':
     specifier: ^3.2.1
     version: 3.10.1(@babel/runtime@7.21.5)(@codemirror/lint@6.2.1)(@codemirror/state@6.2.0)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.2)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.10)
-  '@tailwindcss/typography':
-    specifier: ^0.5.9
-    version: 0.5.9
   '@vercel/analytics':
     specifier: ^1.0.1
     version: 1.0.1
@@ -39,8 +33,8 @@ dependencies:
     specifier: ^2.29.3
     version: 2.30.0
   framer-motion:
-    specifier: ^9.0.2
-    version: 9.1.7(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^10.12.16
+    version: 10.12.16(react-dom@18.2.0)(react@18.2.0)
   intl-segmenter-polyfill:
     specifier: ^0.4.4
     version: 0.4.4
@@ -84,8 +78,8 @@ dependencies:
     specifier: ^0.0.9
     version: 0.0.9(react@18.2.0)
   tbsui:
-    specifier: ^0.4.1
-    version: 0.4.1(@babel/core@7.21.8)(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(framer-motion@9.1.7)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)(stylis@4.3.0)(webpack@5.88.2)
+    specifier: ^0.4.2
+    version: 0.4.2(@babel/core@7.21.8)(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(framer-motion@10.12.16)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)(stylis@4.3.0)(webpack@5.88.2)
 
 devDependencies:
   '@types/react':
@@ -1618,15 +1612,6 @@ packages:
     resolution: {integrity: sha512-tTi22KoKuER3sldXYl4c1Dq2zU7tMLDkljFiaUKVkBbu4PBvRGCFw75kXZnD2b4Bsp6vin+7sI+AKdCKRhfRuw==}
     dev: false
 
-  /@sanity/demo@1.0.2(@sanity/color@2.2.5):
-    resolution: {integrity: sha512-GJoW1WuE6sAZmgpVLeZ06FHPTOJesrpzrKky6etJV3HvqFJa7xvjJRdjazYQTcXGHCFftjXVNNGNfCXA+h5wWA==}
-    peerDependencies:
-      '@sanity/color': ^2
-      tailwindcss: ^3
-    dependencies:
-      '@sanity/color': 2.2.5
-    dev: false
-
   /@sanity/diff@3.10.1:
     resolution: {integrity: sha512-WebO+UxOkapxnWW+Y9Jccnb4wrk2u5fmR6rK/myiBtRsSZiq+phwMr7qLMStVRpAurKyFE2gBD4MrquI+rK6kQ==}
     engines: {node: '>=14.18.0'}
@@ -1862,7 +1847,7 @@ packages:
       '@sanity/color': 2.2.5
       '@sanity/icons': 2.3.1(react@18.2.0)
       csstype: 3.1.2
-      framer-motion: 10.12.10(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.12.16(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-is: 18.2.0
@@ -1957,17 +1942,6 @@ packages:
     resolution: {integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==}
     dependencies:
       tslib: 2.5.0
-    dev: false
-
-  /@tailwindcss/typography@0.5.9:
-    resolution: {integrity: sha512-t8Sg3DyynFysV9f4JDOVISGsjazNb48AeIYQwcL+Bsq5uf4RYL75C1giZ43KISjeDGBaTN3Kxh7Xj/vRSMJUUg==}
-    peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
-    dependencies:
-      lodash.castarray: 4.4.0
-      lodash.isplainobject: 4.0.6
-      lodash.merge: 4.6.2
-      postcss-selector-parser: 6.0.10
     dev: false
 
   /@tanstack/react-virtual@3.0.0-beta.53(react@18.2.0):
@@ -4081,8 +4055,8 @@ packages:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
     dev: true
 
-  /framer-motion@10.12.10(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-f/VkrpxfG4xSmBi105/NCfcTt219IgglQEUR0BsuFZAg+be6N3QAcujFyBEvBvbDOSP9Ccv6OMiaY0HFMnBoMA==}
+  /framer-motion@10.12.16(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-w/SfWEIWJkYSgRHYBmln7EhcNo31ao8Xexol8lGXf1pR/tlnBtf1HcxoUmEiEh6pacB4/geku5ami53AAQWHMQ==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -4091,19 +4065,6 @@ packages:
         optional: true
       react-dom:
         optional: true
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      tslib: 2.5.0
-    optionalDependencies:
-      '@emotion/is-prop-valid': 0.8.8
-    dev: false
-
-  /framer-motion@9.1.7(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-nKxBkIO4IPkMEqcBbbATxsVjwPYShKl051yhBv9628iAH6JLeHD0siBHxkL62oQzMC1+GNX73XtPjgP753ufuw==}
-    peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -5069,10 +5030,6 @@ packages:
     dependencies:
       p-locate: 5.0.0
 
-  /lodash.castarray@4.4.0:
-    resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
-    dev: false
-
   /lodash.defaults@4.2.0:
     resolution: {integrity: sha512-qjxPLHd3r5DnsdGacqOMU6pb/avJzdh9tFX2ymgoZE27BmjXrNy/y4LoaiTeAb+O3gL8AfpJGtqfX/ae2leYYQ==}
     dev: false
@@ -5091,6 +5048,7 @@ packages:
 
   /lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+    dev: true
 
   /lodash.union@4.6.0:
     resolution: {integrity: sha512-c4pB2CdGrGdjMKYLA+XiRDO7Y0PRQbm/Gzg8qMj+QH+pFVAoTp5sBpO0odL3FjoPCGjK96p6qsP+yQoiLoOBcw==}
@@ -5777,14 +5735,6 @@ packages:
       postcss: 8.4.23
     dev: false
 
-  /postcss-selector-parser@6.0.10:
-    resolution: {integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==}
-    engines: {node: '>=4'}
-    dependencies:
-      cssesc: 3.0.0
-      util-deprecate: 1.0.2
-    dev: false
-
   /postcss-selector-parser@6.0.12:
     resolution: {integrity: sha512-NdxGCAZdRrwVI1sy59+Wzrh+pMMHxapGnpfenDVlMEXoOcvt4pGE0JLK9YY2F5dLxcFYA/YbVQKhcGU+FtSYQg==}
     engines: {node: '>=4'}
@@ -6397,7 +6347,7 @@ packages:
       esbuild-register: 3.4.2(esbuild@0.16.17)
       execa: 2.1.0
       exif-component: 1.0.1
-      framer-motion: 10.12.10(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.12.16(react-dom@18.2.0)(react@18.2.0)
       get-it: 8.1.1
       get-random-values-esm: 1.0.0
       groq-js: 0.2.0
@@ -6969,8 +6919,8 @@ packages:
       readable-stream: 3.6.2
     dev: false
 
-  /tbsui@0.4.1(@babel/core@7.21.8)(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(framer-motion@9.1.7)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)(stylis@4.3.0)(webpack@5.88.2):
-    resolution: {integrity: sha512-m8Q65Qi956ZxjsurHACtp1O6psnbxMVj4pTcHUWLaIhj39e7dPfFHlaT6oEhUStSRi9YJISkiTvLLSuzv1nVgw==}
+  /tbsui@0.4.2(@babel/core@7.21.8)(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(framer-motion@10.12.16)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)(stylis@4.3.0)(webpack@5.88.2):
+    resolution: {integrity: sha512-RZbA9/YMZKqznycpy+7PJ8Jcwmu6BfDzYIm1aapl7KQk3DctJenRaL1v1X+TYGfvYyabmobm01fl1aeLlc+qvw==}
     engines: {node: '>=16'}
     peerDependencies:
       '@emotion/react': ^11.0.0
@@ -6988,7 +6938,7 @@ packages:
       babel-plugin-module-resolver: 5.0.0
       bezier-js: 6.1.4
       css-loader: 6.7.3(webpack@5.88.2)
-      framer-motion: 9.1.7(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.12.16(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       sass: 1.62.1
