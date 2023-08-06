@@ -3,14 +3,13 @@ import React from 'react'
 import { Hero } from '../../types'
 import styled from 'styled-components'
 import { CustomPortableText } from '../shared/CustomPortableText'
-import { SImage, SImageWrapper } from '../styled/Basic'
-import { urlForImage } from '../../lib/sanity.image'
+import { SImageWrapper } from '../styled/Basic'
 import ImageBox from '../shared/ImageBox'
 
 const LRHeroWrapper = styled.div<Pick<Hero, 'layout'>>`
   width: 100%;
   height: 350px;
-  flex-direction: ${(props) => props.layout === 'right' ? 'row-reverse' : 'row'};
+  flex-direction: ${(props) => props.layout === 'right' ? 'row' : 'row-reverse' };
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +26,11 @@ const LRHeroWrapper = styled.div<Pick<Hero, 'layout'>>`
 const HeroImageContainer = styled(SImageWrapper)<Pick<Hero, 'layout'>>`
   width: ${(props) => props.layout === 'center' ? '100%' : '50%'};
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 `
 
 
@@ -41,7 +45,7 @@ const HeroBodyContainer = styled.div`
 `
 
 
-export const HeroBlock: React.FC<Hero> = ({headline,body, background,layout}) => {
+export const HeroBlock: React.FC<Hero> = ({headline,body, banner,layout}) => {
   return (
     <>
       <LRHeroWrapper>
@@ -51,9 +55,9 @@ export const HeroBlock: React.FC<Hero> = ({headline,body, background,layout}) =>
         </HeroBodyContainer>
         <HeroImageContainer layout={layout}>
           <ImageBox
-            image={background}
-            alt={"Hero Image"}
-            classesWrapper="relative aspect-hd resp-img contain"
+            image={banner}
+            alt={banner.alt as string || "Hero Image"}
+            classesWrapper="relative aspect-hd cover nomargin"
           />
         </HeroImageContainer>
 

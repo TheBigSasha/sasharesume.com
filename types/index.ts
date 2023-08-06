@@ -75,7 +75,7 @@ export interface SettingsPayload {
  */
 export interface Hero {
   headline: string
-  background: Image
+  banner: Image
   body: Array<PortableTextBlock>
   href: URL
   title: string
