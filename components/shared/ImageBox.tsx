@@ -1,7 +1,6 @@
 import { urlForImage } from 'lib/sanity.image'
-import Image from 'next/image'
 
-import { SImage, SImageBox, SImageTp } from '../styled/Basic'
+import { SImage, SImageBox } from '../styled/Basic'
 
 interface ImageBoxProps {
   image?: { asset?: any }

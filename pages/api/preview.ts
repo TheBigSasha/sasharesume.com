@@ -11,7 +11,7 @@ import type { PageConfig } from 'next/types'
 import { createClient } from 'next-sanity'
 import { getSecret } from 'plugins/productionUrl/utils'
 
-// res.setPreviewData only exists in the nodejs runtime, setting the config here allows changing the global runtime
+// res.setPreviewData only exists in the Node.js runtime, setting the config here allows changing the global runtime
 // option in next.config.mjs without breaking preview mode
 export const config: PageConfig = { runtime: 'nodejs' }
 
@@ -58,6 +58,7 @@ export default async function preview(
       )
     }
     const client = _client.withConfig({ useCdn: false, token })
+    // @ts-expect-error
     const secret = await getSecret(client, previewSecretId)
     if (req.query.secret !== secret) {
       return res.status(401).send('Invalid secret')
