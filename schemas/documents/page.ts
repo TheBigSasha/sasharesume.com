@@ -23,6 +23,16 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      type: 'Hero',
+      name: 'hero',
+      title: 'Hero',
+      description: 'The hero banner for the page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    }),
+    defineField({
       name: 'overview',
       description:
         'Used both for the <meta> description tag for SEO, and the personal website subheader.',

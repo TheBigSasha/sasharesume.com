@@ -17,6 +17,8 @@ import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
 import home from 'schemas/singletons/home'
 import settings from 'schemas/singletons/settings'
+import resume from 'schemas/singletons/resume'
+import hero from 'schemas/objects/hero'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -39,6 +41,7 @@ export default defineConfig({
       // Singletons
       home,
       settings,
+      resume,
       // Documents
       duration,
       page,
@@ -46,6 +49,7 @@ export default defineConfig({
       // Objects
       milestone,
       timeline,
+      hero
     ],
   },
   plugins: [
