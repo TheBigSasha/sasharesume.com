@@ -55,5 +55,33 @@ export default defineType({
           {title: 'Left', value: 'left'}, {title: 'Right', value: 'right'}, {title: 'Center', value: 'center'}],
       },
     }),
+    defineField({
+      type: 'object',
+      name: "cta",
+      title: "Call to Action",
+      description: "An actionable button for the hero.",
+      fields: [
+        defineField({
+          type: 'url',
+          name: "href",
+          title: "Link (external)",
+          description: "Link (external)",
+        }),
+        defineField({
+          type: 'reference',
+          name: "to",
+          title: "Link (internal)",
+          description: "Link (internal)",
+          weak: false,
+          to: [{type: 'page'}, {type: 'project'}],
+        }),
+        defineField({
+          type: 'string',
+          name: "title",
+          title: "Title",
+          description: "The text in the CTA",
+        }),
+      ],
+    }),
   ],
 });

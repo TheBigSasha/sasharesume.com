@@ -80,6 +80,10 @@ export interface Hero {
   href: URL
   title: string
   layout: "left" | "right" | "center"
+  cta: {
+    title: string
+    href: URL
+  }
 }
 
 

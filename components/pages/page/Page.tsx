@@ -30,7 +30,7 @@ export function Page({ page, settings, homePageTitle, preview}: PageProps) {
         <div>
           <div className="mb-14">
             {/* Header */}
-            <Header title={title} description={overview} />
+            <Header title={title} />
             {hero && <HeroBlock {...hero} />}
             {/* Body */}
             {body && (

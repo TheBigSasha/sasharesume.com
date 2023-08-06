@@ -402,6 +402,19 @@ export const SProjectBox = styled.div`
   width: 100%;
 `
 
+export const SHugeGap = styled.div`
+  height: 5rem;
+`
+
+export const SHLine = styled.hr`
+  border: 0;
+  height: 1px;
+  background-color: var(--gray-300);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+`
+
+
 //grid grid-cols-1 divide-y divide-inherit lg:grid-cols-4 lg:divide-y-0 lg:divide-x
 export const SProjectDetailsGrid = styled.div`
   display: grid;

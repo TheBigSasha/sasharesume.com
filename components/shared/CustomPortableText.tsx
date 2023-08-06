@@ -51,7 +51,7 @@ export function CustomPortableText({
             <ImageBox
               image={value}
               alt={value.alt}
-              classesWrapper="relative aspect-hd resp-img contain"
+              classesWrapper="relative aspect-anamorphic resp-img contain"
             />
             {value?.caption && (
               <PTImageCaption>

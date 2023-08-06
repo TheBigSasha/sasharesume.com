@@ -19,6 +19,7 @@ export const PTImageCaption = styled.caption`
   font-style: italic;
   text-align: center;
   margin-top: 0.5rem;
+  max-width: clamp(66%, 350px, 100%);
 `;
 
 export const PTh1 = styled.h1`

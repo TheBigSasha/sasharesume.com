@@ -1,0 +1,143 @@
+[
+  {
+    "type": "Document",
+    "name": "Hero",
+    "title": "Hero Banner",
+    "description": "A banner to showcase something -- what to show off is up to you!",
+    "fields": [
+      {
+        "name": "headline",
+        "title": "Headline",
+        "type": "String",
+        "description": "The most prominent text of the hero.",
+        "hidden": false,
+        "readOnly": false,
+        "internalConfig": {
+          "predefined": false
+        },
+        "fields": []
+      },
+      {
+        "name": "body",
+        "title": "Body",
+        "type": "Array",
+        "description": "The body of the hero, placed below the headline with subtitle / caption level prominence.",
+        "hidden": false,
+        "readOnly": false,
+        "internalConfig": {
+          "predefined": false
+        },
+        "fields": [],
+        "of": [
+          "Block"
+        ],
+        "options": {
+          "sortable": false,
+          "layout": "grid"
+        }
+      },
+      {
+        "name": "banner",
+        "title": "Banner",
+        "type": "Image",
+        "description": "The image which is behind the text, filling the hero view.",
+        "hidden": false,
+        "readOnly": false,
+        "internalConfig": {
+          "predefined": false,
+          "caption": false,
+          "alt": true
+        },
+        "fields": [],
+        "options": {
+          "hotspot": false,
+          "accept": "",
+          "sources": ""
+        }
+      },
+      {
+        "name": "layout",
+        "title": "Layout",
+        "type": "String",
+        "description": "How the banner is laid out.",
+        "hidden": false,
+        "readOnly": false,
+        "internalConfig": {
+          "predefined": true
+        },
+        "fields": [],
+        "options": {
+          "list": [
+            {
+              "title": "Left",
+              "value": "left"
+            },
+            {
+              "title": "Right",
+              "value": "right"
+            },
+            {
+              "title": "Center",
+              "value": "center"
+            }
+          ]
+        }
+      },
+      {
+        "name": "cta",
+        "title": "Call to Action",
+        "type": "Object",
+        "description": "An actionable button for the hero.",
+        "hidden": false,
+        "readOnly": false,
+        "internalConfig": {
+          "predefined": false
+        },
+        "fields": [
+          {
+            "name": "href",
+            "title": "Link (external)",
+            "type": "URL",
+            "description": "Link (external)",
+            "hidden": false,
+            "readOnly": false,
+            "internalConfig": {
+              "predefined": false
+            },
+            "fields": []
+          },
+          {
+            "name": "to",
+            "title": "Link (internal)",
+            "type": "Reference",
+            "description": "Link (internal)",
+            "hidden": false,
+            "readOnly": false,
+            "internalConfig": {
+              "predefined": false
+            },
+            "fields": [],
+            "to": [
+              "Document"
+            ],
+            "weak": false
+          },
+          {
+            "name": "title",
+            "title": "Title",
+            "type": "String",
+            "description": "The text in the CTA",
+            "hidden": false,
+            "readOnly": false,
+            "internalConfig": {
+              "predefined": false
+            },
+            "fields": []
+          }
+        ]
+      }
+    ],
+    "readOnly": false,
+    "hidden": false
+  }
+]

@@ -9,13 +9,12 @@ import type { ProjectPayload, SettingsPayload } from 'types'
 import Layout from '../../shared/Layout'
 import {
   SGap,
-  SHeaderBorder,
+  SHeaderBorder, SHLine,
+  SHugeGap,
   SProjectBox, SProjectDetails,
   SProjectLinkButton,
   SProjectList,
-  STag,
-  STagGroup, STags,
-  STagText
+  STagGroup
 } from '../../styled/Basic'
 import ProjectPageHead from './ProjectPageHead'
 import { FaArrowCircleRight } from 'react-icons/fa'
@@ -61,7 +60,7 @@ export function ProjectPage({
         <div>
           <SProjectList>
             {/* Header */}
-            <Header title={title} description={overview} slug={slug} />
+            <Header title={title} slug={slug} />
 
             <SProjectBox>
               <SProjectDetails>
@@ -86,16 +85,19 @@ export function ProjectPage({
                   </Link>
                 )}
               </SProjectDetails>
-              <SGap />
+              <SHugeGap />
               {/* Image  */}
               <ImageBox
                 image={coverImage}
                 alt={`Cover image for ${title}`}
-                classesWrapper="relative aspect-dci"
+                classesWrapper="relative aspect-dci contain"
               />
 
 
             </SProjectBox>
+
+            <SHugeGap />
+            <SHLine/>
 
             {/* Description */}
             {description && (
