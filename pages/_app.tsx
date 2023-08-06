@@ -72,6 +72,7 @@ const ContextWrappedPage = (props) => {
       setPageAnimation(true)
     }
     setPrevPath(pathname)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setPageAnimation, pathname])
 
   const component = <Component {...pageProps} />

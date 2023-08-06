@@ -9,12 +9,8 @@ import {
 import { resolveHref } from 'lib/sanity.links'
 import { GetStaticProps } from 'next'
 import { SettingsPayload, ShowcaseProject } from 'types'
-
 import { ByTagPage } from '../../../components/pages/bytag/ByTagPage'
 
-// const ProjectPreview = lazy(
-//   () => import('components/pages/project/ProjectPreview')
-// )
 
 interface TagPageProps {
   projects?: ShowcaseProject[]
@@ -70,8 +66,8 @@ export const getStaticPaths = async () => {
   const paths = await getTagPaths()
 
   return {
-    paths: paths.map((slug) => resolveHref('tag', slug)),
-    fallback: false,
+    paths: paths.map((tag) => resolveHref('tag', tag)),
+    fallback: true,
   }
 }
 
