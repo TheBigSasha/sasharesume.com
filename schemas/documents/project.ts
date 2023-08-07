@@ -178,5 +178,17 @@ export default defineType({
       type: 'boolean',
       initialValue: true,
     }),
+    defineField({
+      type: 'array',
+      name: "linkCards",
+      title: "Link Cards",
+      description: "Cards to show at the end of the page",
+      of: [{type: 'LinkCard'}],
+      options: {
+        layout: 'grid',
+        sortable: true,
+      },
+    }),
+
   ],
 })

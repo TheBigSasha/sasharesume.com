@@ -140,7 +140,6 @@ export default defineType({
         sortable: true,
       },
     }),
-
   ],
   preview: {
     select: {

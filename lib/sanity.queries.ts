@@ -47,6 +47,7 @@ export const projectBySlugQuery = groq`
     tags,
     title,
     usePerspective,
+    linkCards,
   }
 `
 

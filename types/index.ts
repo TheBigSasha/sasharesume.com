@@ -61,6 +61,7 @@ export interface ProjectPayload {
   tags?: string[]
   title?: string
   usePerspective?: boolean
+  linkCards?: LinkCard[]
 }
 
 export interface SettingsPayload {

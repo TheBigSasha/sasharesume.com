@@ -13,13 +13,14 @@ import {
   SHugeGap,
   SProjectBox, SProjectDetails,
   SProjectLinkButton,
-  SProjectList,
+  SProjectList, SResponsiveGrid,
   STagGroup
 } from '../../styled/Basic'
 import ProjectPageHead from './ProjectPageHead'
 import { FaArrowCircleRight } from 'react-icons/fa'
 import React from 'react'
 import { Tag } from '../../shared/Tag'
+import { LinkCardRender } from '../../global/LinkCard'
 
 export interface ProjectPageProps {
   project: ProjectPayload | undefined
@@ -45,6 +46,7 @@ export function ProjectPage({
     tags,
     title,
     slug,
+    linkCards
   } = project || {}
 
   const startYear = new Date(duration?.start).getFullYear()
@@ -105,6 +107,18 @@ export function ProjectPage({
                 paragraphClasses="font-serif max-w-3xl text-xl text-gray-600"
                 value={description}
               />
+            )}
+            {/* Links */}
+            {linkCards && (
+              <>
+                <SHugeGap/>
+                <SResponsiveGrid>
+                  {linkCards.map((card) => (
+                    <LinkCardRender {...card} key={card.title} />
+                  ))}
+                </SResponsiveGrid>
+              </>
+
             )}
             {/* Workaround: scroll to top on route change */}
             <ScrollUp />
