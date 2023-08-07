@@ -5,7 +5,7 @@ import ScrollUp from 'components/shared/ScrollUp'
 import Head from 'next/head'
 import type { PagePayload, SettingsPayload } from 'types'
 
-import { SHeaderBorder, SResponsiveGrid } from '../../styled/Basic'
+import { SHeaderBorder, SHugeGap, SResponsiveGrid } from '../../styled/Basic'
 import PageHead from './PageHead'
 import { HeroBlock } from '../../global/Hero'
 import { LinkCardRender } from '../../global/LinkCard'
@@ -47,11 +47,15 @@ export function Page({ page, settings, homePageTitle, preview}: PageProps) {
           <SHeaderBorder />
         </div>
         {linkCards && (
-          <SResponsiveGrid>
-            {linkCards.map((card) => (
-              <LinkCardRender {...card} key={card.title} />
-            ))}
-          </SResponsiveGrid>
+          <>
+            <SHugeGap/>
+            <SResponsiveGrid>
+              {linkCards.map((card) => (
+                <LinkCardRender {...card} key={card.title} />
+              ))}
+            </SResponsiveGrid>
+          </>
+
         )}
       </Layout>
     </>

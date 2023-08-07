@@ -1,5 +1,5 @@
 import { LinkCard, LinkCardIcon } from '../../types'
-import { FaGithub } from 'react-icons/fa'
+import { FaArchive, FaEnvelope, FaFacebook, FaFacebookMessenger, FaGithub, FaGlobe, FaLinkedin, FaPhotoVideo, FaReddit, FaYoutube } from 'react-icons/fa'
 import styled from 'styled-components'
 import { SLink } from '../styled/Basic'
 
@@ -9,13 +9,54 @@ export const getLinkCardIcon = (icon: LinkCardIcon) => {
       return (
         <FaGithub />
       )
+    case 'linkedin':
+      return (
+        <FaLinkedin />
+      )
+    case 'youtube':
+      return (
+        <FaYoutube />
+      )
+    case 'facebook':
+      return (
+        <FaFacebook />
+      )
+    case 'arxiv':
+      return (
+        <FaArchive />
+      )
+    case 'reddit':
+      return (
+        <FaReddit/>
+
+      )
+    case 'messenger':
+      return (
+        <FaFacebookMessenger/>
+      )
+    case 'photo':
+      return (
+        <FaPhotoVideo/>
+      )
+    case 'email':
+      return (
+        <FaEnvelope />
+      )
     default:
       return (
-        <FaGithub />
+        <FaGlobe />
       )
 
   }
 }
+
+const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+`
 
 const LinkCardContainer = styled.div`
   display: flex;
@@ -31,7 +72,9 @@ export const LinkCardRender: React.FC<LinkCard> = ({icon, href, title, color}) =
   return (
     <SLink href={href} color={color}>
     <LinkCardContainer>
-      {getLinkCardIcon(icon)}
+      <IconWrapper>
+        {getLinkCardIcon(icon)}
+      </IconWrapper>
         {title}
     </LinkCardContainer>
     </SLink>
