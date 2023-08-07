@@ -460,7 +460,7 @@ export const SProjectListItemTextAndTag = styled.span`
 
 export const SResponsiveGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   gap: 2rem;
   grid-auto-rows: minmax(100px, auto);
 `
