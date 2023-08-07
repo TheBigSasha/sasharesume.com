@@ -78,6 +78,7 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
           }
           className={'header'}
         >
+          {/*TODO: background blur when navmenu is open*/}
           <NavMenu
             navItems={items}
             menuOpen={menuOpen}
