@@ -30,6 +30,7 @@ export const pagesBySlugQuery = groq`
     title,
     "slug": slug.current,
     hero,
+    linkCards,
   }
 `
 

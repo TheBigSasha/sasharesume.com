@@ -19,6 +19,7 @@ import home from 'schemas/singletons/home'
 import settings from 'schemas/singletons/settings'
 import resume from 'schemas/singletons/resume'
 import hero from 'schemas/objects/hero'
+import LinkCard from 'schemas/objects/linkcard'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -47,6 +48,7 @@ export default defineConfig({
       page,
       project,
       // Objects
+      LinkCard,
       milestone,
       timeline,
       hero

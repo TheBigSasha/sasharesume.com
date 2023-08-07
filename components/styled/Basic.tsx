@@ -457,3 +457,11 @@ export const SProjectListItemTextAndTag = styled.span`
   justify-content: space-between;
   height: 100%;
 `
+
+export const SResponsiveGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+
+`

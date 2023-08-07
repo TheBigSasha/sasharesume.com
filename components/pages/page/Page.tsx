@@ -5,9 +5,10 @@ import ScrollUp from 'components/shared/ScrollUp'
 import Head from 'next/head'
 import type { PagePayload, SettingsPayload } from 'types'
 
-import { SHeaderBorder } from '../../styled/Basic'
+import { SHeaderBorder, SResponsiveGrid } from '../../styled/Basic'
 import PageHead from './PageHead'
 import { HeroBlock } from '../../global/Hero'
+import { LinkCardRender } from '../../global/LinkCard'
 
 export interface PageProps {
   page: PagePayload | undefined
@@ -18,7 +19,7 @@ export interface PageProps {
 
 export function Page({ page, settings, homePageTitle, preview}: PageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { body, overview, title, hero } = page || {}
+  const { body, overview, title, hero, linkCards } = page || {}
 
   return (
     <>
@@ -45,6 +46,13 @@ export function Page({ page, settings, homePageTitle, preview}: PageProps) {
           </div>
           <SHeaderBorder />
         </div>
+        {linkCards && (
+          <SResponsiveGrid>
+            {linkCards.map((card) => (
+              <LinkCardRender {...card} key={card.title} />
+            ))}
+          </SResponsiveGrid>
+        )}
       </Layout>
     </>
   )

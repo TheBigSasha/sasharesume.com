@@ -137,6 +137,10 @@ export default defineType({
           name: 'timeline',
           type: 'timeline',
         }),
+        defineArrayMember({
+          name: 'linkCard',
+          type: 'LinkCard',
+        }),
         defineField({
           type: 'image',
           icon: ImageIcon,
