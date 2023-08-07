@@ -1,5 +1,5 @@
 import { LinkCard, LinkCardIcon } from '../../types'
-import { FaApple, FaArchive, FaEnvelope, FaFacebook, FaFacebookMessenger, FaGithub, FaGlobe, FaLinkedin, FaPhotoVideo, FaReddit, FaYoutube } from 'react-icons/fa'
+import { FaApple, FaArchive, FaEnvelope, FaFacebook, FaFacebookMessenger, FaGithub, FaGlobe, FaLinkedin, FaNpm, FaPhotoVideo, FaReddit, FaYoutube } from 'react-icons/fa'
 import styled from 'styled-components'
 
 export const getLinkCardIcon = (icon: LinkCardIcon) => {
@@ -44,6 +44,10 @@ export const getLinkCardIcon = (icon: LinkCardIcon) => {
     case 'email':
       return (
         <FaEnvelope />
+      )
+    case 'npm':
+      return (
+        <FaNpm/>
       )
     default:
       return (

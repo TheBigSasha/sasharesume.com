@@ -18,7 +18,7 @@ export default defineType({
       description: "The icon to send to the icon resolver. Any react-icons icon is valid.",
       options: {
         list: [
-          {title: 'Instagram', value: 'instagram'}, {title: 'Facebook', value: 'facebook'}, {title: 'LinkedIn', value: 'linkedin'}, {title: 'ArXiv', value: 'arxiv'}, {title: 'GitHub', value: 'github'}, {title: 'YouTube', value: 'youtube'}, {title: 'Threads', value: 'threads'}, {title: 'App Store', value: 'appstore'}, {title: 'Google Play', value: 'googleplay'}, {title: 'WhatsApp', value: 'whatsapp'}, {title: 'Messenger', value: 'messenger'}, {title: 'Email', value: 'email'}, {title: 'Photo', value: 'photo'}, {title: 'Web', value: 'web'}, {title: 'TikTok', value: 'tiktok'}, {title: 'MySpace', value: 'myspace'}, {title: 'XDADevelopers', value: 'xda'}, {title: 'Reddit', value: 'reddit'}],
+          {title: 'Instagram', value: 'instagram'}, {title: 'Facebook', value: 'facebook'}, {title: 'LinkedIn', value: 'linkedin'}, {title: 'ArXiv', value: 'arxiv'}, {title: 'GitHub', value: 'github'}, {title: 'YouTube', value: 'youtube'}, {title: 'Threads', value: 'threads'}, {title: 'App Store', value: 'appstore'}, {title: 'Google Play', value: 'googleplay'}, {title: 'WhatsApp', value: 'whatsapp'}, {title: 'Messenger', value: 'messenger'}, {title: 'Email', value: 'email'}, {title: 'Photo', value: 'photo'}, {title: 'Web', value: 'web'}, {title: 'TikTok', value: 'tiktok'}, {title: 'MySpace', value: 'myspace'}, {title: 'XDADevelopers', value: 'xda'}, {title: 'Reddit', value: 'reddit'}, {title: 'NPM', value: 'npm'}],
       },
     }),
     defineField({
