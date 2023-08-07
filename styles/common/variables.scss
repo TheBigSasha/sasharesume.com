@@ -11,7 +11,7 @@ $secondary-color: complement($primary-color);
   --second-background-color: #{rgba(lighten($primary-color, 10%), 0.1)};
   --disabled-color: hsla(0, 100%, 77%, 0.04);
   --card-background-color: rgba(253, 252, 255, 0.89);
-  --tpcard-background-color: rgba(5, 5, 7, 0.35);
+  --tpcard-background-color: rgba(247, 248, 250, 0.34);
   --header-height: 3rem;
 }
 

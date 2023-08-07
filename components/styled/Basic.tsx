@@ -129,7 +129,7 @@ export const STextBoxTitle = styled.div`
 // font-serif text-gray-500
 export const STextBoxOverview = styled.div`
   font-family: var(--font-serif);
-  color: var(--gray-600);
+  color: var(--gray-700);
 `
 
 //mt-4 flex flex-row gap-x-2 overflow-x-auto
@@ -144,7 +144,7 @@ export const STextBoxTags = styled.div`
 //inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 mr-1 whitespace-nowrap text-ellipsis
 export const STag = styled.div`
   display: inline-block;
-  background-color: var(--gray-50);
+  background-color: var(--gray-200);
   border-radius: 9999px;
   padding: var(--space-1) var(--space-2);
   font-size: var(--text-xs);
@@ -261,7 +261,7 @@ export const SHeaderText = styled.div`
   font-size: var(--text-sm);
   line-height: var(--lineheight-sm);
   font-weight: 700;
-  color: var(--gray-600);
+  color: var(--gray-700);
   // characters should be vertically aligned to centerline
   vertical-align: super;
 `

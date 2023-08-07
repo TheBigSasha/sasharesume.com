@@ -104,7 +104,7 @@ export function ProjectPage({
             {/* Description */}
             {description && (
               <CustomPortableText
-                paragraphClasses="font-serif max-w-3xl text-xl text-gray-600"
+                paragraphClasses="font-serif max-w-3xl text-xl text-gray-700"
                 value={description}
               />
             )}

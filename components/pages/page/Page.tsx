@@ -38,7 +38,7 @@ export function Page({ page, settings, homePageTitle, preview}: PageProps) {
             {/* Body */}
             {body && (
               <CustomPortableText
-                paragraphClasses="font-serif max-w-3xl text-gray-600 text-xl"
+                paragraphClasses="font-serif max-w-3xl text-gray-700 text-xl"
                 value={body}
               />
             )}
