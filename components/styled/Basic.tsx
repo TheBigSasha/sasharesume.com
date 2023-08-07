@@ -160,6 +160,10 @@ export const STag = styled.div`
   text-align: center;
   color: var(--gray-700);
   cursor: pointer;
+  &:hover {
+    background-color: var(--accent);
+    color: var(--white);
+  }
 `
 
 export const SCenter = styled.div`
