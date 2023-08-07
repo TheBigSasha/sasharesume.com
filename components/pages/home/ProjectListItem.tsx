@@ -36,7 +36,7 @@ export function ProjectListItem(props: ProjectProps) {
   />;
 
   return (
-    <SListItem odd={odd}>
+    <SListItem odd={odd} style={{cursor: 'pointer'}}>
       <SImageWrapper>
         {imageComponent}
       </SImageWrapper>
