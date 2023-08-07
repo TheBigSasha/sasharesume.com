@@ -5,7 +5,7 @@ import ScrollUp from 'components/shared/ScrollUp'
 import Head from 'next/head'
 import type { PagePayload, SettingsPayload } from 'types'
 
-import { SHeaderBorder, SHugeGap, SResponsiveGrid } from '../../styled/Basic'
+import { SGap, SHeaderBorder, SHugeGap, SResponsiveGrid } from '../../styled/Basic'
 import PageHead from './PageHead'
 import { HeroBlock } from '../../global/Hero'
 import { LinkCardRender } from '../../global/LinkCard'
@@ -32,7 +32,9 @@ export function Page({ page, settings, homePageTitle, preview}: PageProps) {
           <div className="mb-14">
             {/* Header */}
             <Header title={title} />
-            {hero && <HeroBlock {...hero} />}
+            {hero && <> <SGap/>
+            <HeroBlock {...hero} />
+            </>}
             {/* Body */}
             {body && (
               <CustomPortableText
