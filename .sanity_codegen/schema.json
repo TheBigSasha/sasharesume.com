@@ -139,5 +139,135 @@
     ],
     "readOnly": false,
     "hidden": false
+  },
+  {
+    "type": "Object",
+    "name": "LinkCard",
+    "title": "Link Card",
+    "description": "A card with a link and an icon",
+    "fields": [
+      {
+        "name": "icon",
+        "title": "Icon",
+        "type": "String",
+        "description": "The icon to send to the icon resolver. Any react-icons icon is valid.",
+        "hidden": false,
+        "readOnly": false,
+        "internalConfig": {
+          "predefined": true
+        },
+        "fields": [],
+        "options": {
+          "list": [
+            {
+              "title": "Instagram",
+              "value": "instagram"
+            },
+            {
+              "title": "Facebook",
+              "value": "facebook"
+            },
+            {
+              "title": "LinkedIn",
+              "value": "linkedin"
+            },
+            {
+              "title": "ArXiv",
+              "value": "arxiv"
+            },
+            {
+              "title": "GitHub",
+              "value": "github"
+            },
+            {
+              "title": "Threads",
+              "value": "threads"
+            },
+            {
+              "title": "App Store",
+              "value": "appstore"
+            },
+            {
+              "title": "Google Play",
+              "value": "googleplay"
+            },
+            {
+              "title": "WhatsApp",
+              "value": "whatsapp"
+            },
+            {
+              "title": "Messenger",
+              "value": "messenger"
+            },
+            {
+              "title": "Email",
+              "value": "email"
+            },
+            {
+              "title": "Photo",
+              "value": "photo"
+            },
+            {
+              "title": "Web",
+              "value": "web"
+            },
+            {
+              "title": "TikTok",
+              "value": "tiktok"
+            },
+            {
+              "title": "MySpace",
+              "value": "myspace"
+            },
+            {
+              "title": "XDADevelopers",
+              "value": "xda"
+            },
+            {
+              "title": "Reddit",
+              "value": "reddit"
+            }
+          ]
+        }
+      },
+      {
+        "name": "href",
+        "title": "Link",
+        "type": "URL",
+        "description": "Link to the referred content",
+        "hidden": false,
+        "readOnly": false,
+        "internalConfig": {
+          "predefined": false
+        },
+        "fields": []
+      },
+      {
+        "name": "title",
+        "title": "Title",
+        "type": "String",
+        "description": "The text displayed below the icon",
+        "hidden": false,
+        "readOnly": false,
+        "internalConfig": {
+          "predefined": false
+        },
+        "fields": []
+      },
+      {
+        "name": "color",
+        "title": "Color",
+        "type": "String",
+        "description": "The accent color of this link",
+        "hidden": false,
+        "readOnly": false,
+        "internalConfig": {
+          "predefined": false
+        },
+        "fields": []
+      }
+    ],
+    "readOnly": false,
+    "hidden": false
   }
 ]
