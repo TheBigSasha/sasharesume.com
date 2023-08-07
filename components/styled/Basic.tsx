@@ -410,6 +410,10 @@ export const SHugeGap = styled.div`
   height: 5rem;
 `
 
+export const SMidGap = styled.div`
+  height: 3rem;
+`
+
 export const SHLine = styled.hr`
   border: 0;
   height: 1px;
