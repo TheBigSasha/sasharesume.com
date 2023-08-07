@@ -1,4 +1,4 @@
-$border-radius: 10px;
+$border-radius: 18px;
 
 $primary-color: #ffacff;
 $secondary-color: complement($primary-color);
@@ -11,7 +11,8 @@ $secondary-color: complement($primary-color);
   --second-background-color: #{rgba(lighten($primary-color, 10%), 0.1)};
   --disabled-color: hsla(0, 100%, 77%, 0.04);
   --card-background-color: rgba(253, 252, 255, 0.89);
-  --tpcard-background-color: rgba(253, 252, 255, 0.35);
+  --tpcard-background-color: rgba(5, 5, 7, 0.35);
+  --header-height: 3rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +22,6 @@ $secondary-color: complement($primary-color);
     --second-background-color: #{rgba(darken($primary-color, 60%), 0.1)};
     --card-background-color: #17171a;
     --disabled-color: hsla(330, 18%, 4%, 0.7);
-    --tpcard-background-color: rgba(23, 23, 23, 0.35);
+    --tpcard-background-color: rgba(41, 47, 54, 0.35);
   }
 }

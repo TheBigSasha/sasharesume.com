@@ -5,7 +5,6 @@ import {
   FaFilePdf,
   FaHome,
   FaMailBulk,
-  FaPersonBooth,
 } from 'react-icons/fa'
 import styled from 'styled-components'
 import { Header, MenuItem, MenuToggle, NavMenu } from 'tbsui'
@@ -80,6 +79,7 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
         >
           {/*TODO: background blur when navmenu is open*/}
           <NavMenu
+            blur={true}
             navItems={items}
             menuOpen={menuOpen}
             toggleMenu={() => {
