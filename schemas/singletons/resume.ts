@@ -12,6 +12,12 @@ export default defineType({
   description: "Page for downloading PDF resume.",
   fields: [
     defineField({
+      type: 'string',
+      name: "title",
+      title: "Title",
+      description: "The title of the page for the download.",
+    }),
+    defineField({
       type: 'file',
       name: "resumePDF",
       title: "Resume PDF File",
@@ -21,7 +27,7 @@ export default defineType({
       type: 'slug',
       name: "slug",
       title: "Slug",
-      description: "The short URL ending of the page for the sculpture.",
+      description: "The short URL ending of the page for the download.",
     })
   ],
 });

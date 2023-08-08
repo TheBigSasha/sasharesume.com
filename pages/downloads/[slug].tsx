@@ -5,6 +5,7 @@ import { PreviewWrapper } from '../../components/preview/PreviewWrapper'
 import { GetStaticProps } from 'next'
 import { getDownloadsPaths, getResumeFileBySlug, getSettings } from '../../lib/sanity.client'
 import { DownloadPage } from '../../components/pages/download/DownloadPage'
+import { resolveHref } from '../../lib/sanity.links'
 
 
 interface DownloadPageProps {
@@ -77,7 +78,7 @@ export const getStaticProps: GetStaticProps<DownloadPageProps, Query, PreviewDat
 export async function getStaticPaths() {
   const slugs = await getDownloadsPaths()
   return {
-    paths: slugs.map((slug) => ({ params: { slug, token: null } })),
+    paths: slugs.map((slug) => resolveHref('ResumeDownload', slug)),
     fallback: false,
   }
 }

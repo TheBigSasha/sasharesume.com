@@ -11,6 +11,7 @@ import { Header, MenuItem, MenuToggle, NavMenu } from 'tbsui'
 import * as types from 'types'
 
 import { SNavHeaderWrapper } from '../styled/Basic'
+import { resolveHref } from '../../lib/sanity.links'
 
 interface NavbarProps {
   menuItems?: types.MenuItem[]
@@ -45,7 +46,7 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
       name: title,
       icon: getIcon(title),
       internal: true,
-      url: slug ? `/${slug}` : '/',
+      url: slug ? resolveHref(_type, slug) : '/',
     }
   })
 
