@@ -87,3 +87,9 @@ export const projectsByTagQuery = groq`
       usePerspective,
   }
 `
+
+export const resumeFileBySlugQuery = groq`
+  *[_type == "ResumeDownload" && slug.current == $slug][0] {
+    "pdfURL": resumePDF.asset->url,
+  }
+`

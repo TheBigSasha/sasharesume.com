@@ -5,14 +5,14 @@ import {
   pagePaths,
   pagesBySlugQuery,
   projectBySlugQuery,
-  projectPaths, projectsByTagQuery,
+  projectPaths, projectsByTagQuery, resumeFileBySlugQuery,
   settingsQuery, tagPaths
 } from 'lib/sanity.queries'
 import { createClient } from 'next-sanity'
 import type {
   HomePagePayload,
   PagePayload,
-  ProjectPayload,
+  ProjectPayload, ResumeDownload,
   SettingsPayload, ShowcaseProject
 } from 'types'
 
@@ -49,6 +49,16 @@ export async function getPageBySlug({
   token?: string
 }): Promise<PagePayload | undefined> {
   return await sanityClient(token)?.fetch(pagesBySlugQuery, { slug })
+}
+
+export async function getResumeFileBySlug({
+  slug,
+  token,
+                                            }: {
+  slug: string
+  token?: string
+}): Promise<ResumeDownload | undefined> {
+  return await sanityClient(token)?.fetch(resumeFileBySlugQuery, { slug })
 }
 
 export async function getProjectBySlug({
@@ -90,4 +100,8 @@ export async function getTagPaths(): Promise<string[]> {
 
 export async function getPagePaths(): Promise<string[]> {
   return await sanityClient()?.fetch(pagePaths)
+}
+
+export async function getDownloadsPaths(): Promise<string[]> {
+  return await sanityClient()?.fetch(`*[_type == "ResumeDownload" && slug.current != null].slug.current`)
 }

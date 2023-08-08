@@ -29,6 +29,7 @@ export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
   home.name,
   page.name,
   project.name,
+  resume.name
 ]
 
 export default defineConfig({
