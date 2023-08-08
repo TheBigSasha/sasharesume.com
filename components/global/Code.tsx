@@ -28,6 +28,7 @@ const CodeWrapper = styled.div`
   padding: 0;
 `
 
+//TODO: IntelliJ Style wrap icons
 export const SyntaxHighlight: React.FC<SyntaxHighlightProps> = ({
                                                                   language,
                                                                   code,
@@ -48,7 +49,8 @@ export const SyntaxHighlight: React.FC<SyntaxHighlightProps> = ({
       style={isDarkMode ? atomOneDark : atomOneLight}
       customStyle={{
         textAlign: "left",
-        width: "max-content",
+        width: "fit-content",
+        maxWidth: "100%",
         lineBreak: "anywhere",
         overflowWrap: "anywhere",
         whiteSpace: "pre-wrap",
