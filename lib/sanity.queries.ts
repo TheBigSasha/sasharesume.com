@@ -91,5 +91,6 @@ export const projectsByTagQuery = groq`
 export const resumeFileBySlugQuery = groq`
   *[_type == "ResumeDownload" && slug.current == $slug][0] {
     "pdfURL": resumePDF.asset->url,
+    title,
   }
 `

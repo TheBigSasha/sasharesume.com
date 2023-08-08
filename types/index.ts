@@ -95,6 +95,7 @@ export interface Hero {
 */
 export interface ResumeDownload {
   pdfURL: string;
+  title: string;
 }
 
 
