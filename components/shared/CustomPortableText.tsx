@@ -4,7 +4,7 @@ import { TimelineSection } from 'components/shared/TimelineSection'
 import { Image, PortableTextBlock } from 'sanity'
 
 import { SCenter, SLink } from '../styled/Basic'
-import { PTh1, PTh2, PTh3, PTh4, PTImage, PTImageCaption, PTParagraph } from '../styled/PortableText'
+import { PTblockquote, PTh1, PTh2, PTh3, PTh4, PTImage, PTImageCaption, PTParagraph } from '../styled/PortableText'
 import { LinkCardRender } from '../global/LinkCard'
 import { SyntaxHighlight } from '../global/Code'
 
@@ -32,6 +32,11 @@ export function CustomPortableText({
       h4: ({ children }) => {
         return <PTh4>{children}</PTh4>
       },
+      blockquote: ({ children }) => {
+        return (
+          <PTblockquote>{children}</PTblockquote>
+        )
+      }
     },
     marks: {
       link: ({ children, value }) => {
