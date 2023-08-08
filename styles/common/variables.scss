@@ -10,8 +10,8 @@ $secondary-color: complement($primary-color);
   --background-color: rgba(253, 252, 255, 0.89);
   --second-background-color: #{rgba(lighten($primary-color, 10%), 0.1)};
   --disabled-color: hsla(0, 100%, 77%, 0.04);
-  --card-background-color: rgba(253, 252, 255, 0.89);
-  --tpcard-background-color: rgba(247, 248, 250, 0.34);
+  --card-background-color: rgba(247, 247, 250, 0.89);
+  --tpcard-background-color: rgba(229, 234, 245, 0.34);
   --header-height: 3rem;
 }
 

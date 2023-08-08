@@ -20,6 +20,8 @@ import settings from 'schemas/singletons/settings'
 import resume from 'schemas/singletons/resume'
 import hero from 'schemas/objects/hero'
 import LinkCard from 'schemas/objects/linkcard'
+import { codeInput } from '@sanity/code-input'
+import { media } from 'sanity-plugin-media'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -61,6 +63,9 @@ export default defineConfig({
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
+    codeInput(),
+    media(),
+    // scheduledPublishing(),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
     singletonPlugin([home.name, settings.name]),
     // Add the "Open preview" action

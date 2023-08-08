@@ -3,9 +3,10 @@ import ImageBox from 'components/shared/ImageBox'
 import { TimelineSection } from 'components/shared/TimelineSection'
 import { Image, PortableTextBlock } from 'sanity'
 
-import { SLink } from '../styled/Basic'
+import { SCenter, SLink } from '../styled/Basic'
 import { PTh1, PTh2, PTh3, PTh4, PTImage, PTImageCaption, PTParagraph } from '../styled/PortableText'
 import { LinkCardRender } from '../global/LinkCard'
+import { SyntaxHighlight } from '../global/Code'
 
 export function CustomPortableText({
   paragraphClasses,
@@ -68,6 +69,11 @@ export function CustomPortableText({
       },
       LinkCard: ({ value }) => {
         return <LinkCardRender {...value} />
+      },
+      code: ({ value }) => {
+        return <SCenter>
+          <SyntaxHighlight code={value.code} language={value.language} filename={value.filename}/>
+        </SCenter>
       }
     },
   }

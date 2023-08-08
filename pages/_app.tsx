@@ -168,7 +168,7 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-      <Navbar menuItems={settings?.menuItems} siteTitle={'sasharesume'} />
+      {!router?.pathname.startsWith('/studio') && <Navbar menuItems={settings?.menuItems} siteTitle={'sasharesume'} />}
       <PageAnimationProvider>
         <ContextWrappedPage
           Component={Component}

@@ -369,6 +369,14 @@ export const SProjectLinkButton = styled.div`
   width: fit-content;
   
 `
+
+export const SSecondaryButton = styled(SProjectLinkButton)`
+  background: var(--gray-200);
+  color: var(--gray-700);
+  &:hover {
+    background: var(--gray-300);
+  }
+`
 //text-xs md:text-sm
 export const STagText = styled.div`
   font-size: var(--text-xs);
