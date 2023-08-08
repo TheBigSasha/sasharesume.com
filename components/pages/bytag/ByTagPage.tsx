@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import HomePageHead from '../home/HomePageHead'
 import Layout from '../../shared/Layout'
 import { SShowcaseProjectWrapper, SSpacing } from '../../styled/Basic'
 import { Header } from '../../shared/Header'
@@ -7,6 +6,7 @@ import { resolveHref } from '../../../lib/sanity.links'
 import Link from 'next/link'
 import { ProjectListItem } from '../home/ProjectListItem'
 import { SettingsPayload, ShowcaseProject } from '../../../types'
+import PageHead from '../page/PageHead'
 
 interface ByTagPageProps {
   projects: ShowcaseProject[];
@@ -19,11 +19,10 @@ export function ByTagPage({ tag, settings, preview, projects }: ByTagPageProps) 
   return (
     <>
       <Head>
-        <HomePageHead page={{
+        <PageHead page={{
           title: tag,
           overview: [],
-          showcaseProjects: []
-        }} settings={settings} />
+        }} settings={settings}  title={tag}/>
       </Head>
 
       <Layout settings={settings} preview={preview}>

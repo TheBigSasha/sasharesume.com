@@ -1,7 +1,6 @@
 import { ProjectListItem } from 'components/pages/home/ProjectListItem'
 import { Header } from 'components/shared/Header'
 import Layout from 'components/shared/Layout'
-import ScrollUp from 'components/shared/ScrollUp'
 import { resolveHref } from 'lib/sanity.links'
 import Head from 'next/head'
 import Link from 'next/link'
