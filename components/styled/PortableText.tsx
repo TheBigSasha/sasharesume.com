@@ -12,6 +12,7 @@ export const PTImage= styled.div`
 `;
 
 export const PTParagraph = styled.p`
+  font-size: 1rem;
 `;
 
 export const PTImageCaption = styled.caption`
