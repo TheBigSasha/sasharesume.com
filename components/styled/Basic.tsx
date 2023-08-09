@@ -76,7 +76,7 @@ export const SImage = styled(Image)`
   height: 100%;
   width: 100%;
   position: absolute;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 `
 
@@ -364,6 +364,12 @@ export const SProjectLinkButton = styled.div`
   &:hover {
     background: var(--second-background-color);
     transition: 0.4s ease-in-out;
+    border: 1px solid var(--accent);
+  }
+  &:active {
+    background: var(--second-background-color);
+    transition: 0.4s ease-in-out;
+    border: 1px solid var(--accent);
   }
   gap: 0.5rem;
   width: fit-content;
@@ -375,6 +381,11 @@ export const SSecondaryButton = styled(SProjectLinkButton)`
   color: var(--gray-700);
   &:hover {
     background: var(--gray-300);
+    border: 1px solid var(--gray-700);
+  }
+  &:active {
+    background: var(--gray-300);
+    border: 1px solid var(--gray-700);
   }
 `
 //text-xs md:text-sm
