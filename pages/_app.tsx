@@ -12,12 +12,9 @@ import {
   PageAnimationProvider,
   usePageAnimation,
 } from '../components/shared/AnimateContext'
-import { SBackground, SGap } from '../components/styled/Basic'
-import { HoverDotsBackground } from 'tbsui'
 import { Navbar } from '../components/global/Navbar'
 import { SettingsPayload } from '../types'
 import { Footer } from '../components/global/Footer'
-import ScrollUp from '../components/shared/ScrollUp'
 
 const mono = JetBrains_Mono({
   variable: '--font-mono',
