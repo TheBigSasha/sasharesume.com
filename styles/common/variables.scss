@@ -18,7 +18,7 @@ $secondary-color: complement($primary-color);
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #fff;
-    --background-color: #282c34;
+    --background-color: #121314;
     --second-background-color: #{rgba(darken($primary-color, 60%), 0.1)};
     --card-background-color: #17171a;
     --disabled-color: hsla(330, 18%, 4%, 0.7);

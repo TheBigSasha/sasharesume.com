@@ -87,7 +87,7 @@ export function ProjectPage({
                   </Link>
                 )}
               </SProjectDetails>
-              <SHugeGap />
+              <SGap/>
               {/* Image  */}
               <ImageBox
                 image={coverImage}
@@ -99,7 +99,6 @@ export function ProjectPage({
 
             </SProjectBox>
 
-            <SHugeGap />
             <SHLine/>
 
             {/* Description */}
