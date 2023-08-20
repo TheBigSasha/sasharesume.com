@@ -348,7 +348,7 @@ export const SProjectLinkButton = styled.div`
   justify-content: space-between;
   align-items: center;
   background: var(--accent);
-  color: var(--white);
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
   font-size: var(--text-xs);
