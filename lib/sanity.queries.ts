@@ -82,14 +82,7 @@ export const settingsQuery = groq`
 export const projectsByTagQuery = groq`
   *[_type == "project" && $tag in tags]{
     _type,
-    coverImage {
-      ...,
-      asset {
-          ...,
-          palette,
-        }
-      }
-    },
+    coverImage,
      overview,
      "slug": slug.current,
       tags,
