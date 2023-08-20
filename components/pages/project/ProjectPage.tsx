@@ -21,6 +21,7 @@ import { FaArrowCircleRight } from 'react-icons/fa'
 import React from 'react'
 import { Tag } from '../../shared/Tag'
 import { LinkCardRender } from '../../global/LinkCard'
+import { SProjectLinkButtonGlow } from 'components/styled/Glow'
 
 export interface ProjectPageProps {
   project: ProjectPayload | undefined
@@ -49,8 +50,15 @@ export function ProjectPage({
     linkCards
   } = project || {}
 
-  const startYear = new Date(duration?.start).getFullYear()
-  const endYear = duration?.end ? new Date(duration?.end).getFullYear() : 'Now'
+  const { glowColor, foregroundColor } = coverImage?.palette ? {
+    // @ts-ignore
+    glowColor: coverImage?.palette?.vibrant?.background,
+    // @ts-ignore
+    foregroundColor: coverImage?.palette?.vibrant?.foreground,
+  } : {
+    glowColor: 'var(--accent)',
+    foregroundColor: '#fff',
+  }
 
   return (
     <>
@@ -81,9 +89,9 @@ export function ProjectPage({
                     href={site}
                   >
 
-                    <SProjectLinkButton>
+                    <SProjectLinkButtonGlow glowColor={glowColor} foregroundColor={foregroundColor} >
                       Visit Site <FaArrowCircleRight />
-                    </SProjectLinkButton>
+                    </SProjectLinkButtonGlow>
                   </Link>
                 )}
               </SProjectDetails>

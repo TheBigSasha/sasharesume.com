@@ -11,17 +11,17 @@ $secondary-color: complement($primary-color);
   --second-background-color: #{rgba(lighten($primary-color, 10%), 0.1)};
   --disabled-color: hsla(0, 100%, 77%, 0.04);
   --card-background-color: rgba(247, 247, 250, 0.89);
-  --tpcard-background-color: rgba(229, 234, 245, 0.34);
+  --tpcard-background-color: rgba(244, 244, 244, 0.34);
   --header-height: 3rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #fff;
-    --background-color: #121314;
+    --background-color: #0e0e0e;
     --second-background-color: #{rgba(darken($primary-color, 60%), 0.1)};
-    --card-background-color: #17171a;
+    --card-background-color: #191919;
     --disabled-color: hsla(330, 18%, 4%, 0.7);
-    --tpcard-background-color: rgba(41, 47, 54, 0.35);
+    --tpcard-background-color: rgba(53, 53, 53, 0.35);
   }
 }

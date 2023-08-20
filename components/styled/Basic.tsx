@@ -360,18 +360,15 @@ export const SProjectLinkButton = styled.div`
   cursor: pointer;
   transition: 0.4s ease-in-out;
   &:hover {
-    background: var(--second-background-color);
     transition: 0.4s ease-in-out;
-    border: 1px solid var(--accent);
+    scale: 1.1;
   }
   &:active {
-    background: var(--second-background-color);
     transition: 0.4s ease-in-out;
-    border: 1px solid var(--accent);
+    scale: 1.1;
   }
   gap: 0.5rem;
   width: fit-content;
-  
 `
 
 export const SSecondaryButton = styled(SProjectLinkButton)`
