@@ -361,11 +361,9 @@ export const SProjectLinkButton = styled.div`
   transition: 0.4s ease-in-out;
   &:hover {
     transition: 0.4s ease-in-out;
-    scale: 1.1;
   }
   &:active {
     transition: 0.4s ease-in-out;
-    scale: 1.1;
   }
   gap: 0.5rem;
   width: fit-content;
