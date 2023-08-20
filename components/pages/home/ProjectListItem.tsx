@@ -28,11 +28,11 @@ export function ProjectListItem(props: ProjectProps) {
   const imageComponent = width && project.usePerspective ?  <PerspectiveImage style={{height: "320px", perspective: 1000}} amount={18} flattenOnHover={true} image={ <ImageBox
     image={project.coverImage}
     alt={`Cover image from ${project.title}`}
-    classesWrapper="relative aspect-photo"
+    classesWrapper="relative aspect-photo height-320"
   />} direction={odd ? "right" : "left"}/> : <ImageBox
     image={project.coverImage}
     alt={`Cover image from ${project.title}`}
-    classesWrapper="relative aspect-photo"
+    classesWrapper="relative aspect-photo height-320"
   />;
 
   return (

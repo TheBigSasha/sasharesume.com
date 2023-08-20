@@ -62,3 +62,19 @@ export const PTblockquote = styled.blockquote`
   padding-left: 1rem;
   border-left: 0.15rem solid var(--accent);
 `;
+
+export const PTli = styled.li`
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.5rem 0;
+  font-family: var(--font-serif);
+`;
+
+export const PTul = styled.ul`
+  & > li {
+    list-style: disc;
+    font-family: var(--font-serif);
+  }
+`;
+
+export const PTol = styled.ol``;

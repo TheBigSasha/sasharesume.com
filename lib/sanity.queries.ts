@@ -38,7 +38,10 @@ export const projectBySlugQuery = groq`
   *[_type == "project" && slug.current == $slug][0] {
     _id,
     client,
-    coverImage,
+    coverImage {
+      ...,
+      "palette": asset->metadata.palette,
+    },
     description,
     duration,
     overview,
@@ -79,7 +82,14 @@ export const settingsQuery = groq`
 export const projectsByTagQuery = groq`
   *[_type == "project" && $tag in tags]{
     _type,
-     coverImage,
+    coverImage {
+      ...,
+      asset {
+          ...,
+          palette,
+        }
+      }
+    },
      overview,
      "slug": slug.current,
       tags,

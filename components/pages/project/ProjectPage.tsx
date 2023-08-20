@@ -91,6 +91,7 @@ export function ProjectPage({
               {/* Image  */}
               <ImageBox
                 image={coverImage}
+                glow
                 alt={`Cover image for ${title}`}
                 classesWrapper="relative aspect-dci contain"
               />
