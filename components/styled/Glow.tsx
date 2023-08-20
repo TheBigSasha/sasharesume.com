@@ -7,20 +7,13 @@ interface SImageGlowProps {
 }
 
 export const SImageBoxGlow = styled(SImageBox)<SImageGlowProps>`
-    // :before {
-    //     content: "";
-    //     position: absolute;
-    //     top: -2rem;
-    //     left: -2rem;
-    //     right: -2rem;
-    //     bottom: -2rem;
-    //     background: ${({ glowColor }) => glowColor};
-    //     z-index: -1;
-    //     filter: blur(10rem);
-    // }
     overflow: visible;
     `
 
 export const SImageGlow = styled(SImage)<SImageGlowProps>`
-    filter: drop-shadow(0 0 10rem ${({ glowColor }) => glowColor});
+    filter: drop-shadow(0 0 100px ${({ glowColor }) => glowColor});
+    // the translate3d is to force safari to use GPU acceleration
+    transform: translate3d(0, 0, 0); 
+
+    //TODO: multipoint glow https://unused-css.com/tools/gradient-generator
 `
