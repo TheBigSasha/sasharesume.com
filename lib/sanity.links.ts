@@ -13,6 +13,10 @@ export function resolveHref(
       return slug ? `/projects/category/${slug}` : undefined
     case 'ResumeDownload':
       return slug ? `/downloads/${slug}` : undefined
+    case 'blogPost':
+        return slug ? `/blog/post/${slug}` : undefined
+    case 'blogTag':
+        return slug ? `/blog/category/${slug}` : undefined
     default:
       console.warn('Invalid document type:', documentType)
       return undefined

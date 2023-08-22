@@ -2,6 +2,7 @@
  * This config is used to set up Sanity Studio that's mounted on the `/pages/studio/[[...index]].tsx` route
  */
 
+import { codeInput } from '@sanity/code-input'
 import { visionTool } from '@sanity/vision'
 import { apiVersion, dataset, previewSecretId, projectId } from 'lib/sanity.api'
 import { previewDocumentNode } from 'plugins/previewPane'
@@ -10,18 +11,18 @@ import { pageStructure, singletonPlugin } from 'plugins/settings'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
+import { media } from 'sanity-plugin-media'
+import blogPost from 'schemas/documents/blogPost'
 import page from 'schemas/documents/page'
 import project from 'schemas/documents/project'
 import duration from 'schemas/objects/duration'
+import hero from 'schemas/objects/hero'
+import LinkCard from 'schemas/objects/linkcard'
 import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
 import home from 'schemas/singletons/home'
-import settings from 'schemas/singletons/settings'
 import resume from 'schemas/singletons/resume'
-import hero from 'schemas/objects/hero'
-import LinkCard from 'schemas/objects/linkcard'
-import { codeInput } from '@sanity/code-input'
-import { media } from 'sanity-plugin-media'
+import settings from 'schemas/singletons/settings'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -50,6 +51,7 @@ export default defineConfig({
       duration,
       page,
       project,
+      blogPost,
       // Objects
       LinkCard,
       milestone,

@@ -110,3 +110,5 @@ export interface LinkCard {
   title: string;
   color: string;
 }
+
+export interface BlogPostPayload extends ProjectPayload {}

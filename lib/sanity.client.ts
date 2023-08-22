@@ -1,5 +1,8 @@
 import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api'
 import {
+  allBlogPostsQuery,
+  blogPostsBySlugQuery,
+  blogPostsByTagQuery,
   homePageQuery,
   homePageTitleQuery,
   pagePaths,
@@ -10,6 +13,7 @@ import {
 } from 'lib/sanity.queries'
 import { createClient } from 'next-sanity'
 import type {
+  BlogPostPayload,
   HomePagePayload,
   PagePayload,
   ProjectPayload, ResumeDownload,
@@ -104,4 +108,35 @@ export async function getPagePaths(): Promise<string[]> {
 
 export async function getDownloadsPaths(): Promise<string[]> {
   return await sanityClient()?.fetch(`*[_type == "ResumeDownload" && slug.current != null].slug.current`)
+}
+
+export async function getBlogPostsByTag({
+  tag,
+  token,
+}: {
+  tag: string
+  token?: string
+}): Promise<BlogPostPayload[] | undefined> {
+  return await sanityClient(token)?.fetch(blogPostsByTagQuery,
+    { tag }
+  )
+}
+
+
+export async function getBlogPostPaths(): Promise<string[]> {
+  return await sanityClient()?.fetch(`*[_type == "blogPost" && slug.current != null].slug.current`)
+}
+
+export async function getBlogPostBySlug({
+  slug,
+  token,
+}: {
+  slug: string
+  token?: string
+}): Promise<BlogPostPayload | undefined> {
+  return await sanityClient(token)?.fetch(blogPostsBySlugQuery, { slug })
+}
+
+export async function getAllBlogPosts({token}): Promise<BlogPostPayload[] | undefined> {
+  return await sanityClient(token)?.fetch(allBlogPostsQuery)
 }

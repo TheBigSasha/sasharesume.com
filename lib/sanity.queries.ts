@@ -34,6 +34,13 @@ export const pagesBySlugQuery = groq`
   }
 `
 
+export const blogPostsBySlugQuery = groq`
+  *[_type == "blogPost" && slug.current == $slug][0] {
+    ...,
+    "slug": slug.current,
+  }
+`
+
 export const projectBySlugQuery = groq`
   *[_type == "project" && slug.current == $slug][0] {
     _id,
@@ -66,6 +73,10 @@ export const pagePaths = groq`
   *[_type == "page" && slug.current != null].slug.current
 `
 
+export const blogPostPaths = groq`
+  *[_type == "blogPost" && slug.current != null].slug.current
+`
+
 export const settingsQuery = groq`
   *[_type == "settings"][0]{
     footer,
@@ -91,9 +102,23 @@ export const projectsByTagQuery = groq`
   }
 `
 
+export const blogPostsByTagQuery = groq`
+  *[_type == "blogPost" && $tag in tags]{
+    ...,
+    "slug": slug.current,
+  }
+`
+
 export const resumeFileBySlugQuery = groq`
   *[_type == "ResumeDownload" && slug.current == $slug][0] {
     "pdfURL": resumePDF.asset->url,
     title,
+  }
+`
+
+export const allBlogPostsQuery = groq`
+  *[_type == "blogPost"]{
+    ...,
+    "slug": slug.current,
   }
 `
