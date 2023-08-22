@@ -12,6 +12,10 @@ const IFrame = styled.iframe`
     display: block;
     background: transparent;
     background-color: transparent;
+    @media (prefers-color-scheme: light) {
+        border: 1px solid var(--gray-500);
+    }
+
 `
 
 const getHeight = (displayMode: 'fixed-sm' | 'fixed-md' | 'fixed-lg' | 'fill') => {

@@ -152,14 +152,14 @@ export const STextBoxTags = styled.div`
   overflow-x: auto;
 `
 
-//inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 mr-1 whitespace-nowrap text-ellipsis
+//inline-block bg-gray-200 rounded-full px-3 py-1 text-smtext-gray-700 mr-2 mb-2 mr-1 whitespace-nowrap text-ellipsis
 export const STag = styled.div`
   display: inline-block;
   background-color: var(--gray-200);
   border-radius: 9999px;
   padding: var(--space-1) var(--space-2);
   font-size: var(--text-xs);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-bold);
   margin-right: var(--space-1);
   margin-bottom: var(--space-1);
   white-space: nowrap;
@@ -172,7 +172,6 @@ export const STag = styled.div`
   color: var(--gray-700);
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: 800;
   &:hover {
     background-color: var(--accent);
     color: var(--white);
