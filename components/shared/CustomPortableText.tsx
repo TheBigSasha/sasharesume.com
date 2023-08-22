@@ -4,9 +4,11 @@ import { TimelineSection } from 'components/shared/TimelineSection'
 import { Image, PortableTextBlock } from 'sanity'
 
 import { SCenter, SLink } from '../styled/Basic'
-import { PTblockquote, PTh1, PTh2, PTh3, PTh4, PTImage, PTImageCaption, PTli, PTol, PTParagraph, PTul } from '../styled/PortableText'
+import { PTblockquote, PTh1, PTh2, PTh3, PTh4, PTImage, PTImageCaption, PTol, PTParagraph, PTul } from '../styled/PortableText'
 import { LinkCardRender } from '../global/LinkCard'
 import { SyntaxHighlight } from '../global/Code'
+import { EmbedRender } from 'components/global/Embed'
+
 
 export function CustomPortableText({
   paragraphClasses,
@@ -80,6 +82,9 @@ export function CustomPortableText({
       },
       LinkCard: ({ value }) => {
         return <LinkCardRender {...value} />
+      },
+      embed: ({ value }) => {
+        return <EmbedRender {...value} />
       },
       code: ({ value }) => {
         return <SCenter>

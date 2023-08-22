@@ -10,7 +10,7 @@ import { SProjectLinkButtonGlow } from "components/styled/Glow"
 import Head from "next/head"
 import Link from "next/link"
 import { FaArrowCircleRight } from "react-icons/fa"
-import { Header } from "tbsui"
+import { Header } from "components/shared/Header"
 import { BlogPostPayload, SettingsPayload } from "types"
 
 export interface BlogPostPageProps {
@@ -54,15 +54,14 @@ export function BlogPostPage({
     <>
       <Head>
         {/* TODO: switch to custom head if needed */}
-        <ProjectPageHead project={blogPost} title={homePageTitle} />
+        <ProjectPageHead project={blogPost} title={title} />
       </Head>
 
       <Layout settings={settings} preview={preview} constrainWidth>
         <div>
           <SProjectList>
             {/* Header */}
-            <Header title={title} slug={slug} />
-
+            <Header title={title} slug={slug} backButtonDestination={`/blog#${slug}`} />
             <SProjectBox>
               <SProjectDetails>
 
@@ -94,7 +93,6 @@ export function BlogPostPage({
                 alt={`Cover image for ${title}`}
                 classesWrapper="relative aspect-dci contain"
               />
-
 
             </SProjectBox>
 

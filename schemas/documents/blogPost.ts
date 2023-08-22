@@ -157,6 +157,10 @@ export default defineType({
           name: 'linkCard',
           type: 'LinkCard',
         }),
+        defineArrayMember({
+          name: 'embed',
+          type: 'Embed',
+        }),
         defineField({
           type: 'image',
           icon: ImageIcon,

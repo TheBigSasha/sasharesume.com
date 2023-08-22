@@ -87,16 +87,17 @@ const ContextWrappedPage = (props) => {
       exit: 0.2,
     },
   }
+  const isRootPath = pathname === '/' || pathname === '/blog';
   const initial =
-    pathname === '/'
+      isRootPath
       ? { translateX: '-100vw', translateZ: 0 }
       : { translateX: '100vw', translateZ: 0 }
   const animate =
-    pathname === '/'
+    isRootPath
       ? { translateX: 0, translateZ: 0, opacity: 1 }
       : { translateX: 0, translateZ: 0, opacity: 1 }
   const exit =
-    pathname === '/'
+    isRootPath
       ? { translateX: '-100vw', translateZ: 0 }
       : { translateX: '100vw', translateZ: 0 }
 
@@ -114,7 +115,7 @@ const ContextWrappedPage = (props) => {
             exit={exit}
             onAnimationStart={() => {
               const hashArg = window.location.hash
-              if (pathname !== '/' && !hashArg ) {
+              if (!isRootPath && !hashArg ) {
                   const outer = document.getElementById('outer-transition-container')
                   if (outer) {
                     outer.scrollTop = 0

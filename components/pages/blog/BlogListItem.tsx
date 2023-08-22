@@ -6,9 +6,8 @@ import type { BlogPostPayload } from 'types'
 import { useMediaQuery } from '../../../hooks/useMediaQuery'
 import { Tag } from '../../shared/Tag'
 import {
+  SBlogListItem,
   SImageWrapper,
-  SListItem,
-  STag,
   STextBox,
   STextBoxOverview,
   STextBoxTags,
@@ -30,20 +29,21 @@ export function BlogListItem(props: BlogProps) {
     alt={`Cover image from ${project.title}`}
     classesWrapper="relative aspect-photo height-320"
   />} direction={odd ? "right" : "left"}/> : <ImageBox
+    glow
     image={project.coverImage}
     alt={`Cover image from ${project.title}`}
     classesWrapper="relative aspect-photo height-320"
   />;
 
   return (
-    <SListItem odd={odd} style={{cursor: 'pointer'}}>
+    <SBlogListItem odd={odd} style={{cursor: 'pointer'}}>
       <SImageWrapper>
         {imageComponent}
       </SImageWrapper>
       <STextBoxWrapper>
         <TextBox project={project} />
       </STextBoxWrapper>
-    </SListItem>
+    </SBlogListItem>
   )
 }
 
@@ -62,7 +62,7 @@ function TextBox({ project }: { project: BlogPostPayload }) {
       {/* Tags */}
       <STextBoxTags>
         {project.tags?.map((tag, key) => (
-          <Tag key={key} tag={tag}></Tag>
+          <Tag key={key} tag={tag} tagType='blogTag'></Tag>
         ))}
       </STextBoxTags>
 

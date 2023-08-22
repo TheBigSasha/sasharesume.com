@@ -23,10 +23,11 @@ import timeline from 'schemas/objects/timeline'
 import home from 'schemas/singletons/home'
 import resume from 'schemas/singletons/resume'
 import settings from 'schemas/singletons/settings'
+import embed from 'schemas/objects/embed'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'Next.js Personal Website with Sanity.io'
+  'sasharesume'
 
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
   home.name,
@@ -56,7 +57,8 @@ export default defineConfig({
       LinkCard,
       milestone,
       timeline,
-      hero
+      hero,
+      embed
     ],
   },
   plugins: [

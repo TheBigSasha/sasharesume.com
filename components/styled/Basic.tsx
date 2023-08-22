@@ -69,6 +69,19 @@ export const SImageBox = styled.div`
   ${(props) => props.classesWrapper}
 `
 
+export const SEmbedBox = styled(SImageBox)`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+`
+
+export const SBlogListItem = styled(SListItem)`
+  @media (min-width: 1024px) {
+    height: 320px;
+  }
+`
+
 // Tailwind: absolute h-full w-full
 export const SImage = styled(Image)`
   height: 100%;
@@ -158,6 +171,8 @@ export const STag = styled.div`
   text-align: center;
   color: var(--gray-700);
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 800;
   &:hover {
     background-color: var(--accent);
     color: var(--white);
@@ -479,4 +494,21 @@ export const SResponsiveGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   gap: 2rem;
   grid-auto-rows: minmax(100px, auto);
+`
+
+export const SLeftRight = styled.div`
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-between;
+width: 100%;
+`
+
+
+export const SEmbedHeader = styled(SLeftRight)`
+margin-bottom: 0.5rem;
+& > * {
+  margin-bottom: 0;
+}
+align-items: center;
 `

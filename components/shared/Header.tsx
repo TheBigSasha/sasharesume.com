@@ -18,9 +18,10 @@ interface HeaderProps {
   title?: string
   slug?: string
   animateTitle?: boolean
+  backButtonDestination?: string
 }
 export function Header(props: HeaderProps) {
-  const { title, description, centered = false, slug = 'title' } = props
+  const { title, description, centered, backButtonDestination = false, slug = 'title' } = props
   if (!description && !title) {
     return null
   }
@@ -28,7 +29,7 @@ export function Header(props: HeaderProps) {
     <SHeaderWrapper centered={centered}>
       {/* Title */}
       {!centered && (
-        <Link href={`/#${slug}`}>
+        <Link href={backButtonDestination || `/#${slug}`}>
           <SHeaderBackButton>
             <FaChevronLeft /> Back to gallery
           </SHeaderBackButton>
