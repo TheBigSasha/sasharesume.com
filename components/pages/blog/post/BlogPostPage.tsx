@@ -90,8 +90,10 @@ export function BlogPostPage({
               <ImageBox
                 image={coverImage}
                 glow
+                width={2160}
+                height={500}
                 alt={`Cover image for ${title}`}
-                classesWrapper="relative aspect-dci contain"
+                classesWrapper="relative aspect-anamorphic cover"
               />
 
             </SProjectBox>
