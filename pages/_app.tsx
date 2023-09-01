@@ -1,6 +1,8 @@
 import 'styles/index.scss'
 import 'tbsui-ssr/dist/assets/popup-message.css'
-import 'tbsui-ssr/dist/assets/at-button.css'
+import 'tbsui-ssr/dist/assets/navmenu.css'
+import 'tbsui-ssr/dist/assets/responsive.css'
+
 
 import { EB_Garamond, JetBrains_Mono, Manrope } from '@next/font/google'
 import { Analytics } from '@vercel/analytics/react'

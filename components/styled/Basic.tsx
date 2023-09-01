@@ -14,6 +14,21 @@ export const SFooter = styled.footer`
     padding-bottom: var(--space-20);
   }
 `
+export const LogoWrapper = styled.div` 
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  align-self: center;
+  & > * {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+`
 
 // tailwind: sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-white/80 py-4 px-4 backdrop-blur md:py-5 md:px-16 lg:px-32
 export const SHeader = styled.header`
@@ -240,28 +255,16 @@ export const SLayoutBody = styled.div`
 `
 
 export const SNavHeaderWrapper = styled.span`
-  //position: relative;
-  & > header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    max-width: 100vw;
-  }
-
-  & > nav {
-    position: fixed !important;
-    height: 0 !important;
-    & > ul {
-      position: static !important;
-      top: 0;
-      left: 0;
-      height: 100vh !important;
-    }
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 9799;
 `
 
 // `${centered ? 'text-center' : 'w-5/6 lg:w-3/5'}`
 export const SHeaderWrapper = styled.div`
+  z-index: 9799;
   ${(props) => (props.centered ? 'text-align: center' : 'width: 83.333333%')};
   @media (min-width: 1024px) {
     ${(props) => (props.centered ? 'text-align: center' : 'width: 100%')};

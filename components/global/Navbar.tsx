@@ -2,11 +2,13 @@ import Link from 'next/link'
 import React from 'react'
 import { FaDotCircle, FaFilePdf, FaHome, FaMailBulk } from 'react-icons/fa'
 import styled from 'styled-components'
-import { Header, MenuItem, MenuToggle, NavMenu } from 'tbsui'
 import * as types from 'types'
-
+import { LogoWrapper } from '../styled/Basic'
+import logo from '../../public/favicon/favicon.svg'
 import { SNavHeaderWrapper } from '../styled/Basic'
 import { resolveHref } from '../../lib/sanity.links'
+import { ResponsiveNavMenu } from 'tbsui-ssr'
+import Image from 'next/image'
 
 interface NavbarProps {
   menuItems?: types.MenuItem[]
@@ -34,56 +36,24 @@ function getIcon(title: 'Contact' | 'PDF' | 'Alexander Aleshchenko' | string) {
 }
 
 export function Navbar({ menuItems, siteTitle }: NavbarProps) {
-  const items: MenuItem[] = menuItems.map((menuItem: types.MenuItem) => {
-    const { title, slug, _type } = menuItem
-
-    return {
-      name: title,
-      icon: getIcon(title),
-      internal: true,
-      url: slug ? resolveHref(_type, slug) : '/',
-    }
-  })
-
-  const linkComponent = ({
-    to,
-    children,
-  }: {
-    to: string
-    children: React.ReactNode
-  }) => {
-    return <NavLink to={to}>{children}</NavLink>
-  }
-
-  const [menuOpen, setMenuOpen] = React.useState(false)
-
   return (
     <>
       <SNavHeaderWrapper>
-        <Header
-          siteTitle={<Link href={'/'}>{siteTitle}</Link>}
-          active={true}
-          activeBackground={'var(--tpcard-background-color'}
-          leftSlot={
-            <MenuToggle
-              strokeColor={'var(--gray-700)'}
-              toggle={() => setMenuOpen(!menuOpen)}
-              isOpen={menuOpen}
-            />
-          }
-          className={'header'}
-        >
-          {/*TODO: background blur when navmenu is open*/}
-          <NavMenu
-            blur={true}
-            navItems={items}
-            menuOpen={menuOpen}
-            toggleMenu={() => {
-              setMenuOpen(!menuOpen)
-            }}
-            linkComponent={linkComponent}
-          />
-        </Header>
+        <ResponsiveNavMenu headerItemPosition='left' headerItem={<>
+          <Link href="/">
+            <LogoWrapper>
+              <Image src={logo} alt={siteTitle || 'Alexander Aleshchenko'} />
+            </LogoWrapper>
+          </Link>
+        </>} links={menuItems.map(
+          (menuItem: types.MenuItem) => (
+            {link: 
+            <Link key={menuItem.slug} href={resolveHref(menuItem._type, menuItem.slug)}>
+              {menuItem.title === 'Alexander Aleshchenko' ? 'Home' : menuItem.title} {/*TODO: improve menuItem scehma to avoid this*/}
+            </Link>
+            }
+          )
+        )}></ResponsiveNavMenu>
       </SNavHeaderWrapper>
     </>
   )
