@@ -67,6 +67,7 @@ export function BlogPostPage({
       <PopupMessage
         label="Got ideas? Share!"
         delay={10}
+        variant="INFO"
         style={{
           position: 'fixed',
           left: 'var(--space-md)',
@@ -74,8 +75,8 @@ export function BlogPostPage({
           zIndex: 9999,
         }}
       >
-        <p>
-          {`Hey there! Enjoying the read? Don't hesitate to leave a comment or share your thoughts!`}
+        <p style={{ marginBottom: 0 }}>
+          {`Hey there! Enjoying the read? Don't hesitate to post your thougts in the GitHub discussion for this project!`}
         </p>
       </PopupMessage>
       <Head>
