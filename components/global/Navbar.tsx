@@ -6,7 +6,6 @@ import logo from '../../public/favicon/favicon.svg'
 import { SNavHeaderWrapper } from '../styled/Basic'
 import { resolveHref } from '../../lib/sanity.links'
 import { ResponsiveNavMenu } from 'tbsui-ssr'
-import Image from 'next/image'
 
 interface NavbarProps {
   menuItems?: types.MenuItem[]
@@ -20,7 +19,7 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
         <ResponsiveNavMenu headerItemPosition='left' headerItem={<>
           <Link href="/">
             <LogoWrapper>
-              <Image src={logo} alt={siteTitle || 'Alexander Aleshchenko'} />
+              <img src={logo.src} alt={siteTitle} />
             </LogoWrapper>
           </Link>
         </>} links={menuItems.map(
