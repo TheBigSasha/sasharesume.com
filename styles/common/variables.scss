@@ -18,7 +18,7 @@ $secondary-color: complement($primary-color);
   --success-color: #00ff00;
   --warning-color: #ffcc00;
   --error-color: #ff0000;
-  --hover-color-navmenu: #0099ff29;
+  --hover-color-navmenu: #00000000;
   --background-blur: blur(10px);
   --font-family-label: 'Roboto', sans-serif;
   --font-sans: 'Manrope', sans-serif;
@@ -49,6 +49,6 @@ $secondary-color: complement($primary-color);
     --success-color: #00ff00;
     --warning-color: #ffcc00;
     --error-color: #ff0000;
-    --hover-color-navmenu: #0099ff29;
+    --hover-color-navmenu: #00000000;
   }
 }
