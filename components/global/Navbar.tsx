@@ -1,11 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import {
-  FaDotCircle,
-  FaFilePdf,
-  FaHome,
-  FaMailBulk,
-} from 'react-icons/fa'
+import { FaDotCircle, FaFilePdf, FaHome, FaMailBulk } from 'react-icons/fa'
 import styled from 'styled-components'
 import { Header, MenuItem, MenuToggle, NavMenu } from 'tbsui'
 import * as types from 'types'
@@ -68,7 +63,7 @@ export function Navbar({ menuItems, siteTitle }: NavbarProps) {
         <Header
           siteTitle={<Link href={'/'}>{siteTitle}</Link>}
           active={true}
-          activeBackground={"var(--tpcard-background-color"}
+          activeBackground={'var(--tpcard-background-color'}
           leftSlot={
             <MenuToggle
               strokeColor={'var(--gray-700)'}

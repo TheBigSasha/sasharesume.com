@@ -20,16 +20,18 @@ export default function ImageBox({
   height = 2000,
   size = '100vw',
   classesWrapper,
-  glow: isGlow = false
+  glow: isGlow = false,
 }: ImageBoxProps) {
   const imageUrl = image && urlForImage(image)?.url()
 
   // @ts-ignore We qurey for pallete to use this, as `"palette": asset->metadata.palette,`
-  const imagePallete = image?.palette?.dominant?.background ? [image?.palette?.dominant?.background] : ["#000000"]
-  
-  if(isGlow) {
+  const imagePallete = image?.palette?.dominant?.background
+    ? [image?.palette?.dominant?.background]
+    : ['#000000']
+
+  if (isGlow) {
     return (
-      <SImageBoxGlow className={classesWrapper}             glowColor={imagePallete[0]}      >
+      <SImageBoxGlow className={classesWrapper} glowColor={imagePallete[0]}>
         {imageUrl && (
           <SImageGlow
             alt={alt}

@@ -9,7 +9,7 @@ import { lazy } from 'react'
 import { BlogPostPayload, HomePagePayload, SettingsPayload } from 'types'
 
 const HomePagePreview = lazy(
-  () => import('components/pages/home/HomePagePreview')
+  () => import('components/pages/home/HomePagePreview'),
 )
 
 interface BlogPageProps {
@@ -36,11 +36,22 @@ export default function IndexPage(props: BlogPageProps) {
       <PreviewSuspense
         fallback={
           <PreviewWrapper>
-            <BlogPage page={page} settings={settings} preview={preview} blogPosts={blogPosts} />
+            <BlogPage
+              page={page}
+              settings={settings}
+              preview={preview}
+              blogPosts={blogPosts}
+            />
           </PreviewWrapper>
         }
       >
-        <BlogPagePreview token={token} page={page} settings={settings} preview={preview} blogPosts={blogPosts}/>
+        <BlogPagePreview
+          token={token}
+          page={page}
+          settings={settings}
+          preview={preview}
+          blogPosts={blogPosts}
+        />
       </PreviewSuspense>
     )
   }

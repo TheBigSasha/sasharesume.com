@@ -6,7 +6,7 @@ interface ContextType {
 }
 
 export const PageAnimationContext = createContext<ContextType | undefined>(
-  undefined
+  undefined,
 )
 
 export const PageAnimationProvider: React.FC<React.PropsWithChildren<{}>> = ({
@@ -25,7 +25,7 @@ export function usePageAnimation() {
   const context = useContext(PageAnimationContext)
   if (context === undefined) {
     throw new Error(
-      'usePageAnimation must be used within a pageAnimationProvider'
+      'usePageAnimation must be used within a pageAnimationProvider',
     )
   }
   return context

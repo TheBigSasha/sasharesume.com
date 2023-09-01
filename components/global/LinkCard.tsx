@@ -1,66 +1,52 @@
 import { LinkCard, LinkCardIcon } from '../../types'
-import { FaApple, FaArchive, FaDownload, FaEnvelope, FaFacebook, FaFacebookMessenger, FaGithub, FaGlobe, FaImdb, FaLinkedin, FaNpm, FaPhotoVideo, FaReddit, FaYoutube } from 'react-icons/fa'
+import {
+  FaApple,
+  FaArchive,
+  FaDownload,
+  FaEnvelope,
+  FaFacebook,
+  FaFacebookMessenger,
+  FaGithub,
+  FaGlobe,
+  FaImdb,
+  FaLinkedin,
+  FaNpm,
+  FaPhotoVideo,
+  FaReddit,
+  FaYoutube,
+} from 'react-icons/fa'
 import styled from 'styled-components'
 
 export const getLinkCardIcon = (icon: LinkCardIcon) => {
   switch (icon) {
     case 'github':
-      return (
-        <FaGithub />
-      )
+      return <FaGithub />
     case 'linkedin':
-      return (
-        <FaLinkedin />
-      )
+      return <FaLinkedin />
     case 'download':
-      return (
-        <FaDownload/>
-      )
+      return <FaDownload />
     case 'youtube':
-      return (
-        <FaYoutube />
-      )
+      return <FaYoutube />
     case 'appstore':
-      return (
-        <FaApple/>
-      )
+      return <FaApple />
     case 'facebook':
-      return (
-        <FaFacebook />
-      )
+      return <FaFacebook />
     case 'arxiv':
-      return (
-        <FaArchive />
-      )
+      return <FaArchive />
     case 'reddit':
-      return (
-        <FaReddit/>
-      )
+      return <FaReddit />
     case 'imdb':
-      return (
-        <FaImdb/>
-      )
+      return <FaImdb />
     case 'messenger':
-      return (
-        <FaFacebookMessenger/>
-      )
+      return <FaFacebookMessenger />
     case 'photo':
-      return (
-        <FaPhotoVideo/>
-      )
+      return <FaPhotoVideo />
     case 'email':
-      return (
-        <FaEnvelope />
-      )
+      return <FaEnvelope />
     case 'npm':
-      return (
-        <FaNpm/>
-      )
+      return <FaNpm />
     default:
-      return (
-        <FaGlobe />
-      )
-
+      return <FaGlobe />
   }
 }
 
@@ -72,7 +58,7 @@ const IconWrapper = styled.div`
   margin-bottom: 1rem;
 `
 
-const LinkCardContainer = styled.div<{color: string}>`
+const LinkCardContainer = styled.div<{ color: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,7 +68,7 @@ const LinkCardContainer = styled.div<{color: string}>`
   padding: 1rem;
   transition: box-shadow 0.5s ease-in-out;
   &:hover {
-    box-shadow: 0 0 5px 0 ${props => props.color};
+    box-shadow: 0 0 5px 0 ${(props) => props.color};
   }
 `
 
@@ -91,17 +77,18 @@ const CardLink = styled.a`
   color: var(--text-color);
 `
 
-export const LinkCardRender: React.FC<LinkCard> = ({icon, href, title, color}) => {
+export const LinkCardRender: React.FC<LinkCard> = ({
+  icon,
+  href,
+  title,
+  color,
+}) => {
   return (
     <CardLink href={href}>
-    <LinkCardContainer color={color || '#49757e'}>
-      <IconWrapper>
-        {getLinkCardIcon(icon)}
-      </IconWrapper>
+      <LinkCardContainer color={color || '#49757e'}>
+        <IconWrapper>{getLinkCardIcon(icon)}</IconWrapper>
         {title}
-    </LinkCardContainer>
+      </LinkCardContainer>
     </CardLink>
-
   )
-
 }

@@ -12,13 +12,17 @@ export default function BlogPostPreview({
 }: {
   token: null | string
 } & BlogPostPageProps) {
-  const projectPreview: BlogPostPayload = usePreview(token, blogPostsBySlugQuery, {
-    slug: blogPost?.slug,
-  })
+  const projectPreview: BlogPostPayload = usePreview(
+    token,
+    blogPostsBySlugQuery,
+    {
+      slug: blogPost?.slug,
+    },
+  )
 
   return (
     <BlogPostPage
-    blogPost={projectPreview}
+      blogPost={projectPreview}
       settings={settings}
       homePageTitle={homePageTitle}
       preview={true}

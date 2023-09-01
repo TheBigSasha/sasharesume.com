@@ -25,15 +25,13 @@ import resume from 'schemas/singletons/resume'
 import settings from 'schemas/singletons/settings'
 import embed from 'schemas/objects/embed'
 
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'sasharesume'
+const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'sasharesume'
 
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
   home.name,
   page.name,
   project.name,
-  resume.name
+  resume.name,
 ]
 
 export default defineConfig({
@@ -58,7 +56,7 @@ export default defineConfig({
       milestone,
       timeline,
       hero,
-      embed
+      embed,
     ],
   },
   plugins: [

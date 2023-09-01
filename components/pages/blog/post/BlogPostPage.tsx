@@ -1,18 +1,28 @@
-import { LinkCardRender } from "components/global/LinkCard"
-import ProjectPageHead from "components/pages/project/ProjectPageHead"
-import { CustomPortableText } from "components/shared/CustomPortableText"
-import ImageBox from "components/shared/ImageBox"
-import Layout from "components/shared/Layout"
-import ScrollUp from "components/shared/ScrollUp"
-import { Tag } from "components/shared/Tag"
-import { SGap, SHeaderBorder,SHLine, SHugeGap, SProjectBox, SProjectDetails, SProjectList, SResponsiveGrid, STagGroup } from "components/styled/Basic"
-import { SProjectLinkButtonGlow } from "components/styled/Glow"
-import Head from "next/head"
-import Link from "next/link"
-import { FaArrowCircleRight } from "react-icons/fa"
-import { Header } from "components/shared/Header"
-import { BlogPostPayload, SettingsPayload } from "types"
-
+import { LinkCardRender } from 'components/global/LinkCard'
+import ProjectPageHead from 'components/pages/project/ProjectPageHead'
+import { CustomPortableText } from 'components/shared/CustomPortableText'
+import { Header } from 'components/shared/Header'
+import ImageBox from 'components/shared/ImageBox'
+import Layout from 'components/shared/Layout'
+import ScrollUp from 'components/shared/ScrollUp'
+import { Tag } from 'components/shared/Tag'
+import {
+  SGap,
+  SHeaderBorder,
+  SHLine,
+  SHugeGap,
+  SProjectBox,
+  SProjectDetails,
+  SProjectList,
+  SResponsiveGrid,
+  STagGroup,
+} from 'components/styled/Basic'
+import { SProjectLinkButtonGlow } from 'components/styled/Glow'
+import Head from 'next/head'
+import Link from 'next/link'
+import { FaArrowCircleRight } from 'react-icons/fa'
+import { BlogPostPayload, SettingsPayload } from 'types'
+import { PopupMessage, AtButton } from 'tbsui-ssr'
 export interface BlogPostPageProps {
   blogPost: BlogPostPayload | undefined
   settings: SettingsPayload | undefined
@@ -21,7 +31,7 @@ export interface BlogPostPageProps {
 }
 
 export function BlogPostPage({
-    blogPost,
+  blogPost,
   settings,
   homePageTitle,
   preview,
@@ -37,21 +47,37 @@ export function BlogPostPage({
     tags,
     title,
     slug,
-    linkCards
+    linkCards,
   } = blogPost || {}
 
-  const { glowColor, foregroundColor } = coverImage?.palette ? {
-    // @ts-ignore
-    glowColor: coverImage?.palette?.vibrant?.background,
-    // @ts-ignore
-    foregroundColor: coverImage?.palette?.vibrant?.foreground,
-  } : {
-    glowColor: 'var(--accent)',
-    foregroundColor: '#fff',
-  }
+  const { glowColor, foregroundColor } = coverImage?.palette
+    ? {
+        // @ts-ignore
+        glowColor: coverImage?.palette?.vibrant?.background,
+        // @ts-ignore
+        foregroundColor: coverImage?.palette?.vibrant?.foreground,
+      }
+    : {
+        glowColor: 'var(--accent)',
+        foregroundColor: '#fff',
+      }
 
   return (
     <>
+      <PopupMessage
+        label="Got ideas? Share!"
+        delay={10}
+        style={{
+          position: 'fixed',
+          left: 'var(--space-md)',
+          bottom: 'var(--space-md)',
+          zIndex: 9999,
+        }}
+      >
+        <p>
+          {`Hey there! Enjoying the read? Don't hesitate to leave a comment or share your thoughts!`}
+        </p>
+      </PopupMessage>
       <Head>
         {/* TODO: switch to custom head if needed */}
         <ProjectPageHead project={blogPost} title={title} />
@@ -61,16 +87,17 @@ export function BlogPostPage({
         <div>
           <SProjectList>
             {/* Header */}
-            <Header title={title} slug={slug} backButtonDestination={`/blog#${slug}`} />
+            <Header
+              title={title}
+              slug={slug}
+              backButtonDestination={`/blog#${slug}`}
+            />
             <SProjectBox>
               <SProjectDetails>
-
                 {/* Tags */}
-                  <STagGroup>
-                    {tags?.map((tag, key) => (
-                      <Tag key={key} tag={tag} />
-                    ))}
-                  </STagGroup>
+                <STagGroup>
+                  {tags?.map((tag, key) => <Tag key={key} tag={tag} />)}
+                </STagGroup>
                 {/* Site */}
                 {site && (
                   <Link
@@ -78,14 +105,16 @@ export function BlogPostPage({
                     className="text-md break-words md:text-lg"
                     href={site}
                   >
-
-                    <SProjectLinkButtonGlow glowColor={glowColor} foregroundColor={foregroundColor} >
+                    <SProjectLinkButtonGlow
+                      glowColor={glowColor}
+                      foregroundColor={foregroundColor}
+                    >
                       Visit Site <FaArrowCircleRight />
                     </SProjectLinkButtonGlow>
                   </Link>
                 )}
               </SProjectDetails>
-              <SGap/>
+              <SGap />
               {/* Image  */}
               <ImageBox
                 image={coverImage}
@@ -95,10 +124,9 @@ export function BlogPostPage({
                 alt={`Cover image for ${title}`}
                 classesWrapper="relative aspect-anamorphic cover"
               />
-
             </SProjectBox>
 
-            <SHLine/>
+            <SHLine />
 
             {/* Description */}
             {description && (
@@ -110,14 +138,13 @@ export function BlogPostPage({
             {/* Links */}
             {linkCards && (
               <>
-                <SHugeGap/>
+                <SHugeGap />
                 <SResponsiveGrid>
                   {linkCards.map((card) => (
                     <LinkCardRender {...card} key={card.title} />
                   ))}
                 </SResponsiveGrid>
               </>
-
             )}
             {/* Workaround: scroll to top on route change */}
             <ScrollUp />

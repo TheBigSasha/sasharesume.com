@@ -3,10 +3,13 @@ import { notFound } from 'next/navigation'
 import { PreviewSuspense } from '@sanity/preview-kit'
 import { PreviewWrapper } from '../../components/preview/PreviewWrapper'
 import { GetStaticProps } from 'next'
-import { getDownloadsPaths, getResumeFileBySlug, getSettings } from '../../lib/sanity.client'
+import {
+  getDownloadsPaths,
+  getResumeFileBySlug,
+  getSettings,
+} from '../../lib/sanity.client'
 import { DownloadPage } from '../../components/pages/download/DownloadPage'
 import { resolveHref } from '../../lib/sanity.links'
-
 
 interface DownloadPageProps {
   download?: ResumeDownload
@@ -26,7 +29,7 @@ interface PreviewData {
 export default function DownloadSlugRoute(props: DownloadPageProps) {
   const { download, settings, token, preview } = props
 
-  if(!download && !preview) {
+  if (!download && !preview) {
     notFound()
   }
 
@@ -48,14 +51,16 @@ export default function DownloadSlugRoute(props: DownloadPageProps) {
   //     />
   //   </PreviewSuspense>
   // }
-  return <DownloadPage
-    download={download}
-    settings={settings}
-    preview={preview}
-  />
+  return (
+    <DownloadPage download={download} settings={settings} preview={preview} />
+  )
 }
 
-export const getStaticProps: GetStaticProps<DownloadPageProps, Query, PreviewData> = async (ctx) => {
+export const getStaticProps: GetStaticProps<
+  DownloadPageProps,
+  Query,
+  PreviewData
+> = async (ctx) => {
   const { preview = false, previewData = {}, params = {} } = ctx
 
   const token = previewData.token
@@ -69,7 +74,7 @@ export const getStaticProps: GetStaticProps<DownloadPageProps, Query, PreviewDat
     props: {
       download,
       settings,
-      token : token ?? null,
+      token: token ?? null,
       preview,
     },
   }

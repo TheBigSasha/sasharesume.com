@@ -3,7 +3,6 @@ import { SettingsPayload } from 'types'
 
 import { SGap, SLayout, SLayoutBody } from '../styled/Basic'
 
-
 export interface LayoutProps {
   children: React.ReactNode
   settings: SettingsPayload | undefined

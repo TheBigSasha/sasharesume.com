@@ -9,32 +9,36 @@ import { SettingsPayload, ShowcaseProject } from '../../../types'
 import PageHead from '../page/PageHead'
 
 interface ByTagPageProps {
-  projects: ShowcaseProject[];
-  settings: SettingsPayload;
-  tag: string;
-  preview: boolean;
+  projects: ShowcaseProject[]
+  settings: SettingsPayload
+  tag: string
+  preview: boolean
 }
-export function ByTagPage({ tag, settings, preview, projects }: ByTagPageProps) {
- const title = tag;
+export function ByTagPage({
+  tag,
+  settings,
+  preview,
+  projects,
+}: ByTagPageProps) {
+  const title = tag
   return (
     <>
       <Head>
-        <PageHead page={{
-          title: tag,
-          overview: [],
-        }} settings={settings}  title={tag}/>
+        <PageHead
+          page={{
+            title: tag,
+            overview: [],
+          }}
+          settings={settings}
+          title={tag}
+        />
       </Head>
 
       <Layout settings={settings} preview={preview}>
         <SSpacing>
           {/* Header */}
           {title && (
-            <Header
-              centered
-              title={title}
-              animateTitle
-              description={[]}
-            />
+            <Header centered title={title} animateTitle description={[]} />
           )}
           {/* Showcase projects */}
           {projects && projects.length > 0 && (

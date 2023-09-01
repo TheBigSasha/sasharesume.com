@@ -7,7 +7,7 @@ import { lazy } from 'react'
 import { HomePagePayload, SettingsPayload } from 'types'
 
 const HomePagePreview = lazy(
-  () => import('components/pages/home/HomePagePreview')
+  () => import('components/pages/home/HomePagePreview'),
 )
 
 interface PageProps {

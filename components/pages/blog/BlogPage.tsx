@@ -16,7 +16,12 @@ export interface BlogPageProps {
   blogPosts: BlogPostPayload[]
 }
 
-export function BlogPage({ page, settings, preview, blogPosts}: BlogPageProps) {
+export function BlogPage({
+  page,
+  settings,
+  preview,
+  blogPosts,
+}: BlogPageProps) {
   const { overview, showcaseProjects, title = 'Sasha Resume' } = page ?? {}
 
   return (

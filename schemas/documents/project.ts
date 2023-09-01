@@ -49,20 +49,20 @@ export default defineType({
                 value: 'strong',
               },
               {
-                title: "Heading 1",
-                value: "h1",
+                title: 'Heading 1',
+                value: 'h1',
               },
               {
-                title: "Heading 2",
-                value: "h2",
+                title: 'Heading 2',
+                value: 'h2',
               },
               {
-                title: "Heading 3",
-                value: "h3",
+                title: 'Heading 3',
+                value: 'h3',
               },
               {
-                title: "Heading 4",
-                value: "h4",
+                title: 'Heading 4',
+                value: 'h4',
               },
             ],
           },
@@ -131,14 +131,14 @@ export default defineType({
             ],
           },
           styles: [
-            {title: 'Normal', value: 'normal'},
-            {title: 'H1', value: 'h1'},
-            {title: 'H2', value: 'h2'},
-            {title: 'H3', value: 'h3'},
-            {title: 'H4', value: 'h4'},
-            {title: 'H5', value: 'h5'},
-            {title: 'H6', value: 'h6'},
-            {title: 'Quote', value: 'blockquote'}
+            { title: 'Normal', value: 'normal' },
+            { title: 'H1', value: 'h1' },
+            { title: 'H2', value: 'h2' },
+            { title: 'H3', value: 'h3' },
+            { title: 'H4', value: 'h4' },
+            { title: 'H5', value: 'h5' },
+            { title: 'H6', value: 'h6' },
+            { title: 'Quote', value: 'blockquote' },
           ],
         }),
         defineArrayMember({
@@ -146,7 +146,7 @@ export default defineType({
           name: 'code',
           options: {
             withFilename: true,
-          }
+          },
         }),
         // Custom blocks
         defineArrayMember({
@@ -196,15 +196,14 @@ export default defineType({
     }),
     defineField({
       type: 'array',
-      name: "linkCards",
-      title: "Link Cards",
-      description: "Cards to show at the end of the page",
-      of: [{type: 'LinkCard'}],
+      name: 'linkCards',
+      title: 'Link Cards',
+      description: 'Cards to show at the end of the page',
+      of: [{ type: 'LinkCard' }],
       options: {
         layout: 'grid',
         sortable: true,
       },
     }),
-
   ],
 })

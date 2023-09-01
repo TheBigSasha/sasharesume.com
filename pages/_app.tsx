@@ -1,20 +1,23 @@
 import 'styles/index.scss'
+import 'tbsui-ssr/dist/assets/popup-message.css'
+import 'tbsui-ssr/dist/assets/at-button.css'
 
 import { EB_Garamond, JetBrains_Mono, Manrope } from '@next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Analytics } from '@vercel/analytics/react'
+
+import { Footer } from '../components/global/Footer'
+import { Navbar } from '../components/global/Navbar'
 import {
   PageAnimationProvider,
   usePageAnimation,
 } from '../components/shared/AnimateContext'
-import { Navbar } from '../components/global/Navbar'
 import { SettingsPayload } from '../types'
-import { Footer } from '../components/global/Footer'
 
 const mono = JetBrains_Mono({
   variable: '--font-mono',
@@ -59,7 +62,6 @@ const fallbackSettings: SettingsPayload = {
   footer: [],
 }
 
-
 const ContextWrappedPage = (props) => {
   const { Component, pageProps, pathname } = props
   const { pageAnimation, setPageAnimation } = usePageAnimation()
@@ -87,25 +89,22 @@ const ContextWrappedPage = (props) => {
       exit: 0.2,
     },
   }
-  const isRootPath = pathname === '/' || pathname === '/blog';
-  const initial =
-      isRootPath
-      ? { translateX: '-100vw', translateZ: 0 }
-      : { translateX: '100vw', translateZ: 0 }
-  const animate =
-    isRootPath
-      ? { translateX: 0, translateZ: 0, opacity: 1 }
-      : { translateX: 0, translateZ: 0, opacity: 1 }
-  const exit =
-    isRootPath
-      ? { translateX: '-100vw', translateZ: 0 }
-      : { translateX: '100vw', translateZ: 0 }
+  const isRootPath = pathname === '/' || pathname === '/blog'
+  const initial = isRootPath
+    ? { translateX: '-100vw', translateZ: 0 }
+    : { translateX: '100vw', translateZ: 0 }
+  const animate = isRootPath
+    ? { translateX: 0, translateZ: 0, opacity: 1 }
+    : { translateX: 0, translateZ: 0, opacity: 1 }
+  const exit = isRootPath
+    ? { translateX: '-100vw', translateZ: 0 }
+    : { translateX: '100vw', translateZ: 0 }
 
   const settings: SettingsPayload = pageProps?.settings || fallbackSettings
 
   return (
     <>
-      <TransitionContainer id={"outer-transition-container"}>
+      <TransitionContainer id={'outer-transition-container'}>
         <AnimatePresence mode={'popLayout'}>
           <TransitionInterior
             transition={transition}
@@ -115,11 +114,13 @@ const ContextWrappedPage = (props) => {
             exit={exit}
             onAnimationStart={() => {
               const hashArg = window.location.hash
-              if (!isRootPath && !hashArg ) {
-                  const outer = document.getElementById('outer-transition-container')
-                  if (outer) {
-                    outer.scrollTop = 0
-                  }
+              if (!isRootPath && !hashArg) {
+                const outer = document.getElementById(
+                  'outer-transition-container',
+                )
+                if (outer) {
+                  outer.scrollTop = 0
+                }
               }
             }}
             id="page-transition-container"
@@ -166,7 +167,9 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-      {!router?.pathname.startsWith('/studio') && <Navbar menuItems={settings?.menuItems} siteTitle={'sasharesume'} />}
+      {!router?.pathname.startsWith('/studio') && (
+        <Navbar menuItems={settings?.menuItems} siteTitle={'sasharesume'} />
+      )}
       <PageAnimationProvider>
         <ContextWrappedPage
           Component={Component}

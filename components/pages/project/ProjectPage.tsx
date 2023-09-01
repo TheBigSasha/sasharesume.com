@@ -9,12 +9,15 @@ import type { ProjectPayload, SettingsPayload } from 'types'
 import Layout from '../../shared/Layout'
 import {
   SGap,
-  SHeaderBorder, SHLine,
+  SHeaderBorder,
+  SHLine,
   SHugeGap,
-  SProjectBox, SProjectDetails,
+  SProjectBox,
+  SProjectDetails,
   SProjectLinkButton,
-  SProjectList, SResponsiveGrid,
-  STagGroup
+  SProjectList,
+  SResponsiveGrid,
+  STagGroup,
 } from '../../styled/Basic'
 import ProjectPageHead from './ProjectPageHead'
 import { FaArrowCircleRight } from 'react-icons/fa'
@@ -47,18 +50,20 @@ export function ProjectPage({
     tags,
     title,
     slug,
-    linkCards
+    linkCards,
   } = project || {}
 
-  const { glowColor, foregroundColor } = coverImage?.palette ? {
-    // @ts-ignore
-    glowColor: coverImage?.palette?.vibrant?.background,
-    // @ts-ignore
-    foregroundColor: coverImage?.palette?.vibrant?.foreground,
-  } : {
-    glowColor: 'var(--accent)',
-    foregroundColor: '#fff',
-  }
+  const { glowColor, foregroundColor } = coverImage?.palette
+    ? {
+        // @ts-ignore
+        glowColor: coverImage?.palette?.vibrant?.background,
+        // @ts-ignore
+        foregroundColor: coverImage?.palette?.vibrant?.foreground,
+      }
+    : {
+        glowColor: 'var(--accent)',
+        foregroundColor: '#fff',
+      }
 
   return (
     <>
@@ -74,13 +79,10 @@ export function ProjectPage({
 
             <SProjectBox>
               <SProjectDetails>
-
                 {/* Tags */}
-                  <STagGroup>
-                    {tags?.map((tag, key) => (
-                      <Tag key={key} tag={tag} />
-                    ))}
-                  </STagGroup>
+                <STagGroup>
+                  {tags?.map((tag, key) => <Tag key={key} tag={tag} />)}
+                </STagGroup>
                 {/* Site */}
                 {site && (
                   <Link
@@ -88,14 +90,16 @@ export function ProjectPage({
                     className="text-md break-words md:text-lg"
                     href={site}
                   >
-
-                    <SProjectLinkButtonGlow glowColor={glowColor} foregroundColor={foregroundColor} >
+                    <SProjectLinkButtonGlow
+                      glowColor={glowColor}
+                      foregroundColor={foregroundColor}
+                    >
                       Visit Site <FaArrowCircleRight />
                     </SProjectLinkButtonGlow>
                   </Link>
                 )}
               </SProjectDetails>
-              <SGap/>
+              <SGap />
               {/* Image  */}
               <ImageBox
                 image={coverImage}
@@ -103,11 +107,9 @@ export function ProjectPage({
                 alt={`Cover image for ${title}`}
                 classesWrapper="relative aspect-dci contain"
               />
-
-
             </SProjectBox>
 
-            <SHLine/>
+            <SHLine />
 
             {/* Description */}
             {description && (
@@ -119,14 +121,13 @@ export function ProjectPage({
             {/* Links */}
             {linkCards && (
               <>
-                <SHugeGap/>
+                <SHugeGap />
                 <SResponsiveGrid>
                   {linkCards.map((card) => (
                     <LinkCardRender {...card} key={card.title} />
                   ))}
                 </SResponsiveGrid>
               </>
-
             )}
             {/* Workaround: scroll to top on route change */}
             <ScrollUp />

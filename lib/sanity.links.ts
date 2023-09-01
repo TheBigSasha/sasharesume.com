@@ -1,6 +1,6 @@
 export function resolveHref(
   documentType?: string,
-  slug?: string
+  slug?: string,
 ): string | undefined {
   switch (documentType) {
     case 'home':
@@ -14,9 +14,9 @@ export function resolveHref(
     case 'ResumeDownload':
       return slug ? `/downloads/${slug}` : undefined
     case 'blogPost':
-        return slug ? `/blog/post/${slug}` : undefined
+      return slug ? `/blog/post/${slug}` : undefined
     case 'blogTag':
-        return slug ? `/blog/category/${slug}` : undefined
+      return slug ? `/blog/category/${slug}` : undefined
     default:
       console.warn('Invalid document type:', documentType)
       return undefined

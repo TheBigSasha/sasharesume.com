@@ -21,5 +21,12 @@ export default function BlogPagePreview({
     )
   }
 
-  return <BlogPage page={home} settings={settings} preview={true} blogPosts={blogPosts} />
+  return (
+    <BlogPage
+      page={home}
+      settings={settings}
+      preview={true}
+      blogPosts={blogPosts}
+    />
+  )
 }

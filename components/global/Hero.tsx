@@ -11,7 +11,8 @@ import Link from 'next/link'
 const LRHeroWrapper = styled.div<Pick<Hero, 'layout'>>`
   width: 100%;
   height: 350px;
-  flex-direction: ${(props) => props.layout === 'right' ? 'row' : 'row-reverse' };
+  flex-direction: ${(props) =>
+    props.layout === 'right' ? 'row' : 'row-reverse'};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +28,7 @@ const LRHeroWrapper = styled.div<Pick<Hero, 'layout'>>`
 `
 
 const HeroImageContainer = styled(SImageWrapper)<Pick<Hero, 'layout'>>`
-  width: ${(props) => props.layout === 'center' ? '100%' : '50%'};
+  width: ${(props) => (props.layout === 'center' ? '100%' : '50%')};
   height: 100%;
   display: flex;
   justify-content: center;
@@ -39,7 +40,6 @@ const HeroImageContainer = styled(SImageWrapper)<Pick<Hero, 'layout'>>`
     width: 100%;
   }
 `
-
 
 const HeroBodyContainer = styled.div`
   width: 50%;
@@ -89,40 +89,41 @@ const CTALink = styled(Link)`
     right: 0;
   }
 `
-export const HeroBlock: React.FC<Hero> = ({headline,body, banner, cta,layout}) => {
+export const HeroBlock: React.FC<Hero> = ({
+  headline,
+  body,
+  banner,
+  cta,
+  layout,
+}) => {
   return (
     <OuterSpan>
       <InnerSpan>
-      <LRHeroWrapper>
-        <HeroBodyContainer>
-          <h1>{headline}</h1>
-          <CustomPortableText value={body} />
-        </HeroBodyContainer>
-        <HeroImageContainer layout={layout}>
-          <ImageBox
-            image={banner}
-            alt={banner.alt as string || "Hero Image"}
-            classesWrapper="relative aspect-photo cover nomargin"
-          />
-        </HeroImageContainer>
-
-      </LRHeroWrapper>
-      {
-        cta && cta.title && cta.href && (
+        <LRHeroWrapper>
+          <HeroBodyContainer>
+            <h1>{headline}</h1>
+            <CustomPortableText value={body} />
+          </HeroBodyContainer>
+          <HeroImageContainer layout={layout}>
+            <ImageBox
+              image={banner}
+              alt={(banner.alt as string) || 'Hero Image'}
+              classesWrapper="relative aspect-photo cover nomargin"
+            />
+          </HeroImageContainer>
+        </LRHeroWrapper>
+        {cta && cta.title && cta.href && (
           <CTALink
             target="_blank"
             className="text-md break-words md:text-lg"
             href={cta.href}
           >
-
             <SProjectLinkButton>
               {cta.title} <FaArrowCircleRight />
             </SProjectLinkButton>
           </CTALink>
-        )
-      }
+        )}
       </InnerSpan>
     </OuterSpan>
   )
-
 }

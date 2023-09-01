@@ -21,7 +21,13 @@ interface HeaderProps {
   backButtonDestination?: string
 }
 export function Header(props: HeaderProps) {
-  const { title, description, centered, backButtonDestination = false, slug = 'title' } = props
+  const {
+    title,
+    description,
+    centered,
+    backButtonDestination = false,
+    slug = 'title',
+  } = props
   if (!description && !title) {
     return null
   }

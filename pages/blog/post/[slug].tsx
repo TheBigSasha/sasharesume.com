@@ -2,7 +2,7 @@ import { PreviewSuspense } from '@sanity/preview-kit'
 import { BlogPostPage } from 'components/pages/blog/post/BlogPostPage'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import {
-    getBlogPostBySlug,
+  getBlogPostBySlug,
   getBlogPostPaths,
   getHomePageTitle,
   getSettings,
@@ -13,7 +13,7 @@ import { lazy } from 'react'
 import { BlogPostPayload, SettingsPayload } from 'types'
 
 const BlogPostPreview = lazy(
-  () => import('components/pages/blog/post/BlogPostPreview')
+  () => import('components/pages/blog/post/BlogPostPreview'),
 )
 
 interface PageProps {
@@ -92,7 +92,7 @@ export const getStaticProps: GetStaticProps<
 
   return {
     props: {
-    blogPost,
+      blogPost,
       settings,
       homePageTitle,
       preview,

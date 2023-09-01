@@ -5,7 +5,12 @@ import ScrollUp from 'components/shared/ScrollUp'
 import Head from 'next/head'
 import type { PagePayload, SettingsPayload } from 'types'
 
-import { SMidGap, SHeaderBorder, SHugeGap, SResponsiveGrid } from '../../styled/Basic'
+import {
+  SMidGap,
+  SHeaderBorder,
+  SHugeGap,
+  SResponsiveGrid,
+} from '../../styled/Basic'
 import PageHead from './PageHead'
 import { HeroBlock } from '../../global/Hero'
 import { LinkCardRender } from '../../global/LinkCard'
@@ -17,7 +22,7 @@ export interface PageProps {
   preview?: boolean
 }
 
-export function Page({ page, settings, homePageTitle, preview}: PageProps) {
+export function Page({ page, settings, homePageTitle, preview }: PageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { body, overview, title, hero, linkCards } = page || {}
 
@@ -32,9 +37,13 @@ export function Page({ page, settings, homePageTitle, preview}: PageProps) {
           <div className="mb-14">
             {/* Header */}
             <Header title={title} />
-            {hero && <> <SMidGap/>
-            <HeroBlock {...hero} />
-            </>}
+            {hero && (
+              <>
+                {' '}
+                <SMidGap />
+                <HeroBlock {...hero} />
+              </>
+            )}
             {/* Body */}
             {body && (
               <CustomPortableText
@@ -50,14 +59,13 @@ export function Page({ page, settings, homePageTitle, preview}: PageProps) {
         </div>
         {linkCards && (
           <>
-            <SHugeGap/>
+            <SHugeGap />
             <SResponsiveGrid>
               {linkCards.map((card) => (
                 <LinkCardRender {...card} key={card.title} />
               ))}
             </SResponsiveGrid>
           </>
-
         )}
       </Layout>
     </>

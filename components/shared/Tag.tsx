@@ -8,8 +8,10 @@ export interface TagProps {
   tagType?: 'tag' | 'blogTag'
 }
 
-export const Tag: React.FC<TagProps> = ({ tag, tagType = 'tag'}) => {
-  return <Link href={resolveHref(tagType, tag)}><STag>
-    {tag}
-  </STag></Link>
+export const Tag: React.FC<TagProps> = ({ tag, tagType = 'tag' }) => {
+  return (
+    <Link href={resolveHref(tagType, tag)}>
+      <STag>{tag}</STag>
+    </Link>
+  )
 }

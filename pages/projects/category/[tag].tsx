@@ -1,16 +1,15 @@
-
 import { PreviewSuspense } from '@sanity/preview-kit'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import {
   getHomePageTitle,
-   getProjectsByTag,
-  getSettings, getTagPaths
+  getProjectsByTag,
+  getSettings,
+  getTagPaths,
 } from 'lib/sanity.client'
 import { resolveHref } from 'lib/sanity.links'
 import { GetStaticProps } from 'next'
 import { SettingsPayload, ShowcaseProject } from 'types'
 import { ByTagPage } from '../../../components/pages/bytag/ByTagPage'
-
 
 interface TagPageProps {
   projects?: ShowcaseProject[]
@@ -82,7 +81,8 @@ export default function ProjectsTagRoute(props: TagPageProps) {
             projects={projects}
             settings={settings}
             tag={tag}
-            preview/>
+            preview
+          />
         </PreviewWrapper>
       </PreviewSuspense>
     )
@@ -90,12 +90,12 @@ export default function ProjectsTagRoute(props: TagPageProps) {
 
   return (
     <>
-    <ByTagPage
-      projects={projects}
-      settings={settings}
-      tag={tag}
-      preview={preview}
-    />
+      <ByTagPage
+        projects={projects}
+        settings={settings}
+        tag={tag}
+        preview={preview}
+      />
     </>
   )
 }

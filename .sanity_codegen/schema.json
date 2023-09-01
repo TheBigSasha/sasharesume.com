@@ -28,9 +28,7 @@
           "predefined": false
         },
         "fields": [],
-        "of": [
-          "Block"
-        ],
+        "of": ["Block"],
         "options": {
           "sortable": false,
           "layout": "grid"
@@ -117,9 +115,7 @@
               "predefined": false
             },
             "fields": [],
-            "to": [
-              "Document"
-            ],
+            "to": ["Document"],
             "weak": false
           },
           {

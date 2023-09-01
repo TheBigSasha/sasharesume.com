@@ -131,10 +131,10 @@ export default defineType({
     }),
     defineField({
       type: 'array',
-      name: "linkCards",
-      title: "Link Cards",
-      description: "Cards to show at the end of the page",
-      of: [{type: 'LinkCard'}],
+      name: 'linkCards',
+      title: 'Link Cards',
+      description: 'Cards to show at the end of the page',
+      of: [{ type: 'LinkCard' }],
       options: {
         layout: 'grid',
         sortable: true,
@@ -153,4 +153,3 @@ export default defineType({
     },
   },
 })
-

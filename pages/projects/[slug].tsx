@@ -13,7 +13,7 @@ import { lazy } from 'react'
 import { ProjectPayload, SettingsPayload } from 'types'
 
 const ProjectPreview = lazy(
-  () => import('components/pages/project/ProjectPreview')
+  () => import('components/pages/project/ProjectPreview'),
 )
 
 interface PageProps {

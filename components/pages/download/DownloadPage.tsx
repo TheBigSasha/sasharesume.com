@@ -1,6 +1,6 @@
 import Layout from 'components/shared/Layout'
 import Head from 'next/head'
-import type {  ResumeDownload, SettingsPayload } from 'types'
+import type { ResumeDownload, SettingsPayload } from 'types'
 
 import { LinkCardRender } from '../../global/LinkCard'
 import { Header } from '../../shared/Header'
@@ -21,7 +21,11 @@ const PDFPreview = styled.object`
   border: none;
 `
 
-export function DownloadPage({ download, settings, preview}: DownloadPageProps) {
+export function DownloadPage({
+  download,
+  settings,
+  preview,
+}: DownloadPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { pdfURL, title } = download || {}
 
@@ -32,13 +36,16 @@ export function DownloadPage({ download, settings, preview}: DownloadPageProps) 
       </Head>
       <Layout settings={settings} preview={preview} constrainWidth>
         <Header title={title} />
-        <SHugeGap/>
+        <SHugeGap />
         {/*TODO: Generify downloads*/}
-        <LinkCardRender icon={"download"} href={new URL(`${pdfURL}?dl=resume.pdf`)} title={"Download file (pdf)"} color={"rgba(150,231,98,0.3)"}/>
-        <SHugeGap/>
-        <h3>
-          Preview
-        </h3>
+        <LinkCardRender
+          icon={'download'}
+          href={new URL(`${pdfURL}?dl=resume.pdf`)}
+          title={'Download file (pdf)'}
+          color={'rgba(150,231,98,0.3)'}
+        />
+        <SHugeGap />
+        <h3>Preview</h3>
         <PDFPreview data={pdfURL} type="application/pdf">
           <code>Unable to preview PDF file </code>
         </PDFPreview>

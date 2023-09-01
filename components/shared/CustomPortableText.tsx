@@ -4,11 +4,21 @@ import { TimelineSection } from 'components/shared/TimelineSection'
 import { Image, PortableTextBlock } from 'sanity'
 
 import { SCenter, SLink } from '../styled/Basic'
-import { PTblockquote, PTh1, PTh2, PTh3, PTh4, PTImage, PTImageCaption, PTol, PTParagraph, PTul } from '../styled/PortableText'
+import {
+  PTblockquote,
+  PTh1,
+  PTh2,
+  PTh3,
+  PTh4,
+  PTImage,
+  PTImageCaption,
+  PTol,
+  PTParagraph,
+  PTul,
+} from '../styled/PortableText'
 import { LinkCardRender } from '../global/LinkCard'
 import { SyntaxHighlight } from '../global/Code'
 import { EmbedRender } from 'components/global/Embed'
-
 
 export function CustomPortableText({
   paragraphClasses,
@@ -20,7 +30,9 @@ export function CustomPortableText({
   const components: PortableTextComponents = {
     block: {
       normal: ({ children }) => {
-        return <PTParagraph className={paragraphClasses}>{children}</PTParagraph>
+        return (
+          <PTParagraph className={paragraphClasses}>{children}</PTParagraph>
+        )
       },
       h1: ({ children }) => {
         return <PTh1>{children}</PTh1>
@@ -35,10 +47,8 @@ export function CustomPortableText({
         return <PTh4>{children}</PTh4>
       },
       blockquote: ({ children }) => {
-        return (
-          <PTblockquote>{children}</PTblockquote>
-        )
-      }
+        return <PTblockquote>{children}</PTblockquote>
+      },
     },
     marks: {
       link: ({ children, value }) => {
@@ -48,12 +58,12 @@ export function CustomPortableText({
           </SLink>
         )
       },
-      ol : ({ children }) => {
+      ol: ({ children }) => {
         return <PTol>{children}</PTol>
       },
-      ul : ({ children }) => {
+      ul: ({ children }) => {
         return <PTul>{children}</PTul>
-      }
+      },
     },
     types: {
       image: ({
@@ -68,11 +78,7 @@ export function CustomPortableText({
               alt={value.alt}
               classesWrapper="relative aspect-anamorphic resp-img contain"
             />
-            {value?.caption && (
-              <PTImageCaption>
-                {value.caption}
-              </PTImageCaption>
-            )}
+            {value?.caption && <PTImageCaption>{value.caption}</PTImageCaption>}
           </PTImage>
         )
       },
@@ -87,9 +93,15 @@ export function CustomPortableText({
         return <EmbedRender {...value} />
       },
       code: ({ value }) => {
-        return <SCenter>
-          <SyntaxHighlight code={value.code} language={value.language} filename={value.filename}/>
-        </SCenter>
+        return (
+          <SCenter>
+            <SyntaxHighlight
+              code={value.code}
+              language={value.language}
+              filename={value.filename}
+            />
+          </SCenter>
+        )
       },
     },
   }

@@ -341,7 +341,6 @@ export const STags = styled.div`
   width: max-content;
 `
 
-
 export const SProjectDetails = styled.div`
   width: 100%;
   display: flex;
@@ -448,7 +447,6 @@ export const SHLine = styled.hr`
   margin-bottom: 1.5rem;
 `
 
-
 //grid grid-cols-1 divide-y divide-inherit lg:grid-cols-4 lg:divide-y-0 lg:divide-x
 export const SProjectDetailsGrid = styled.div`
   display: grid;
@@ -496,18 +494,17 @@ export const SResponsiveGrid = styled.div`
 `
 
 export const SLeftRight = styled.div`
-display: flex;
-flex-direction: row;
-flex-wrap: nowrap;
-justify-content: space-between;
-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
 `
 
-
 export const SEmbedHeader = styled(SLeftRight)`
-margin-bottom: 0.5rem;
-& > * {
-  margin-bottom: 0;
-}
-align-items: center;
+  margin-bottom: 0.5rem;
+  & > * {
+    margin-bottom: 0;
+  }
+  align-items: center;
 `
