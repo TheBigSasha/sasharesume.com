@@ -56,7 +56,7 @@ export const SHeader = styled.header`
 export const SListItem = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0;
   z-index: 5;
   border-radius: var(--rounded-md);
   padding: 0.5rem;
