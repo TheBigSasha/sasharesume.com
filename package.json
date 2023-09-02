@@ -45,7 +45,7 @@
     "styled-components": "^5.3.6",
     "suspend-react": "^0.0.9",
     "tbsui": "^0.5.2",
-    "tbsui-ssr": "^1.4.15"
+    "tbsui-ssr": "^1.4.16"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
