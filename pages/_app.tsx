@@ -142,12 +142,13 @@ export default function App({ Component, pageProps }: AppProps) {
   // only animate if coming from a page in the site
   const settings: SettingsPayload = pageProps?.settings || fallbackSettings
 
+  const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID;
   return (
     <>
       <Script
         id={'ga1'}
         strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
       />
       <Analytics />
       <Script id={'ga2'} strategy="lazyOnload">
@@ -155,7 +156,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
-                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}', {
+                    gtag('config', '${GA_TRACKING_ID}', {
                     page_path: window.location.pathname,
                     });
                 `}
