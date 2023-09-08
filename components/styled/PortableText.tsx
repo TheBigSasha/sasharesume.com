@@ -52,7 +52,7 @@ export const PTh4 = styled.h4`
 `
 
 export const PTblockquote = styled.blockquote`
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-style: italic;
   font-weight: 500;
   margin: 1rem;
