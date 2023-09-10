@@ -8,6 +8,7 @@ import { BlogPostPayload, HomePagePayload, SettingsPayload } from 'types'
 import { SShowcaseProjectWrapper, SSpacing } from '../../styled/Basic'
 import { BlogListItem } from './BlogListItem'
 import BlogPageHead from './BlogPageHead'
+import { UnderContstruction } from '../../global/UnderContstruction'
 
 export interface BlogPageProps {
   settings?: SettingsPayload
@@ -29,7 +30,6 @@ export function BlogPage({
       <Head>
         <BlogPageHead page={page} settings={settings} />
       </Head>
-
       <Layout settings={settings} preview={preview}>
         <SSpacing>
           {/* Header */}
@@ -39,6 +39,7 @@ export function BlogPage({
               title={title}
               animateTitle
               description={overview}
+              extra={<UnderContstruction />}
             />
           )}
           {/* Showcase projects */}

@@ -22,7 +22,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { FaArrowCircleRight } from 'react-icons/fa'
 import { BlogPostPayload, SettingsPayload } from 'types'
-import { PopupMessage, AtButton } from 'tbsui-ssr'
+import { DisappearingPopupMessage } from 'tbsui-ssr'
+import { UnderContstruction } from '../../../global/UnderContstruction'
 export interface BlogPostPageProps {
   blogPost: BlogPostPayload | undefined
   settings: SettingsPayload | undefined
@@ -64,7 +65,7 @@ export function BlogPostPage({
 
   return (
     <>
-      <PopupMessage
+      <DisappearingPopupMessage
         label="Got ideas? Share!"
         delay={10}
         variant="INFO"
@@ -78,7 +79,7 @@ export function BlogPostPage({
         <p style={{ marginBottom: 0 }}>
           {`Hey there! Enjoying the read? Don't hesitate to post your thougts in the GitHub discussion for this project!`}
         </p>
-      </PopupMessage>
+      </DisappearingPopupMessage>
       <Head>
         {/* TODO: switch to custom head if needed */}
         <ProjectPageHead project={blogPost} title={title} />
@@ -92,6 +93,7 @@ export function BlogPostPage({
               title={title}
               slug={slug}
               backButtonDestination={`/blog#${slug}`}
+              extra={<UnderContstruction />}
             />
             <SProjectBox>
               <SProjectDetails>
