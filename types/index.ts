@@ -1,5 +1,17 @@
 import type { Image, PortableTextBlock } from 'sanity'
 
+
+export interface ExternalMenuItem {
+  _type: "customExternalLink"
+  title: string
+  href: string
+}
+
+export interface InternalMenuItem {
+  _type: "customInternalLink"
+  slug: string
+  title: string
+}
 export interface MenuItem {
   _type: string
   slug?: string
@@ -48,6 +60,7 @@ export interface HomePagePayload {
   overview?: PortableTextBlock[]
   showcaseProjects?: ShowcaseProject[]
   title?: string
+  menuItems?: (MenuItem | ExternalMenuItem | InternalMenuItem)[]
 }
 
 export interface PagePayload {
@@ -80,7 +93,7 @@ export interface ProjectPayload {
 
 export interface SettingsPayload {
   footer?: PortableTextBlock[]
-  menuItems?: MenuItem[]
+  menuItems?: (MenuItem | ExternalMenuItem | InternalMenuItem)[]
   ogImage?: Image
 }
 

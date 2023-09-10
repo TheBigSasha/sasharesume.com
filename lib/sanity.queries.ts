@@ -15,6 +15,32 @@ export const homePageQuery = groq`
       usePerspective,
     },
     title,
+        menuItems[] {
+      ...,
+      _type == "reference" => @-> {
+        ...,
+        _type == "page" => {
+          title,
+          "slug": slug.current,
+        },
+        _type == "SculptureModelEntry" => {
+          title,
+          "slug": slug.current,
+        },
+        _type == "home" => {
+          title,
+          "slug": slug.current,
+        },
+        _type == "internalLink" => {
+          ...,
+          "slug": slug.current,
+        },
+        _type == "externalLink" => {
+          ...,
+        },
+      }
+    },
+
   }
 `
 
@@ -80,11 +106,32 @@ export const blogPostPaths = groq`
 export const settingsQuery = groq`
   *[_type == "settings"][0]{
     footer,
-    menuItems[]->{
-      _type,
-      "slug": slug.current,
-      title
+        menuItems[] {
+      ...,
+      _type == "reference" => @-> {
+        ...,
+        _type == "page" => {
+          title,
+          "slug": slug.current,
+        },
+        _type == "SculptureModelEntry" => {
+          title,
+          "slug": slug.current,
+        },
+        _type == "home" => {
+          title,
+          "slug": slug.current,
+        },
+        _type == "internalLink" => {
+          ...,
+          "slug": slug.current,
+        },
+        _type == "externalLink" => {
+          ...,
+        },
+      }
     },
+
     ogImage,
   }
 `

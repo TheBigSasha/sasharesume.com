@@ -15,9 +15,9 @@ export default defineType({
       description: 'Links displayed on the header of your site.',
       type: 'array',
       of: [
-        {
-          title: 'Reference',
-          type: 'reference',
+        defineArrayMember({
+          title: "Reference",
+          type: "reference",
           to: [
             {
               type: 'home',
@@ -32,7 +32,44 @@ export default defineType({
               type: 'ResumeDownload',
             },
           ],
-        },
+        }),
+        defineArrayMember({
+          title: "Custom Internal link",
+          type: "object",
+          name: "internalLink",
+          fields: [
+            {
+              name: "title",
+              type: "string",
+              title: "Title",
+            },
+            {
+              name: "slug",
+              type: "slug",
+              title: "Slug",
+              options: {
+                source: "title",
+              },
+            },
+          ],
+        }),
+        defineArrayMember({
+          title: "External link",
+          type: "object",
+          name: "externalLink",
+          fields: [
+            {
+              name: "title",
+              type: "string",
+              title: "Title",
+            },
+            {
+              name: "href",
+              type: "url",
+              title: "Url",
+            },
+          ],
+        }),
       ],
     }),
     defineField({

@@ -16,6 +16,69 @@ export default defineType({
       type: 'string',
       validation: (rule) => rule.required(),
     }),
+      defineField({
+      name: 'menuItems',
+      title: 'Menu Item list',
+      description: 'Links displayed on the header of your site.',
+      type: 'array',
+        of: [
+          defineArrayMember({
+            title: "Reference",
+            type: "reference",
+            to: [
+              {
+                type: 'home',
+              },
+              {
+                type: 'page',
+              },
+              {
+                type: 'project',
+              },
+              {
+                type: 'ResumeDownload',
+              },
+            ],
+          }),
+          defineArrayMember({
+            title: "Custom Internal link",
+            type: "object",
+            name: "internalLink",
+            fields: [
+              {
+                name: "title",
+                type: "string",
+                title: "Title",
+              },
+              {
+                name: "slug",
+                type: "slug",
+                title: "Slug",
+                options: {
+                  source: "title",
+                },
+              },
+            ],
+          }),
+          defineArrayMember({
+            title: "External link",
+            type: "object",
+            name: "externalLink",
+            fields: [
+              {
+                name: "title",
+                type: "string",
+                title: "Title",
+              },
+              {
+                name: "href",
+                type: "url",
+                title: "Url",
+              },
+            ],
+          }),
+        ],
+    }),
     defineField({
       name: 'overview',
       description:

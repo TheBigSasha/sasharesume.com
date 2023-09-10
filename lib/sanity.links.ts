@@ -1,24 +1,43 @@
 export function resolveHref(
   documentType?: string,
-  slug?: string,
+  slug?: string | { slug: { current: string } } | { current: string },
 ): string | undefined {
+  if (!slug) {
+    return "/"
+  }
+  let slg: string = ""
+  if (typeof slug === "string") {
+    slg = slug
+    // @ts-ignore
+  } else if (typeof slug === "object" && slug?.slug) {
+    // @ts-ignore
+    slg = slug.slug.current
+    // @ts-ignore
+  } else if (typeof slug === "object" && slug?.current) {
+    // @ts-ignore
+    slg = slug.current
+  }
+
+
   switch (documentType) {
     case 'home':
       return '/'
     case 'page':
-      return slug ? `/${slug}` : undefined
+      return slg ? `/${slg}` : undefined
     case 'project':
-      return slug ? `/projects/${slug}` : undefined
+      return slg ? `/projects/${slg}` : undefined
     case 'tag':
-      return slug ? `/projects/category/${slug}` : undefined
+      return slg ? `/projects/category/${slg}` : undefined
     case 'ResumeDownload':
-      return slug ? `/downloads/${slug}` : undefined
+      return slg ? `/downloads/${slg}` : undefined
     case 'blogPost':
-      return slug ? `/blog/post/${slug}` : undefined
+      return slg ? `/blog/post/${slg}` : undefined
     case 'blogTag':
-      return slug ? `/blog/category/${slug}` : undefined
+      return slg ? `/blog/category/${slg}` : undefined
+    case 'internalLink':
+      return slg ? `/${slg}` : undefined
     default:
       console.warn('Invalid document type:', documentType)
-      return undefined
+      return `/${slg}`
   }
 }
