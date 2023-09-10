@@ -9,6 +9,7 @@ import { SettingsPayload } from 'types'
 
 import { SShowcaseProjectWrapper, SSpacing } from '../../styled/Basic'
 import HomePageHead from './HomePageHead'
+import { HomeLinks } from './HomeLinks'
 
 export interface HomePageProps {
   settings?: SettingsPayload
@@ -17,7 +18,7 @@ export interface HomePageProps {
 }
 
 export function HomePage({ page, settings, preview }: HomePageProps) {
-  const { overview, showcaseProjects, title = 'Sasha Resume' } = page ?? {}
+  const { overview, showcaseProjects, title = 'Sasha Resume', menuItems } = page ?? {}
 
   return (
     <>
@@ -34,6 +35,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               title={title}
               animateTitle
               description={overview}
+              extra={<HomeLinks menuItems={menuItems} />}
             />
           )}
           {/* Showcase projects */}

@@ -4,7 +4,7 @@ import * as types from 'types'
 import { LogoWrapper } from '../styled/Basic'
 import logo from '../../public/favicon/favicon.svg'
 import { SNavHeaderWrapper } from '../styled/Basic'
-import { resolveHref } from '../../lib/sanity.links'
+import { resolveHref, unifyMenuItems } from '../../lib/sanity.links'
 import { ResponsiveNavMenu } from 'tbsui-ssr'
 import { ExternalMenuItem } from 'types'
 
@@ -14,29 +14,7 @@ interface NavbarProps {
 }
 
 export function Navbar({ menuItems: mnuis, siteTitle }: NavbarProps) {
-  const menuItems = mnuis.map((item) => {
-    if (item._type === "internalLink") {
-      item = item as types.MenuItem
-      return {
-        ...item,
-        //@ts-ignore we need to clean this up a lil
-        href: resolveHref("internalLink", item.slug) || "",
-      }
-    }
-    if (item._type === "externalLink") {
-      item = item as ExternalMenuItem
-      return {
-        ...item,
-        //@ts-ignore we need to clean this up a lil
-        href: item.href || "",
-      }
-    } else {
-      return {
-        ...item,
-        href: resolveHref(item._type, (item as types.MenuItem).slug || ""),
-      }
-    }
-  })
+  const menuItems = unifyMenuItems(mnuis)
 
   return (
     <>

@@ -19,6 +19,7 @@ interface HeaderProps {
   slug?: string
   animateTitle?: boolean
   backButtonDestination?: string
+  extra? : React.ReactNode
 }
 export function Header(props: HeaderProps) {
   const {
@@ -67,6 +68,7 @@ export function Header(props: HeaderProps) {
           <CustomPortableText value={description} />
         </SHeaderDescription>
       )}
+      {props.extra ? props.extra : null}
     </SHeaderWrapper>
   )
 }

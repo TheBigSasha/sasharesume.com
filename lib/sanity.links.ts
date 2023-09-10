@@ -1,3 +1,6 @@
+import * as types from '../types'
+import { ExternalMenuItem, InternalMenuItem } from '../types'
+
 export function resolveHref(
   documentType?: string,
   slug?: string | { slug: { current: string } } | { current: string },
@@ -41,3 +44,28 @@ export function resolveHref(
       return `/${slg}`
   }
 }
+
+export const unifyMenuItems = (menuItems: (InternalMenuItem | ExternalMenuItem | types.MenuItem)[]) =>
+  menuItems.map((item) => {
+    if (item._type === "internalLink") {
+      item = item as types.MenuItem
+      return {
+        ...item,
+        //@ts-ignore we need to clean this up a lil
+        href: resolveHref("internalLink", item.slug) || "",
+      }
+    }
+    if (item._type === "externalLink") {
+      item = item as ExternalMenuItem
+      return {
+        ...item,
+        //@ts-ignore we need to clean this up a lil
+        href: item.href || "",
+      }
+    } else {
+      return {
+        ...item,
+        href: resolveHref(item._type, (item as types.MenuItem).slug || ""),
+      }
+    }
+  });
