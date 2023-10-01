@@ -39,6 +39,9 @@ const HeroImageContainer = styled(SImageWrapper)<Pick<Hero, 'layout'>>`
   @media (max-width: 500px) {
     width: 100%;
   }
+  & image {
+    border-radius: var(--border-radius);
+  }
 `
 
 const HeroBodyContainer = styled.div`
@@ -107,6 +110,8 @@ export const HeroBlock: React.FC<Hero> = ({
           <HeroImageContainer layout={layout}>
             <ImageBox
               image={banner}
+              width={1920}
+              height={1440}
               alt={(banner.alt as string) || 'Hero Image'}
               classesWrapper="relative aspect-photo cover nomargin"
             />
