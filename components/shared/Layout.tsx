@@ -1,6 +1,6 @@
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import { SettingsPayload } from 'types'
-import ( NavbarCloser } from "components/global/NavbarCloser.tsx";
+import ( NavbarCloser } from "components/global/NavbarCloser";
 
 import { SGap, SLayout, SLayoutBody } from '../styled/Basic'
 
