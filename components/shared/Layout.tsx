@@ -1,5 +1,6 @@
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import { SettingsPayload } from 'types'
+import ( NavbarCloser } from "components/global/NavbarCloser.tsx";
 
 import { SGap, SLayout, SLayoutBody } from '../styled/Basic'
 
@@ -17,6 +18,7 @@ export default function Layout({
 }: LayoutProps) {
   return (
     <>
+      <NavbarCloser/>
       <SLayout constrainWidth={constrainWidth}>
         {preview && <PreviewBanner />}
         <SGap />
