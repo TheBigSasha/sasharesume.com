@@ -1,8 +1,8 @@
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import { SettingsPayload } from 'types'
-import ( NavbarCloser } from "components/global/NavbarCloser"
 
 import { SGap, SLayout, SLayoutBody } from '../styled/Basic'
+import { NavbarCloser } from '../global/NavbarCloser'
 
 export interface LayoutProps {
   children: React.ReactNode
@@ -18,7 +18,7 @@ export default function Layout({
 }: LayoutProps) {
   return (
     <>
-      <NavbarCloser/>
+      <NavbarCloser />
       <SLayout constrainWidth={constrainWidth}>
         {preview && <PreviewBanner />}
         <SGap />

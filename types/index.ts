@@ -1,14 +1,13 @@
 import type { Image, PortableTextBlock } from 'sanity'
 
-
 export interface ExternalMenuItem {
-  _type: "customExternalLink"
+  _type: 'customExternalLink'
   title: string
   href: string
 }
 
 export interface InternalMenuItem {
-  _type: "customInternalLink"
+  _type: 'customInternalLink'
   slug: string
   title: string
 }

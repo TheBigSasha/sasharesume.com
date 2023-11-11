@@ -6,21 +6,20 @@ export function resolveHref(
   slug?: string | { slug: { current: string } } | { current: string },
 ): string | undefined {
   if (!slug) {
-    return "/"
+    return '/'
   }
-  let slg: string = ""
-  if (typeof slug === "string") {
+  let slg: string = ''
+  if (typeof slug === 'string') {
     slg = slug
     // @ts-ignore
-  } else if (typeof slug === "object" && slug?.slug) {
+  } else if (typeof slug === 'object' && slug?.slug) {
     // @ts-ignore
     slg = slug.slug.current
     // @ts-ignore
-  } else if (typeof slug === "object" && slug?.current) {
+  } else if (typeof slug === 'object' && slug?.current) {
     // @ts-ignore
     slg = slug.current
   }
-
 
   switch (documentType) {
     case 'home':
@@ -45,27 +44,29 @@ export function resolveHref(
   }
 }
 
-export const unifyMenuItems = (menuItems: (InternalMenuItem | ExternalMenuItem | types.MenuItem)[]) =>
+export const unifyMenuItems = (
+  menuItems: (InternalMenuItem | ExternalMenuItem | types.MenuItem)[],
+) =>
   menuItems.map((item) => {
-    if (item._type === "internalLink") {
+    if (item._type === 'internalLink') {
       item = item as types.MenuItem
       return {
         ...item,
         //@ts-ignore we need to clean this up a lil
-        href: resolveHref("internalLink", item.slug) || "",
+        href: resolveHref('internalLink', item.slug) || '',
       }
     }
-    if (item._type === "externalLink") {
+    if (item._type === 'externalLink') {
       item = item as ExternalMenuItem
       return {
         ...item,
         //@ts-ignore we need to clean this up a lil
-        href: item.href || "",
+        href: item.href || '',
       }
     } else {
       return {
         ...item,
-        href: resolveHref(item._type, (item as types.MenuItem).slug || ""),
+        href: resolveHref(item._type, (item as types.MenuItem).slug || ''),
       }
     }
-  });
+  })

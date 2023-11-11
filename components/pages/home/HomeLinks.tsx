@@ -38,16 +38,16 @@ const HLSTag = styled(STag)`
   }
 `
 
-
 export const HomeLinks: React.FC<HomeLinksProps> = ({ menuItems: mnuis }) => {
   const menuItems = unifyMenuItems(mnuis)
 
   return (
     <HomeLinkContainer>
-      {menuItems.map((item) => <Link key={item.href} href={item.href}>
+      {menuItems.map((item) => (
+        <Link key={item.href} href={item.href}>
           <HLSTag>{item.title}</HLSTag>
         </Link>
-      )}
+      ))}
     </HomeLinkContainer>
   )
 }

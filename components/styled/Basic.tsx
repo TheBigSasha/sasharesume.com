@@ -14,7 +14,7 @@ export const SFooter = styled.footer`
     padding-bottom: var(--space-20);
   }
 `
-export const LogoWrapper = styled.div` 
+export const LogoWrapper = styled.div`
   width: 1.5rem;
   height: 1.5rem;
   display: flex;

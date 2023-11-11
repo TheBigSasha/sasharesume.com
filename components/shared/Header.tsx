@@ -19,7 +19,7 @@ interface HeaderProps {
   slug?: string
   animateTitle?: boolean
   backButtonDestination?: string
-  extra? : React.ReactNode
+  extra?: React.ReactNode
 }
 export function Header(props: HeaderProps) {
   const {

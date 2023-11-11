@@ -16,8 +16,8 @@ export default defineType({
       type: 'array',
       of: [
         defineArrayMember({
-          title: "Reference",
-          type: "reference",
+          title: 'Reference',
+          type: 'reference',
           to: [
             {
               type: 'home',
@@ -34,39 +34,39 @@ export default defineType({
           ],
         }),
         defineArrayMember({
-          title: "Custom Internal link",
-          type: "object",
-          name: "internalLink",
+          title: 'Custom Internal link',
+          type: 'object',
+          name: 'internalLink',
           fields: [
             {
-              name: "title",
-              type: "string",
-              title: "Title",
+              name: 'title',
+              type: 'string',
+              title: 'Title',
             },
             {
-              name: "slug",
-              type: "slug",
-              title: "Slug",
+              name: 'slug',
+              type: 'slug',
+              title: 'Slug',
               options: {
-                source: "title",
+                source: 'title',
               },
             },
           ],
         }),
         defineArrayMember({
-          title: "External link",
-          type: "object",
-          name: "externalLink",
+          title: 'External link',
+          type: 'object',
+          name: 'externalLink',
           fields: [
             {
-              name: "title",
-              type: "string",
-              title: "Title",
+              name: 'title',
+              type: 'string',
+              title: 'Title',
             },
             {
-              name: "href",
-              type: "url",
-              title: "Url",
+              name: 'href',
+              type: 'url',
+              title: 'Url',
             },
           ],
         }),

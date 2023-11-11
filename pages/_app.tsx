@@ -3,8 +3,12 @@ import 'tbsui-ssr/dist/assets/popup-message.css'
 import 'tbsui-ssr/dist/assets/navmenu.css'
 import 'tbsui-ssr/dist/assets/responsive.css'
 
-
-import { EB_Garamond, JetBrains_Mono, Manrope } from '@next/font/google'
+import {
+  EB_Garamond,
+  Ibarra_Real_Nova,
+  JetBrains_Mono,
+  Manrope,
+} from '@next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { AppProps } from 'next/app'
@@ -33,7 +37,7 @@ const sans = Manrope({
   weight: ['300', '500', '700', '800'],
 })
 
-const serif = EB_Garamond({
+const serif = Ibarra_Real_Nova({
   variable: '--font-serif',
   style: ['normal', 'italic'],
   subsets: ['latin'],
@@ -142,7 +146,7 @@ export default function App({ Component, pageProps }: AppProps) {
   // only animate if coming from a page in the site
   const settings: SettingsPayload = pageProps?.settings || fallbackSettings
 
-  const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID;
+  const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
   return (
     <>
       <Script
