@@ -26,6 +26,7 @@ const HomeLinkContainer = styled.div`
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
   animation-delay: 0.6s;
+  overflow-x: auto;
 `
 
 const HLSTag = styled(STag)`
