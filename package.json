@@ -24,6 +24,7 @@
     "@sanity/vision": "^3.2.1",
     "@vercel/analytics": "^1.0.1",
     "@vercel/og": "^0.0.21",
+    "@vercel/speed-insights": "^1.0.10",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
     "framer-motion": "^10.12.16",

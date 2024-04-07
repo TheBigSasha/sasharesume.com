@@ -2,6 +2,7 @@ import 'styles/index.scss'
 import 'tbsui-ssr/dist/assets/popup-message.css'
 import 'tbsui-ssr/dist/assets/navmenu.css'
 import 'tbsui-ssr/dist/assets/responsive.css'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import {
   EB_Garamond,
@@ -149,6 +150,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
   return (
     <>
+    <SpeedInsights/>
       <Script
         id={'ga1'}
         strategy="lazyOnload"
