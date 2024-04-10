@@ -14,8 +14,8 @@ export interface DownloadPageProps {
 }
 
 const PDFPreview = styled.object`
-  width: 100%;
-  max-width: 1200px;
+  width: 100vw;
+  max-width: min(1200px, 100%);
   height: 100vh;
   aspect-ratio: 9/16;
   border: none;
