@@ -1,12 +1,9 @@
 import Link from 'next/link'
-import React from 'react'
-import * as types from 'types'
-import { LogoWrapper } from '../styled/Basic'
-import logo from '../../public/favicon/favicon.svg'
-import { SNavHeaderWrapper } from '../styled/Basic'
-import { resolveHref, unifyMenuItems } from '../../lib/sanity.links'
 import { ResponsiveNavMenu } from 'tbsui-ssr'
-import { ExternalMenuItem } from 'types'
+import * as types from 'types'
+import { unifyMenuItems } from '../../lib/sanity.links'
+import logo from '../../public/favicon/favicon.svg'
+import { LogoWrapper, SNavHeaderWrapper } from '../styled/Basic'
 
 interface NavbarProps {
   menuItems?: types.MenuItem[]
@@ -15,6 +12,15 @@ interface NavbarProps {
 
 export function Navbar({ menuItems: mnuis, siteTitle }: NavbarProps) {
   const menuItems = unifyMenuItems(mnuis)
+  console.log('MENU ITEMS LOADED')
+  console.dir(menuItems)
+  function getStyle(indent) {
+    if (indent && indent > 0) {
+      return {
+        marginLeft: `${indent}em`,
+      }
+    }
+  }
 
   return (
     <>
@@ -30,13 +36,21 @@ export function Navbar({ menuItems: mnuis, siteTitle }: NavbarProps) {
               </Link>
             </>
           }
-          links={menuItems.map((item, index) => {
-            const href = item.slug
+          links={menuItems.map((item) => {
+            if (item.menuItems && item._type === 'linkSet') {
+              return {
+                category: item.title || 'Category',
+              }
+            }
             return {
               link: (
                 //@ts-ignore we know by logical elimination that this is either a MenuItem or an ExternalMenuItem and one of those has a slug or href
-                <Link key={item.slug} href={item.href}>
-                  {item.title === 'Alexander Aleshchenko' ? 'Home' : item.title}{' '}
+                <Link
+                  key={item.slug}
+                  href={item.href}
+                  style={getStyle(item.__unifierIndent)}
+                >
+                  {item.title === 'Alexander Aleshchenko' ? 'Home' : item.title}
                   {/*TODO: improve menuItem scehma to avoid this*/}
                 </Link>
               ),

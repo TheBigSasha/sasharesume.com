@@ -4,6 +4,7 @@ export const homePageQuery = groq`
   *[_type == "home"][0]{
     _id,
     footer,
+    hero,
     overview,
     showcaseProjects[]->{
       _type,
@@ -15,7 +16,7 @@ export const homePageQuery = groq`
       usePerspective,
     },
     title,
-        menuItems[] {
+    menuItems[] {
       ...,
       _type == "reference" => @-> {
         ...,
@@ -38,7 +39,7 @@ export const homePageQuery = groq`
         _type == "externalLink" => {
           ...,
         },
-      }
+      },
     },
 
   }
@@ -108,6 +109,10 @@ export const settingsQuery = groq`
     footer,
         menuItems[] {
       ...,
+      _type == "linkSet" => {
+        "slug": slug.current,
+        ...,
+      },
       _type == "reference" => @-> {
         ...,
         _type == "page" => {

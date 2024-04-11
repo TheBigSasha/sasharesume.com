@@ -1,6 +1,64 @@
 import { CogIcon } from '@sanity/icons'
+import { title } from 'lib/demo.data'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
+const links = [
+  defineArrayMember({
+    title: 'Reference',
+    type: 'reference',
+    to: [
+      {
+        type: 'home',
+      },
+      {
+        type: 'page',
+      },
+      {
+        type: 'project',
+      },
+      {
+        type: 'ResumeDownload',
+      },
+    ],
+  }),
+  defineArrayMember({
+    title: 'Custom Internal link',
+    type: 'object',
+    name: 'internalLink',
+    fields: [
+      {
+        name: 'title',
+        type: 'string',
+        title: 'Title',
+      },
+      {
+        name: 'slug',
+        type: 'slug',
+        title: 'Slug',
+        options: {
+          source: 'title',
+        },
+      },
+    ],
+  }),
+  defineArrayMember({
+    title: 'External link',
+    type: 'object',
+    name: 'externalLink',
+    fields: [
+      {
+        name: 'title',
+        type: 'string',
+        title: 'Title',
+      },
+      {
+        name: 'href',
+        type: 'url',
+        title: 'Url',
+      },
+    ],
+  }),
+]
 export default defineType({
   name: 'settings',
   title: 'Settings',
@@ -10,66 +68,41 @@ export default defineType({
   // liveEdit: true,
   fields: [
     defineField({
+      name: 'siteTitle',
+      title: 'Site Title',
+      type: 'string',
+    }),
+    defineField({
       name: 'menuItems',
       title: 'Menu Item list',
       description: 'Links displayed on the header of your site.',
       type: 'array',
       of: [
         defineArrayMember({
-          title: 'Reference',
-          type: 'reference',
-          to: [
-            {
-              type: 'home',
-            },
-            {
-              type: 'page',
-            },
-            {
-              type: 'project',
-            },
-            {
-              type: 'ResumeDownload',
-            },
-          ],
-        }),
-        defineArrayMember({
-          title: 'Custom Internal link',
           type: 'object',
-          name: 'internalLink',
+          title: 'Link Set',
+          name: 'linkSet',
           fields: [
-            {
+            defineField({
               name: 'title',
+              title: 'title',
               type: 'string',
-              title: 'Title',
-            },
-            {
+            }),
+            defineField({
+              //TODO: for now menu item sets only allow a custom internal link
               name: 'slug',
-              type: 'slug',
-              title: 'Slug',
-              options: {
-                source: 'title',
-              },
-            },
-          ],
-        }),
-        defineArrayMember({
-          title: 'External link',
-          type: 'object',
-          name: 'externalLink',
-          fields: [
-            {
-              name: 'title',
+              title: 'slug',
               type: 'string',
-              title: 'Title',
-            },
-            {
-              name: 'href',
-              type: 'url',
-              title: 'Url',
-            },
+            }),
+            defineField({
+              name: 'menuItems',
+              title: 'Menu Item SubList',
+              type: 'array',
+              of: links,
+            }),
           ],
         }),
+        ...links,
       ],
     }),
     defineField({

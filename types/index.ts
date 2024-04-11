@@ -15,6 +15,7 @@ export interface MenuItem {
   _type: string
   slug?: string
   title?: string
+  menuItems?: MenuItem[]
 }
 
 export interface MilestoneItem {
@@ -60,6 +61,7 @@ export interface HomePagePayload {
   showcaseProjects?: ShowcaseProject[]
   title?: string
   menuItems?: (MenuItem | ExternalMenuItem | InternalMenuItem)[]
+  hero?: Hero
 }
 
 export interface PagePayload {
@@ -94,6 +96,7 @@ export interface SettingsPayload {
   footer?: PortableTextBlock[]
   menuItems?: (MenuItem | ExternalMenuItem | InternalMenuItem)[]
   ogImage?: Image
+  siteTitle?: string
 }
 
 /*

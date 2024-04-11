@@ -3,7 +3,7 @@ import { ExternalMenuItem, InternalMenuItem } from '../types'
 
 export function resolveHref(
   documentType?: string,
-  slug?: string | { slug: { current: string } } | { current: string },
+  slug?: string | { slug: { current: string } } | { current: string }
 ): string | undefined {
   if (!slug) {
     return '/'
@@ -46,9 +46,25 @@ export function resolveHref(
 
 export const unifyMenuItems = (
   menuItems: (InternalMenuItem | ExternalMenuItem | types.MenuItem)[],
-) =>
-  menuItems.map((item) => {
-    if (item._type === 'internalLink') {
+  indent = 0
+) => {
+  var menuItemsFlattened = []
+  if (!menuItems) {
+    return []
+  }
+  for (var index in menuItems) {
+    const item = menuItems[index]
+    menuItemsFlattened.push({ ...item, __unifierIndent: indent })
+    if (item['menuItems'] != undefined && item._type === 'linkSet') {
+      const itm = item as types.MenuItem
+      const innerMenuItems = unifyMenuItems(itm.menuItems, indent + 1)
+      for (var innerItem of innerMenuItems) {
+        menuItemsFlattened.push(innerItem)
+      }
+    }
+  }
+  menuItemsFlattened = menuItemsFlattened.map((item) => {
+    if (item._type === 'internalLink' || item._type === 'linkSet') {
       item = item as types.MenuItem
       return {
         ...item,
@@ -66,7 +82,10 @@ export const unifyMenuItems = (
     } else {
       return {
         ...item,
-        href: resolveHref(item._type, (item as types.MenuItem).slug || ''),
+        href:
+          resolveHref(item._type, (item as types.MenuItem).slug || '') || '',
       }
     }
   })
+  return menuItemsFlattened
+}

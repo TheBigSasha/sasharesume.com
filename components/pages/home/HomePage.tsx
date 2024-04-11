@@ -1,3 +1,4 @@
+import { HeroBlock } from 'components/global/Hero'
 import { ProjectListItem } from 'components/pages/home/ProjectListItem'
 import { Header } from 'components/shared/Header'
 import Layout from 'components/shared/Layout'
@@ -7,9 +8,9 @@ import Link from 'next/link'
 import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
-import { SShowcaseProjectWrapper, SSpacing } from '../../styled/Basic'
-import HomePageHead from './HomePageHead'
+import { SMidGap, SShowcaseProjectWrapper, SSpacing } from '../../styled/Basic'
 import { HomeLinks } from './HomeLinks'
+import HomePageHead from './HomePageHead'
 
 export interface HomePageProps {
   settings?: SettingsPayload
@@ -23,6 +24,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
     showcaseProjects,
     title = 'Sasha Resume',
     menuItems,
+    hero,
   } = page ?? {}
 
   return (
@@ -34,6 +36,12 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
       <Layout settings={settings} preview={preview}>
         <SSpacing>
           {/* Header */}
+          {hero && (
+            <>
+              <SMidGap />
+              <HeroBlock {...hero} />
+            </>
+          )}
           {title && (
             <Header
               centered

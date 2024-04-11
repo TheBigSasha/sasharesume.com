@@ -5,15 +5,15 @@ import ScrollUp from 'components/shared/ScrollUp'
 import Head from 'next/head'
 import type { PagePayload, SettingsPayload } from 'types'
 
+import { HeroBlock } from '../../global/Hero'
+import { LinkCardRender } from '../../global/LinkCard'
 import {
-  SMidGap,
   SHeaderBorder,
   SHugeGap,
+  SMidGap,
   SResponsiveGrid,
 } from '../../styled/Basic'
 import PageHead from './PageHead'
-import { HeroBlock } from '../../global/Hero'
-import { LinkCardRender } from '../../global/LinkCard'
 
 export interface PageProps {
   page: PagePayload | undefined
@@ -39,7 +39,6 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
             <Header title={title} />
             {hero && (
               <>
-                {' '}
                 <SMidGap />
                 <HeroBlock {...hero} />
               </>

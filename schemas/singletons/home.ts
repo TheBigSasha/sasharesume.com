@@ -134,6 +134,16 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      type: 'Hero',
+      name: 'hero',
+      title: 'Hero',
+      description: 'The hero banner for the page.',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    }),
   ],
   preview: {
     select: {

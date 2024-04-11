@@ -13,7 +13,7 @@ import { lazy } from 'react'
 import { BlogPostPayload, SettingsPayload } from 'types'
 
 const BlogPostPreview = lazy(
-  () => import('components/pages/blog/post/BlogPostPreview'),
+  () => import('components/pages/blog/post/BlogPostPreview')
 )
 
 interface PageProps {

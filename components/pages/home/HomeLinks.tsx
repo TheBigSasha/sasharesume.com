@@ -1,8 +1,8 @@
-import { ExternalMenuItem, InternalMenuItem, MenuItem } from '../../../types'
-import { unifyMenuItems } from '../../../lib/sanity.links'
-import styled from 'styled-components'
-import Link from 'next/link'
 import { STag } from 'components/styled/Basic'
+import Link from 'next/link'
+import styled from 'styled-components'
+import { unifyMenuItems } from '../../../lib/sanity.links'
+import { ExternalMenuItem, InternalMenuItem, MenuItem } from '../../../types'
 
 interface HomeLinksProps {
   menuItems: (ExternalMenuItem | MenuItem | InternalMenuItem)[]
@@ -45,9 +45,9 @@ export const HomeLinks: React.FC<HomeLinksProps> = ({ menuItems: mnuis }) => {
   return (
     <HomeLinkContainer>
       {menuItems.map((item) => (
-        <Link key={item.href} href={item.href}>
-          <HLSTag>{item.title}</HLSTag>
-        </Link>
+        // <Link key={item.href || ''} href={item.href}>
+        <HLSTag key={item.title}>{item.title}</HLSTag>
+        // </Links>
       ))}
     </HomeLinkContainer>
   )
