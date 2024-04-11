@@ -28,9 +28,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
 
   return (
     <>
-      <Head>
-        <PageHead page={page} settings={settings} title={homePageTitle} />
-      </Head>
+      <PageHead page={page} settings={settings} title={homePageTitle} />
 
       <Layout settings={settings} preview={preview}>
         <div>

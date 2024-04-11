@@ -42,6 +42,26 @@ const links = [
     ],
   }),
   defineArrayMember({
+    title: 'Tag link',
+    type: 'object',
+    name: 'tagLink',
+    fields: [
+      {
+        name: 'title',
+        type: 'string',
+        title: 'Title',
+      },
+      {
+        name: 'tag',
+        type: 'string',
+        title: 'Tag',
+        options: {
+          source: 'title',
+        },
+      },
+    ],
+  }),
+  defineArrayMember({
     title: 'External link',
     type: 'object',
     name: 'externalLink',

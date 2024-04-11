@@ -73,6 +73,14 @@ export const unifyMenuItems = (
         href: resolveHref('internalLink', item.slug) || '',
       }
     }
+    if (item._type === 'tagLink') {
+      item = item as types.TagLinkMenuItem
+      return {
+        ...item,
+        //@ts-ignore we need to clean this up a lil
+        href: resolveHref('tag', item.tag) || '',
+      }
+    }
     if (item._type === 'externalLink') {
       item = item as ExternalMenuItem
       return {

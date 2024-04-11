@@ -29,9 +29,7 @@ export function WorksPage({ page, settings, preview }: WorksPageProps) {
 
   return (
     <>
-      <Head>
-        <HomePageHead page={page} settings={settings} />
-      </Head>
+      <HomePageHead page={page} settings={settings} />
 
       <Layout settings={settings} preview={preview}>
         <SSpacing>

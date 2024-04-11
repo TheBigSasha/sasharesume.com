@@ -27,9 +27,7 @@ export function BlogPage({
 
   return (
     <>
-      <Head>
-        <BlogPageHead page={page} settings={settings} />
-      </Head>
+      <BlogPageHead page={page} settings={settings} />
       <Layout settings={settings} preview={preview}>
         <SSpacing>
           {/* Header */}

@@ -4,11 +4,12 @@ import {
   getHomePageTitle,
   getProjectsByTag,
   getSettings,
+  getTagDetailsByTag,
   getTagPaths,
 } from 'lib/sanity.client'
 import { resolveHref } from 'lib/sanity.links'
 import { GetStaticProps } from 'next'
-import { SettingsPayload, ShowcaseProject } from 'types'
+import { SettingsPayload, ShowcaseProject, TagDetails } from 'types'
 import { ByTagPage } from '../../../components/pages/bytag/ByTagPage'
 
 interface TagPageProps {
@@ -18,6 +19,7 @@ interface TagPageProps {
   preview: boolean
   token: string | null
   tag: string
+  tagDetails?: TagDetails
 }
 
 interface Query {
@@ -37,11 +39,18 @@ export const getStaticProps: GetStaticProps<
 
   const token = previewData.token
 
-  const [settings, projects, homePageTitle] = await Promise.all([
+  const [settings, projects, homePageTitle, tagDetails] = await Promise.all([
     getSettings({ token }),
     getProjectsByTag({ token, tag: params.tag }),
     getHomePageTitle({ token }),
+    getTagDetailsByTag({ token, tag: params.tag }),
   ])
+
+  console.log(
+    tagDetails
+      ? `GOT TD FOR TAG ${params.tag} ${tagDetails.title}`
+      : `NO TD FOR TAG ${params.tag}`
+  )
 
   if (!projects) {
     return {
@@ -57,6 +66,7 @@ export const getStaticProps: GetStaticProps<
       preview,
       token: previewData.token ?? null,
       tag: params.tag,
+      tagDetails,
     },
   }
 }
@@ -71,7 +81,7 @@ export const getStaticPaths = async () => {
 }
 
 export default function ProjectsTagRoute(props: TagPageProps) {
-  const { projects, settings, homePageTitle, preview, token, tag } = props
+  const { projects, settings, preview, tag, tagDetails } = props
 
   if (preview) {
     return (
@@ -80,6 +90,7 @@ export default function ProjectsTagRoute(props: TagPageProps) {
           <ByTagPage
             projects={projects}
             settings={settings}
+            tagDetails={tagDetails}
             tag={tag}
             preview
           />
@@ -94,6 +105,7 @@ export default function ProjectsTagRoute(props: TagPageProps) {
         projects={projects}
         settings={settings}
         tag={tag}
+        tagDetails={tagDetails}
         preview={preview}
       />
     </>

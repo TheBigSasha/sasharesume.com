@@ -5,7 +5,7 @@ import { Header } from '../../shared/Header'
 import { resolveHref } from '../../../lib/sanity.links'
 import Link from 'next/link'
 import { ProjectListItem } from '../home/ProjectListItem'
-import { SettingsPayload, ShowcaseProject } from '../../../types'
+import { SettingsPayload, ShowcaseProject, TagDetails } from '../../../types'
 import PageHead from '../page/PageHead'
 
 interface ByTagPageProps {
@@ -13,32 +13,37 @@ interface ByTagPageProps {
   settings: SettingsPayload
   tag: string
   preview: boolean
+  tagDetails?: TagDetails
 }
 export function ByTagPage({
   tag,
   settings,
   preview,
   projects,
+  tagDetails,
 }: ByTagPageProps) {
-  const title = tag
+  const title = tagDetails?.title || tag
   return (
     <>
-      <Head>
-        <PageHead
-          page={{
-            title: tag,
-            overview: [],
-          }}
-          settings={settings}
-          title={tag}
-        />
-      </Head>
+      <PageHead
+        page={{
+          title: title,
+          overview: tagDetails?.overview || [],
+        }}
+        settings={settings}
+        title={title}
+      />
 
       <Layout settings={settings} preview={preview}>
         <SSpacing>
           {/* Header */}
           {title && (
-            <Header centered title={title} animateTitle description={[]} />
+            <Header
+              centered
+              title={title}
+              animateTitle
+              description={tagDetails?.overview || []}
+            />
           )}
           {/* Showcase projects */}
           {projects && projects.length > 0 && (

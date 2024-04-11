@@ -9,13 +9,14 @@ import { previewDocumentNode } from 'plugins/previewPane'
 import { productionUrl } from 'plugins/productionUrl'
 import { pageStructure, singletonPlugin } from 'plugins/settings'
 import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import { media } from 'sanity-plugin-media'
+import { deskTool } from 'sanity/desk'
 import blogPost from 'schemas/documents/blogPost'
 import page from 'schemas/documents/page'
 import project from 'schemas/documents/project'
 import duration from 'schemas/objects/duration'
+import embed from 'schemas/objects/embed'
 import hero from 'schemas/objects/hero'
 import LinkCard from 'schemas/objects/linkcard'
 import milestone from 'schemas/objects/milestone'
@@ -23,7 +24,7 @@ import timeline from 'schemas/objects/timeline'
 import home from 'schemas/singletons/home'
 import resume from 'schemas/singletons/resume'
 import settings from 'schemas/singletons/settings'
-import embed from 'schemas/objects/embed'
+import tagDetails from 'schemas/documents/tagDescription'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'sasharesume'
 
@@ -51,6 +52,7 @@ export default defineConfig({
       page,
       project,
       blogPost,
+      tagDetails,
       // Objects
       LinkCard,
       milestone,
