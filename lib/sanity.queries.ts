@@ -146,12 +146,13 @@ export const projectsByTagQuery = groq`
   *[_type == "project" && $tag in tags]{
     _type,
     coverImage,
-     overview,
-     "slug": slug.current,
-      tags,
-      title,
-      usePerspective,
-  }
+    overview,
+      duration,
+    "slug": slug.current,
+    tags,
+    title,
+    usePerspective,
+  } | order(duration.start desc, title asc)
 `
 
 export const blogPostsByTagQuery = groq`
