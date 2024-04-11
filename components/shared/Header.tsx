@@ -36,7 +36,7 @@ export function Header(props: HeaderProps) {
     <SHeaderWrapper centered={centered}>
       {/* Title */}
       {!centered && (
-        <Link href={backButtonDestination || `/#${slug}`}>
+        <Link href={backButtonDestination || `/works/#${slug}`}>
           <SHeaderBackButton>
             <FaChevronLeft /> Back to gallery
           </SHeaderBackButton>
