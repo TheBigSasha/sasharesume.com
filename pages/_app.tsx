@@ -97,7 +97,8 @@ const ContextWrappedPage = (props) => {
       exit: 0.2,
     },
   }
-  const isRootPath = pathname === '/' || pathname === '/blog'
+  const isRootPath =
+    pathname === '/' || pathname === '/blog' || pathname.contains('works')
   const initial = isRootPath
     ? { translateX: '-100vw', translateZ: 0 }
     : { translateX: '100vw', translateZ: 0 }
