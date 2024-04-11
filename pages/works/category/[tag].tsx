@@ -46,12 +46,6 @@ export const getStaticProps: GetStaticProps<
     getTagDetailsByTag({ token, tag: params.tag }),
   ])
 
-  console.log(
-    tagDetails
-      ? `GOT TD FOR TAG ${params.tag} ${tagDetails.title}`
-      : `NO TD FOR TAG ${params.tag}`
-  )
-
   if (!projects) {
     return {
       notFound: true,
