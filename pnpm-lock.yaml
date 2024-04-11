@@ -102,8 +102,8 @@ dependencies:
     specifier: ^0.5.2
     version: 0.5.2(@babel/core@7.21.8)(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(framer-motion@10.12.16)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)(stylis@4.3.0)(webpack@5.88.2)
   tbsui-ssr:
-    specifier: ^1.8.0
-    version: 1.8.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.8.4
+    version: 1.8.4(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@types/react':
@@ -7719,8 +7719,8 @@ packages:
       readable-stream: 3.6.2
     dev: false
 
-  /tbsui-ssr@1.8.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Mjxkg9KI7eUcCpJQ85V7UX8FRYFb3LtjY3IB6KgtMgVaHGGMI9kbItSX8KniJlJ4obr5ykA9sGvAy+9v9rLtpA==}
+  /tbsui-ssr@1.8.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-MKkjMU+VGdp+xl1q8N2FcoBu+nuyAEnRcUym8EHhB3vI+PVBvJ3uMZsA9EWoTJq0waxU7z67n4CTgVhQHFbF9Q==}
     engines: {node: '18'}
     peerDependencies:
       react: 18.2.0

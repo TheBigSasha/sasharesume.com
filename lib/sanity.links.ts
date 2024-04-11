@@ -27,9 +27,9 @@ export function resolveHref(
     case 'page':
       return slg ? `/${slg}` : undefined
     case 'project':
-      return slg ? `/projects/${slg}` : undefined
+      return slg ? `/works/${slg}` : undefined
     case 'tag':
-      return slg ? `/projects/category/${slg}` : undefined
+      return slg ? `/works/category/${slg}` : undefined
     case 'ResumeDownload':
       return slg ? `/downloads/${slg}` : undefined
     case 'blogPost':
@@ -54,13 +54,14 @@ export const unifyMenuItems = (
   }
   for (var index in menuItems) {
     const item = menuItems[index]
-    menuItemsFlattened.push({ ...item, __unifierIndent: indent })
     if (item['menuItems'] != undefined && item._type === 'linkSet') {
-      const itm = item as types.MenuItem
-      const innerMenuItems = unifyMenuItems(itm.menuItems, indent + 1)
-      for (var innerItem of innerMenuItems) {
-        menuItemsFlattened.push(innerItem)
+      const itm = {
+        ...(item as types.MenuItem),
+        menuItems: unifyMenuItems(item.menuItems, indent + 1),
       }
+      menuItemsFlattened.push({ ...itm, __unifierIndent: indent })
+    } else {
+      menuItemsFlattened.push({ ...item, __unifierIndent: indent })
     }
   }
   menuItemsFlattened = menuItemsFlattened.map((item) => {

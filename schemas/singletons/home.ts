@@ -135,13 +135,12 @@ export default defineType({
       ],
     }),
     defineField({
-      type: 'Hero',
-      name: 'hero',
-      title: 'Hero',
-      description: 'The hero banner for the page.',
+      type: 'image',
+      name: 'image',
+      title: 'Image',
+      description: 'The cover image for the page',
       options: {
-        collapsible: true,
-        collapsed: true,
+        hotspot: true,
       },
     }),
   ],

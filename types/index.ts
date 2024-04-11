@@ -61,7 +61,7 @@ export interface HomePagePayload {
   showcaseProjects?: ShowcaseProject[]
   title?: string
   menuItems?: (MenuItem | ExternalMenuItem | InternalMenuItem)[]
-  hero?: Hero
+  image?: Image
 }
 
 export interface PagePayload {

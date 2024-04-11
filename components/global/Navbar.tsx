@@ -12,15 +12,6 @@ interface NavbarProps {
 
 export function Navbar({ menuItems: mnuis, siteTitle }: NavbarProps) {
   const menuItems = unifyMenuItems(mnuis)
-  console.log('MENU ITEMS LOADED')
-  console.dir(menuItems)
-  function getStyle(indent) {
-    if (indent && indent > 0) {
-      return {
-        marginLeft: `${indent}em`,
-      }
-    }
-  }
 
   return (
     <>
@@ -39,17 +30,34 @@ export function Navbar({ menuItems: mnuis, siteTitle }: NavbarProps) {
           links={menuItems.map((item) => {
             if (item.menuItems && item._type === 'linkSet') {
               return {
-                category: item.title || 'Category',
+                title: (
+                  //@ts-ignore we know by logical elimination that this is either a MenuItem or an ExternalMenuItem and one of those has a slug or href
+                  <Link key={item.slug} href={item.href}>
+                    {item.title === 'Alexander Aleshchenko'
+                      ? 'Home'
+                      : item.title}
+                    {/*TODO: improve menuItem scehma to avoid this*/}
+                  </Link>
+                ),
+                elements: item.menuItems.map((itm) => {
+                  //@ts-ignore we know by logical elimination that this is either a MenuItem or an ExternalMenuItem and one of those has a slug or href
+                  return {
+                    link: (
+                      <Link key={itm.slug} href={itm.href}>
+                        {itm.title === 'Alexander Aleshchenko'
+                          ? 'Home'
+                          : itm.title}
+                        {/*TODO: improve menuItem scehma to avoid this*/}
+                      </Link>
+                    ),
+                  }
+                }),
               }
             }
             return {
               link: (
                 //@ts-ignore we know by logical elimination that this is either a MenuItem or an ExternalMenuItem and one of those has a slug or href
-                <Link
-                  key={item.slug}
-                  href={item.href}
-                  style={getStyle(item.__unifierIndent)}
-                >
+                <Link key={item.slug} href={item.href}>
                   {item.title === 'Alexander Aleshchenko' ? 'Home' : item.title}
                   {/*TODO: improve menuItem scehma to avoid this*/}
                 </Link>
