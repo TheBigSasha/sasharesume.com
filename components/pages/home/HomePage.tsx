@@ -11,6 +11,7 @@ import { SettingsPayload } from 'types'
 import styled from 'styled-components'
 
 import {
+  SHugeGap,
   SImage,
   SImageWrapper,
   SMidGap,
@@ -69,6 +70,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
             />
           )}
         </SSpacing>
+        <SHugeGap />
       </Layout>
     </>
   )
