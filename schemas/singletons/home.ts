@@ -134,6 +134,15 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      type: 'image',
+      name: 'image',
+      title: 'Image',
+      description: 'The cover image for the page',
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
   preview: {
     select: {

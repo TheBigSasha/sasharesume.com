@@ -80,10 +80,8 @@ export function BlogPostPage({
           {`Hey there! Enjoying the read? Don't hesitate to post your thougts in the GitHub discussion for this project!`}
         </p>
       </DisappearingPopupMessage>
-      <Head>
-        {/* TODO: switch to custom head if needed */}
-        <ProjectPageHead project={blogPost} title={title} />
-      </Head>
+      {/* TODO: switch to custom head if needed */}
+      <ProjectPageHead project={blogPost} title={title} />
 
       <Layout settings={settings} preview={preview} constrainWidth>
         <div>
@@ -99,7 +97,9 @@ export function BlogPostPage({
               <SProjectDetails>
                 {/* Tags */}
                 <STagGroup>
-                  {tags?.map((tag, key) => <Tag key={key} tag={tag} />)}
+                  {tags?.map((tag, key) => (
+                    <Tag key={key} tag={tag} />
+                  ))}
                 </STagGroup>
                 {/* Site */}
                 {site && (

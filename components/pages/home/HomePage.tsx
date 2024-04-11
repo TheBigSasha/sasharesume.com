@@ -1,15 +1,24 @@
 import { ProjectListItem } from 'components/pages/home/ProjectListItem'
 import { Header } from 'components/shared/Header'
+import ImageBox from 'components/shared/ImageBox'
 import Layout from 'components/shared/Layout'
+import { PTImage } from 'components/styled/PortableText'
 import { resolveHref } from 'lib/sanity.links'
 import Head from 'next/head'
 import Link from 'next/link'
 import type { HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
+import styled from 'styled-components'
 
-import { SShowcaseProjectWrapper, SSpacing } from '../../styled/Basic'
-import HomePageHead from './HomePageHead'
+import {
+  SImage,
+  SImageWrapper,
+  SMidGap,
+  SShowcaseProjectWrapper,
+  SSpacing,
+} from '../../styled/Basic'
 import { HomeLinks } from './HomeLinks'
+import HomePageHead from './HomePageHead'
 
 export interface HomePageProps {
   settings?: SettingsPayload
@@ -17,21 +26,37 @@ export interface HomePageProps {
   preview?: boolean
 }
 
+const HPImage = styled(PTImage)`
+  & > img {
+    border-radius: var(--border-radius);
+  }
+`
+
 export function HomePage({ page, settings, preview }: HomePageProps) {
   const {
     overview,
     showcaseProjects,
     title = 'Sasha Resume',
     menuItems,
+    image,
   } = page ?? {}
 
   return (
     <>
-      <Head>
-        <HomePageHead page={page} settings={settings} />
-      </Head>
+      <HomePageHead page={page} settings={settings} />
 
       <Layout settings={settings} preview={preview}>
+        {image && (
+          <>
+            <HPImage>
+              <ImageBox
+                image={image}
+                classesWrapper="relative aspect-anamorphic resp-img contain rounded-default"
+              />
+            </HPImage>
+            <SMidGap />
+          </>
+        )}
         <SSpacing>
           {/* Header */}
           {title && (
@@ -42,31 +67,6 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               description={overview}
               extra={<HomeLinks menuItems={menuItems} />}
             />
-          )}
-          {/* Showcase projects */}
-          {showcaseProjects && showcaseProjects.length > 0 && (
-            <SShowcaseProjectWrapper>
-              {showcaseProjects.map((project, key) => {
-                if (!project) {
-                  return null
-                }
-                const href = resolveHref(project._type, project.slug)
-                if (!href) {
-                  return null
-                }
-                return (
-                  <Link
-                    replace
-                    key={key}
-                    href={`${href}`}
-                    id={`${project.slug}`}
-                    scroll={false}
-                  >
-                    <ProjectListItem project={project} odd={key % 2} />
-                  </Link>
-                )
-              })}
-            </SShowcaseProjectWrapper>
           )}
         </SSpacing>
       </Layout>

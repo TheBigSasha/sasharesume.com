@@ -1,38 +1,35 @@
+import { HeroBlock } from 'components/global/Hero'
+import { ProjectListItem } from 'components/pages/home/ProjectListItem'
+import { Header } from 'components/shared/Header'
+import Layout from 'components/shared/Layout'
+import { resolveHref } from 'lib/sanity.links'
 import Head from 'next/head'
-import Layout from '../../shared/Layout'
-import { SShowcaseProjectWrapper, SSpacing } from '../../styled/Basic'
-import { Header } from '../../shared/Header'
-import { resolveHref } from '../../../lib/sanity.links'
 import Link from 'next/link'
-import { ProjectListItem } from '../home/ProjectListItem'
-import { SettingsPayload, ShowcaseProject, TagDetails } from '../../../types'
-import PageHead from '../page/PageHead'
+import type { HomePagePayload } from 'types'
+import { SettingsPayload } from 'types'
 
-interface ByTagPageProps {
-  projects: ShowcaseProject[]
-  settings: SettingsPayload
-  tag: string
-  preview: boolean
-  tagDetails?: TagDetails
+import { SMidGap, SShowcaseProjectWrapper, SSpacing } from '../../styled/Basic'
+import { HomeLinks } from '../home/HomeLinks'
+import HomePageHead from '../home/HomePageHead'
+
+export interface WorksPageProps {
+  settings?: SettingsPayload
+  page?: HomePagePayload
+  preview?: boolean
 }
-export function ByTagPage({
-  tag,
-  settings,
-  preview,
-  projects,
-  tagDetails,
-}: ByTagPageProps) {
-  const title = tagDetails?.title || tag
+
+export function WorksPage({ page, settings, preview }: WorksPageProps) {
+  const {
+    overview,
+    showcaseProjects,
+    title = 'Works',
+    menuItems,
+    image,
+  } = page ?? {}
+
   return (
     <>
-      <PageHead
-        page={{
-          title: title,
-          overview: tagDetails?.overview || [],
-        }}
-        settings={settings}
-        title={title}
-      />
+      <HomePageHead page={page} settings={settings} />
 
       <Layout settings={settings} preview={preview}>
         <SSpacing>
@@ -40,15 +37,15 @@ export function ByTagPage({
           {title && (
             <Header
               centered
-              title={title}
+              title={`${title}`}
               animateTitle
-              description={tagDetails?.overview || []}
+              description={overview}
             />
           )}
           {/* Showcase projects */}
-          {projects && projects.length > 0 && (
+          {showcaseProjects && showcaseProjects.length > 0 && (
             <SShowcaseProjectWrapper>
-              {projects.map((project, key) => {
+              {showcaseProjects.map((project, key) => {
                 if (!project) {
                   return null
                 }

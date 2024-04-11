@@ -12,6 +12,7 @@ import {
   projectsByTagQuery,
   resumeFileBySlugQuery,
   settingsQuery,
+  TAGDETAILS_BY_TAG_QUERY,
   tagPaths,
 } from 'lib/sanity.queries'
 import { createClient } from 'next-sanity'
@@ -23,6 +24,7 @@ import type {
   ResumeDownload,
   SettingsPayload,
   ShowcaseProject,
+  TagDetails,
 } from 'types'
 
 /**
@@ -111,7 +113,7 @@ export async function getPagePaths(): Promise<string[]> {
 
 export async function getDownloadsPaths(): Promise<string[]> {
   return await sanityClient()?.fetch(
-    `*[_type == "ResumeDownload" && slug.current != null].slug.current`,
+    `*[_type == "ResumeDownload" && slug.current != null].slug.current`
   )
 }
 
@@ -127,7 +129,7 @@ export async function getBlogPostsByTag({
 
 export async function getBlogPostPaths(): Promise<string[]> {
   return await sanityClient()?.fetch(
-    `*[_type == "blogPost" && slug.current != null].slug.current`,
+    `*[_type == "blogPost" && slug.current != null].slug.current`
   )
 }
 
@@ -145,4 +147,14 @@ export async function getAllBlogPosts({
   token,
 }): Promise<BlogPostPayload[] | undefined> {
   return await sanityClient(token)?.fetch(allBlogPostsQuery)
+}
+
+export async function getTagDetailsByTag({
+  tag,
+  token,
+}: {
+  tag: string
+  token?: string
+}): Promise<TagDetails | undefined> {
+  return await sanityClient(token)?.fetch(TAGDETAILS_BY_TAG_QUERY, { tag })
 }

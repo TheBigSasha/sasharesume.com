@@ -13,10 +13,10 @@ export default function ProjectPageHead({
 }: ProjectPageHeadProps) {
   return (
     <SiteMeta
-      baseTitle={title}
+      baseTitle={title || 'Alexander'}
       description={project?.overview ? toPlainText(project.overview) : ''}
       image={project?.coverImage}
-      title={project?.title}
+      title={project?.title || 'Alexander Aleshchenko'}
     />
   )
 }

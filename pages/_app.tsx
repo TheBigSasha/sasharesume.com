@@ -2,11 +2,12 @@ import 'styles/index.scss'
 import 'tbsui-ssr/dist/assets/popup-message.css'
 import 'tbsui-ssr/dist/assets/navmenu.css'
 import 'tbsui-ssr/dist/assets/responsive.css'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import {
   EB_Garamond,
   Ibarra_Real_Nova,
+  Inter,
   JetBrains_Mono,
   Manrope,
 } from '@next/font/google'
@@ -38,9 +39,9 @@ const sans = Manrope({
   weight: ['300', '500', '700', '800'],
 })
 
-const serif = Ibarra_Real_Nova({
+const serif = Inter({
   variable: '--font-serif',
-  style: ['normal', 'italic'],
+  style: ['normal'],
   subsets: ['latin'],
   weight: ['500', '700'],
 })
@@ -123,7 +124,7 @@ const ContextWrappedPage = (props) => {
               const hashArg = window.location.hash
               if (!isRootPath && !hashArg) {
                 const outer = document.getElementById(
-                  'outer-transition-container',
+                  'outer-transition-container'
                 )
                 if (outer) {
                   outer.scrollTop = 0
@@ -150,7 +151,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
   return (
     <>
-    <SpeedInsights/>
+      <SpeedInsights />
       <Script
         id={'ga1'}
         strategy="lazyOnload"
@@ -177,7 +178,10 @@ export default function App({ Component, pageProps }: AppProps) {
         `}
       </style>
       {!router?.pathname.startsWith('/studio') && (
-        <Navbar menuItems={settings?.menuItems} siteTitle={'sasharesume'} />
+        <Navbar
+          menuItems={settings?.menuItems}
+          siteTitle={settings?.siteTitle}
+        />
       )}
       <PageAnimationProvider>
         <ContextWrappedPage

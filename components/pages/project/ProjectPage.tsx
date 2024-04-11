@@ -67,9 +67,7 @@ export function ProjectPage({
 
   return (
     <>
-      <Head>
-        <ProjectPageHead project={project} title={homePageTitle} />
-      </Head>
+      <ProjectPageHead project={project} title={homePageTitle} />
 
       <Layout settings={settings} preview={preview} constrainWidth>
         <div>
@@ -81,7 +79,9 @@ export function ProjectPage({
               <SProjectDetails>
                 {/* Tags */}
                 <STagGroup>
-                  {tags?.map((tag, key) => <Tag key={key} tag={tag} />)}
+                  {tags?.map((tag, key) => (
+                    <Tag key={key} tag={tag} />
+                  ))}
                 </STagGroup>
                 {/* Site */}
                 {site && (
