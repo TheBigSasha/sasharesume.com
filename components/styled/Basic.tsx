@@ -459,17 +459,19 @@ export const SProjectDetailsGrid = styled.div`
   grid-template-columns: 1fr;
   border-top: 0.5px solid var(--gray-300);
   background: none;
-  @media (min-width: 1024px) {
+  margin-top: 0;
+  @media (min-width: 700px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-top: 0;
+    margin-top: unset;
     // border-right: 1px solid var(--gray-300);
     & > * + * {
       border-left: 0.5px solid var(--gray-300);
     }
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 699px) {
     & > * + * {
       border-top: 1px solid var(--gray-300);
     }
