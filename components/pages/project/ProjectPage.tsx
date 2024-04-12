@@ -74,7 +74,6 @@ export function ProjectPage({
           <SProjectList>
             {/* Header */}
             <Header title={title} slug={slug} />
-
             <SProjectBox>
               <SProjectDetails>
                 {/* Tags */}

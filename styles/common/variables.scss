@@ -11,9 +11,10 @@ $secondary-color: complement($primary-color);
   --second-background-color: #{rgba(lighten($primary-color, 10%), 0.1)};
   --disabled-color: hsla(0, 100%, 77%, 0.04);
   --card-background-color: rgba(247, 247, 250, 0.89);
-  --tpcard-background-color: rgba(244, 244, 244, 0.34);
+  --tpcard-background-color: rgba(244, 244, 244, 0.98);
   --header-height: 3rem;
-  --navmenu-background-color: #{rgba(lighten($primary-color, 90%), 0.7)};
+  --navmenu-background-color: rgba(255, 255, 255, 0.7);
+  --navmenu-background-color-collapsed: rgba(244, 244, 244, 0.4);
   --info-color: #21f7ec;
   --success-color: #00ff00;
   --warning-color: #ffcc00;
@@ -35,7 +36,6 @@ $secondary-color: complement($primary-color);
   --space-sm: 0.5rem;
   --navmenu-nestsize: var(--space-md);
   --navmenu-dropdown-padding: var(--space-sm);
-
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,6 +49,7 @@ $secondary-color: complement($primary-color);
     --background-3d-color: rgb(0, 0, 0);
     --info-color: #21f7ec;
     --navmenu-background-color: #{rgba(darken($primary-color, 90%), 0.7)};
+    --navmenu-background-color-collapsed: rgba(0,0,0,0);
     --success-color: #00ff00;
     --warning-color: #ffcc00;
     --error-color: #ff0000;
