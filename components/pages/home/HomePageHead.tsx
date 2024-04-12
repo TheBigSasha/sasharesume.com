@@ -10,7 +10,7 @@ export interface HomePageHeadProps {
 export default function HomePageHead({ settings, page }: HomePageHeadProps) {
   return (
     <SiteMeta
-      description={page?.overview ? toPlainText(page.overview) : settings.ogDescription || ""}
+      description={ settings.ogDescription || page?.overview ? toPlainText(page.overview) : ""}
       image={settings?.ogImage}
       title={page?.title}
     />
