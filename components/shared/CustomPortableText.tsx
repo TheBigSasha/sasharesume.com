@@ -89,6 +89,9 @@ export function CustomPortableText({
       LinkCard: ({ value }) => {
         return <LinkCardRender {...value} />
       },
+      linkCard: ({ value }) => {
+        return <LinkCardRender {...value} />
+      },
       embed: ({ value }) => {
         return <EmbedRender {...value} />
       },

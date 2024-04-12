@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { STag } from '../styled/Basic'
-import React from 'react'
 import { resolveHref } from 'lib/sanity.links'
+import Link from 'next/link'
+import React from 'react'
+import { STag } from '../styled/Basic'
 
 export interface TagProps {
   tag: string

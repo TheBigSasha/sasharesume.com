@@ -1,7 +1,7 @@
 import { urlForImage } from 'lib/sanity.image'
 
-import { SImage, SImageBox } from '../styled/Basic'
 import { SImageBoxGlow, SImageGlow } from 'components/styled/Glow'
+import { SImage, SImageBox } from '../styled/Basic'
 
 interface ImageBoxProps {
   image?: { asset?: any }
@@ -26,8 +26,8 @@ export default function ImageBox({
 
   // @ts-ignore We qurey for pallete to use this, as `"palette": asset->metadata.palette,`
   const imagePallete = image?.palette?.dominant?.background
-    //@ts-ignore
-    ? [image?.palette?.dominant?.background]
+    ? //@ts-ignore
+      [image?.palette?.dominant?.background]
     : ['#000000']
 
   if (isGlow) {

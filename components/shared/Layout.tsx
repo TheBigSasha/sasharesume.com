@@ -1,8 +1,8 @@
 import { PreviewBanner } from 'components/preview/PreviewBanner'
 import { SettingsPayload } from 'types'
 
-import { SGap, SLayout, SLayoutBody } from '../styled/Basic'
 import { NavbarCloser } from '../global/NavbarCloser'
+import { SGap, SLayout, SLayoutBody } from '../styled/Basic'
 
 export interface LayoutProps {
   children: React.ReactNode
