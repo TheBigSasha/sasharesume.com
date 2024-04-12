@@ -12,7 +12,7 @@ export default function PageHead({ title, page, settings }: PageHeadProps) {
   return (
     <SiteMeta
       baseTitle={title}
-      description={page?.overview ? toPlainText(page.overview) : ''}
+      description={page?.overview ? toPlainText(page.overview) : (settings.ogDescription || '')}
       image={settings?.ogImage}
       title={page?.title}
     />

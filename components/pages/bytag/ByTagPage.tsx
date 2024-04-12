@@ -39,10 +39,10 @@ export function ByTagPage({
           {/* Header */}
           {title && (
             <Header
-              centered
               title={title}
               animateTitle
               description={tagDetails?.overview || []}
+              backButtonDestination={"/works"}
             />
           )}
           {/* Showcase projects */}
