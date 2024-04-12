@@ -30,7 +30,8 @@ export default function DownloadSlugRoute(props: DownloadPageProps) {
   const { download, settings, token, preview } = props
 
   if (!download && !preview) {
-    notFound()
+//    notFound()
+      return <div/>
   }
 
   // if (preview) {
