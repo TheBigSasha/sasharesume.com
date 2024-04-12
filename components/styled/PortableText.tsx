@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const PTImage = styled.div`
   margin: 0 auto;
+  margin-bottom: 1rem;
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
