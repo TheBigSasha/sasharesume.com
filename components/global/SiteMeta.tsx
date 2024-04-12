@@ -1,4 +1,3 @@
-import * as demo from 'lib/demo.data'
 import { urlForImage } from 'lib/sanity.image'
 import type { Image } from 'sanity'
 import Head from 'next/head'
