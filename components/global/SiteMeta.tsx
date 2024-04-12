@@ -56,10 +56,7 @@ export const SiteMeta = ({
       {description && (
         <>
           <meta key="description" name="description" content={description} />
-          <meta
-            property="og:description"
-            content={description}
-          />
+          <meta property="og:description" content={description} />
         </>
       )}
       {imageUrl && (
