@@ -32,7 +32,7 @@ export function DownloadPage({
   return (
     <>
       <Head>
-        <title>sasharesume | Download {title}</title>
+        <title>Download {title}</title>
       </Head>
       <Layout settings={settings} preview={preview} constrainWidth>
         <Header backHidden title={title} />
