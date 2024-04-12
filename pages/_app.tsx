@@ -6,19 +6,12 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { Inter, JetBrains_Mono, Manrope } from '@next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import { AnimatePresence, motion } from 'framer-motion'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 
 import { Footer } from '../components/global/Footer'
 import { Navbar } from '../components/global/Navbar'
-import {
-  PageAnimationProvider,
-  usePageAnimation,
-} from '../components/shared/AnimateContext'
 import { SettingsPayload } from '../types'
 
 const mono = JetBrains_Mono({
@@ -40,34 +33,9 @@ const serif = Inter({
   weight: ['500', '700'],
 })
 
-// The job of this is to allow the child to translate in and out of the page
-const TransitionContainer = styled.body`
-  position: relative;
-  width: 100vw;
-  overflow-x: hidden;
-  max-width: 100vw;
-  margin: 0;
-  padding: 0;
-`
-
-const TransitionInterior = styled(motion.main)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-`
-
 const fallbackSettings: SettingsPayload = {
   menuItems: [],
   footer: [],
-}
-
-const rootPaths = ['/', '/blog', '/works', '/works/category']
-
-function deterimineIsRootPath(pathname: string) {
-  return rootPaths.includes(pathname) || pathname.startsWith('/works/category')
 }
 
 const ContextWrappedPage = (props) => {
