@@ -66,7 +66,6 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               title={title}
               animateTitle
               description={overview}
-              extra={<HomeLinks menuItems={menuItems} />}
             />
           )}
         </SSpacing>

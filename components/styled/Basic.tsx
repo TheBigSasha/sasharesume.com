@@ -53,7 +53,7 @@ export const SHeader = styled.header`
 // Tailwind: `flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
 //         odd && 'border-t border-b xl:flex-row-reverse'
 //       }`
-export const SListItem = styled(motion.div)<{odd: boolean}>`
+export const SListItem = styled(motion.div) <{ odd: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -75,7 +75,7 @@ export const SListItem = styled(motion.div)<{odd: boolean}>`
 `
 
 // Tailwind: w-full overflow-hidden rounded-[3px] bg-gray-50 ${classesWrapper}
-export const SImageBox = styled.div<{classesWrapper?: any}>`
+export const SImageBox = styled.div<{ classesWrapper?: any }>`
   width: 100%;
   overflow: hidden;
   border-radius: var(--rounded-md);
@@ -218,12 +218,12 @@ export const SSpacing = styled.div`
 `
 
 // flex min-h-screen flex-col bg-white text-black
-export const SLayout = styled.div<{constrainWidth: boolean}>`
+export const SLayout = styled.div<{ constrainWidth: boolean }>`
   display: flex;
   min-height: 100vh;
   max-width: 100vw;
   flex-direction: column;
-  ${(props) => (props.constrainWidth ? 'max-width: 1100px' : '')};
+  ${(props) => (props.constrainWidth ? 'max-width: 1200px' : '')};
   margin: auto;
   justify-self: center;
   align-self: center;
@@ -266,7 +266,7 @@ export const SNavHeaderWrapper = styled.span`
 `
 
 // `${centered ? 'text-center' : 'w-5/6 lg:w-3/5'}`
-export const SHeaderWrapper = styled.div<{centered: boolean}>`
+export const SHeaderWrapper = styled.div<{ centered: boolean }>`
   z-index: 9799;
   ${(props) => (props.centered ? 'text-align: center' : 'width: 83.333333%')};
   @media (min-width: 1024px) {
