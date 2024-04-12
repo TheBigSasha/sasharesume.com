@@ -15,6 +15,8 @@ import {
   SProjectBox,
   SProjectDetails,
   SProjectLinkButton,
+  SProjectDetailsGrid,
+  SProjectDetailsGridBox,
   SProjectList,
   SResponsiveGrid,
   STagGroup,
@@ -55,15 +57,18 @@ export function ProjectPage({
 
   const { glowColor, foregroundColor } = coverImage?.palette
     ? {
-        // @ts-ignore
-        glowColor: coverImage?.palette?.vibrant?.background,
-        // @ts-ignore
-        foregroundColor: coverImage?.palette?.vibrant?.foreground,
-      }
+      // @ts-ignore
+      glowColor: coverImage?.palette?.vibrant?.background,
+      // @ts-ignore
+      foregroundColor: coverImage?.palette?.vibrant?.foreground,
+    }
     : {
-        glowColor: 'var(--accent)',
-        foregroundColor: '#fff',
-      }
+      glowColor: 'var(--accent)',
+      foregroundColor: '#fff',
+    }
+
+  const startYear = new Date(duration?.start).getFullYear()
+  const endYear = duration?.end ? new Date(duration?.end).getFullYear() : 'Now'
 
   return (
     <>
@@ -106,34 +111,46 @@ export function ProjectPage({
                 alt={`Cover image for ${title}`}
                 classesWrapper="relative aspect-dci contain"
               />
-            </SProjectBox>
+              {/* <SProjectDetailsGrid>
+                {/* Duration */}
 
-            <SHLine />
 
-            {/* Description */}
-            {description && (
-              <CustomPortableText
-                paragraphClasses="font-serif max-w-3xl text-xl text-gray-700"
-                value={description}
-              />
-            )}
-            {/* Links */}
-            {linkCards && (
-              <>
-                <SHugeGap />
-                <SResponsiveGrid>
-                  {linkCards.map((card) => (
-                    <LinkCardRender {...card} key={card.title} />
-                  ))}
-                </SResponsiveGrid>
-              </>
-            )}
-            {/* Workaround: scroll to top on route change */}
-            <ScrollUp />
-          </SProjectList>
-          <SHeaderBorder />
-        </div>
-      </Layout>
+              {/* Client */}
+              {client && (
+                <SProjectDetailsGridBox>
+                  <div className="text-xs md:text-sm">Client</div>
+                  <div className="text-md md:text-lg">{client}</div>
+                </SProjectDetailsGridBox>
+              )}
+            </SProjectDetailsGrid> */}
+          </SProjectBox>
+
+          <SHLine />
+
+          {/* Description */}
+          {description && (
+            <CustomPortableText
+              paragraphClasses="font-serif max-w-3xl text-xl text-gray-700"
+              value={description}
+            />
+          )}
+          {/* Links */}
+          {linkCards && (
+            <>
+              <SHugeGap />
+              <SResponsiveGrid>
+                {linkCards.map((card) => (
+                  <LinkCardRender {...card} key={card.title} />
+                ))}
+              </SResponsiveGrid>
+            </>
+          )}
+          {/* Workaround: scroll to top on route change */}
+          <ScrollUp />
+        </SProjectList>
+        <SHeaderBorder />
+      </div >
+    </Layout >
     </>
   )
 }

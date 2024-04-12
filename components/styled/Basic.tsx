@@ -458,6 +458,7 @@ export const SProjectDetailsGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   border-top: 1px solid var(--gray-300);
+  background: none;
   @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

@@ -42,10 +42,10 @@ export function Header(props: HeaderProps) {
     if (
       router.query['backlink'] &&
       (router.query['backlink'] as string).startsWith('/')
-      ) {
+    ) {
       setBacklink(
         `${router.query['backlink'] as string}`.replace('<HASH>', '#')
-        ) //TODO: issue: this arbitrary backlink is a bit of a threat, because someone could put a malicious URL here.
+      ) //TODO: issue: this arbitrary backlink is a bit of a threat, because someone could put a malicious URL here.
     }
     if (router.query['backlink-text']) {
       setBacklinkText((router.query['backlink-text'] as string) || backlinkText)
@@ -66,34 +66,34 @@ export function Header(props: HeaderProps) {
             <FaChevronLeft /> {backlinkText}
           </SHeaderBackButton>
         </Link>
-        )}
+      )}
 
       {title && (
         <SHeaderTitle
           id={'title'}
-          // className={centered ? 'textTrackSweep' : ''}
-          >
+        // className={centered ? 'textTrackSweep' : ''}
+        >
           {props.animateTitle ? (
             <CascadeText
               text={title}
               direction={'down'}
               staggerLetters={0.05}
               textStyles={{
-              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+                fontSize: 'clamp(1.5rem, 5vw, 3rem)',
               }}
             />
-            ) : (
-              title
-              )}
+          ) : (
+            title
+          )}
         </SHeaderTitle>
-        )}
+      )}
       {/* Description */}
       {description && (
         <SHeaderDescription>
           <CustomPortableText value={description} />
         </SHeaderDescription>
-        )}
+      )}
       {props.extra ? props.extra : null}
     </SHeaderWrapper>
-    )
+  )
 }
