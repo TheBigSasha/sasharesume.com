@@ -54,11 +54,21 @@ export const SiteMeta = ({
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       {description && (
-        <meta key="description" name="description" content={description} />
+        <>
+          <meta key="description" name="description" content={description} />
+          <meta
+            key="description"
+            property="og:description"
+            content={description}
+          />
+        </>
       )}
-      {imageUrl && <><meta property="og:image" content={imageUrl} />
-      <meta property="twitter:image" content={imageUrl}/>
-    </>}
+      {imageUrl && (
+        <>
+          <meta property="og:image" content={imageUrl} />
+          <meta property="twitter:image" content={imageUrl} />
+        </>
+      )}
     </Head>
   )
 }
