@@ -70,10 +70,13 @@ export const PTli = styled.li`
 `
 
 export const PTul = styled.ul`
+  color: var(--gray-700);
   & > li {
     list-style: disc;
     font-family: var(--font-serif);
   }
 `
 
-export const PTol = styled.ol``
+export const PTol = styled.ol`
+  color: var(--gray-700);
+`
