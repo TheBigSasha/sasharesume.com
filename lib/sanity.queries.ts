@@ -106,6 +106,7 @@ export const blogPostPaths = groq`
 
 export const settingsQuery = groq`
   *[_type == "settings"][0]{
+    ...,
     footer,
         menuItems[] {
       ...,
@@ -138,7 +139,6 @@ export const settingsQuery = groq`
     },
     ogDescription,
     ogImage,
-    ...,
   }
 `
 

@@ -4,11 +4,7 @@ import 'tbsui-ssr/dist/assets/navmenu.css'
 import 'tbsui-ssr/dist/assets/responsive.css'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
-import {
-  Inter,
-  JetBrains_Mono,
-  Manrope,
-} from '@next/font/google'
+import { Inter, JetBrains_Mono, Manrope } from '@next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { AppProps } from 'next/app'
@@ -71,7 +67,7 @@ const fallbackSettings: SettingsPayload = {
 const rootPaths = ['/', '/blog', '/works', '/works/category']
 
 function deterimineIsRootPath(pathname: string) {
-  return rootPaths.includes(pathname) || pathname.startsWith("/works/category")
+  return rootPaths.includes(pathname) || pathname.startsWith('/works/category')
 }
 
 const ContextWrappedPage = (props) => {
