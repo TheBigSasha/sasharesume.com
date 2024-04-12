@@ -1,4 +1,4 @@
-import { PreviewSuspense } from '@sanity/preview-kit'
+
 import { Page } from 'components/pages/page/Page'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import {
@@ -11,6 +11,7 @@ import { resolveHref } from 'lib/sanity.links'
 import { GetStaticProps } from 'next'
 import { lazy } from 'react'
 import { PagePayload, SettingsPayload } from 'types'
+import { PreviewSuspense } from '../components/preview/PreviewSuspense'
 
 const PagePreview = lazy(() => import('components/pages/page/PagePreview'))
 

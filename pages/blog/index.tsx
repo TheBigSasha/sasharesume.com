@@ -1,7 +1,8 @@
-import { PreviewSuspense } from '@sanity/preview-kit'
+
 import { BlogPage } from 'components/pages/blog/BlogPage'
 import BlogPagePreview from 'components/pages/blog/BlogPagePreview'
 import { HomePage } from 'components/pages/home/HomePage'
+import { PreviewSuspense } from 'components/preview/PreviewSuspense'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import { getAllBlogPosts, getHomePage, getSettings } from 'lib/sanity.client'
 import { GetStaticProps } from 'next'

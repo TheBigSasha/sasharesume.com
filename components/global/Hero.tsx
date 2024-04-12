@@ -102,7 +102,7 @@ export const HeroBlock: React.FC<Hero> = ({
   return (
     <OuterSpan>
       <InnerSpan>
-        <LRHeroWrapper>
+        <LRHeroWrapper layout={layout}>
           <HeroBodyContainer>
             <h1>{headline}</h1>
             <CustomPortableText value={body} />

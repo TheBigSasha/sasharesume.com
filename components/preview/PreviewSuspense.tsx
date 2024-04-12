@@ -1,1 +1,3 @@
-export { PreviewSuspense } from 'next-sanity/preview'
+import {Suspense} from "React";
+
+export const PreviewSuspense = Suspense

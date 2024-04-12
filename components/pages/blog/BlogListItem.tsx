@@ -47,15 +47,17 @@ export function BlogListItem(props: BlogProps) {
         classesWrapper="relative aspect-photo height-320"
       />
     )
-
   return (
+    <>
+    {/*@ts-ignore*/}
     <SBlogListItem odd={odd} style={{ cursor: 'pointer' }}>
       <SImageWrapper>{imageComponent}</SImageWrapper>
       <STextBoxWrapper>
         <TextBox project={project} />
       </STextBoxWrapper>
     </SBlogListItem>
-  )
+    </>
+    )
 }
 
 function TextBox({ project }: { project: BlogPostPayload }) {

@@ -89,6 +89,7 @@ export async function getProjectsByTag({
   tag: string
   token?: string
 }): Promise<ShowcaseProject[] | undefined> {
+  //@ts-ignore
   return await sanityClient(token)?.fetch(projectsByTagQuery, { tag })
 }
 export async function getSettings({
@@ -124,6 +125,7 @@ export async function getBlogPostsByTag({
   tag: string
   token?: string
 }): Promise<BlogPostPayload[] | undefined> {
+  //@ts-ignore
   return await sanityClient(token)?.fetch(blogPostsByTagQuery, { tag })
 }
 
@@ -156,5 +158,6 @@ export async function getTagDetailsByTag({
   tag: string
   token?: string
 }): Promise<TagDetails | undefined> {
+  //@ts-ignore
   return await sanityClient(token)?.fetch(TAGDETAILS_BY_TAG_QUERY, { tag })
 }

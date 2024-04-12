@@ -1,4 +1,4 @@
-import { PreviewSuspense } from '@sanity/preview-kit'
+
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import {
   getHomePageTitle,
@@ -11,6 +11,7 @@ import { resolveHref } from 'lib/sanity.links'
 import { GetStaticProps } from 'next'
 import { SettingsPayload, ShowcaseProject, TagDetails } from 'types'
 import { ByTagPage } from '../../../components/pages/bytag/ByTagPage'
+import { PreviewSuspense } from 'components/preview/PreviewSuspense'
 
 interface TagPageProps {
   projects?: ShowcaseProject[]

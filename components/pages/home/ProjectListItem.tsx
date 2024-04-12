@@ -49,14 +49,14 @@ export function ProjectListItem(props: ProjectProps) {
       />
     )
 
-  return (
-    <SListItem odd={odd} style={{ cursor: 'pointer' }}>
+  //@ts-ignore
+  return <SListItem odd={odd} style={{ cursor: 'pointer' }}>
       <SImageWrapper>{imageComponent}</SImageWrapper>
       <STextBoxWrapper>
         <TextBox project={project} />
       </STextBoxWrapper>
     </SListItem>
-  )
+
 }
 
 function TextBox({ project }: { project: ShowcaseProject }) {

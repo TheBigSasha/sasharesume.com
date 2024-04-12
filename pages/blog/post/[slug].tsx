@@ -1,5 +1,6 @@
-import { PreviewSuspense } from '@sanity/preview-kit'
+
 import { BlogPostPage } from 'components/pages/blog/post/BlogPostPage'
+import { PreviewSuspense } from 'components/preview/PreviewSuspense'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import {
   getBlogPostBySlug,

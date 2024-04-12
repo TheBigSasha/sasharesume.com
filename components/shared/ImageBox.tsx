@@ -26,6 +26,7 @@ export default function ImageBox({
 
   // @ts-ignore We qurey for pallete to use this, as `"palette": asset->metadata.palette,`
   const imagePallete = image?.palette?.dominant?.background
+    //@ts-ignore
     ? [image?.palette?.dominant?.background]
     : ['#000000']
 

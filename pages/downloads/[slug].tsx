@@ -1,6 +1,6 @@
 import { ResumeDownload, SettingsPayload } from '../../types'
 import { notFound } from 'next/navigation'
-import { PreviewSuspense } from '@sanity/preview-kit'
+
 import { PreviewWrapper } from '../../components/preview/PreviewWrapper'
 import { GetStaticProps } from 'next'
 import {

@@ -54,8 +54,8 @@ export const EmbedRender: React.FC<Embed> = (props) => {
         </SEmbedHeader>
         <SEmbedBox>
           <IFrame
-            allowtransparency
-            src={props.href}
+            allowTransparency
+            src={props.href.href ? props.href.href : props.href as unknown as string}
             width="100%"
             height={getHeight(props.displayMode)}
             allowFullScreen

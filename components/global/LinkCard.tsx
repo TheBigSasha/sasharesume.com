@@ -84,7 +84,7 @@ export const LinkCardRender: React.FC<LinkCard> = ({
   color,
 }) => {
   return (
-    <CardLink href={href}>
+    <CardLink href={href.href ? href.href : href as unknown as string}>
       <LinkCardContainer color={color || '#49757e'}>
         <IconWrapper>{getLinkCardIcon(icon)}</IconWrapper>
         {title}

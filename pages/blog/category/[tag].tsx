@@ -1,4 +1,4 @@
-import { PreviewSuspense } from '@sanity/preview-kit'
+
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import {
   getBlogPostsByTag,
@@ -11,6 +11,7 @@ import { GetStaticProps } from 'next'
 import { BlogPostPayload, SettingsPayload } from 'types'
 
 import { ByTagPage } from '../../../components/pages/bytag/ByTagPage'
+import { PreviewSuspense } from 'components/preview/PreviewSuspense'
 
 interface BlogTagPageProps {
   blogPosts?: BlogPostPayload[]

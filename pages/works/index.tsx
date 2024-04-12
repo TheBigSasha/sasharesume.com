@@ -1,5 +1,6 @@
-import { PreviewSuspense } from '@sanity/preview-kit'
+
 import { WorksPage } from 'components/pages/works/WorksPage'
+import { PreviewSuspense } from 'components/preview/PreviewSuspense'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import { getHomePage, getSettings } from 'lib/sanity.client'
 import { GetStaticProps } from 'next'

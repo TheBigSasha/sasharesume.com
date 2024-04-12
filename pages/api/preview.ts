@@ -58,7 +58,6 @@ export default async function preview(
       )
     }
     const client = _client.withConfig({ useCdn: false, token })
-    // @ts-expect-error
     const secret = await getSecret(client, previewSecretId)
     if (req.query.secret !== secret) {
       return res.status(401).send('Invalid secret')
