@@ -1,3 +1,3 @@
-import {Suspense} from "React";
+import { Suspense } from 'react'
 
 export const PreviewSuspense = Suspense
