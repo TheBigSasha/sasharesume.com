@@ -1,17 +1,24 @@
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import 'styles/index.scss'
-import 'tbsui-ssr/dist/assets/navmenu.css'
 import 'tbsui-ssr/dist/assets/popup-message.css'
+import 'tbsui-ssr/dist/assets/navmenu.css'
 import 'tbsui-ssr/dist/assets/responsive.css'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { Inter, JetBrains_Mono, Manrope } from '@next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 
 import { Footer } from '../components/global/Footer'
 import { Navbar } from '../components/global/Navbar'
+import {
+  PageAnimationProvider,
+  usePageAnimation,
+} from '../components/shared/AnimateContext'
 import { SettingsPayload } from '../types'
 
 const mono = JetBrains_Mono({
@@ -33,9 +40,47 @@ const serif = Inter({
   weight: ['500', '700'],
 })
 
+// The job of this is to allow the child to translate in and out of the page
+const TransitionContainer = styled.body`
+  position: relative;
+  width: 100vw;
+  overflow-x: hidden;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+`
+
+const TransitionInterior = styled(motion.main)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+`
+
 const fallbackSettings: SettingsPayload = {
   menuItems: [],
   footer: [],
+}
+
+const rootPaths = ['/', '/blog', '/works', '/works/category']
+
+function deterimineIsRootPath(pathname: string) {
+  return rootPaths.includes(pathname) || pathname.startsWith('/works/category')
+}
+
+const ContextWrappedPage = (props) => {
+  const { Component, pageProps, pathname } = props
+  const component = <Component {...pageProps} />
+  const settings: SettingsPayload = pageProps?.settings || fallbackSettings
+
+  return (
+    <>
+    {component}
+    <Footer footer={settings?.footer} />
+    </>
+    )
 }
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -46,15 +91,15 @@ export default function App({ Component, pageProps }: AppProps) {
   const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
   return (
     <>
-      <SpeedInsights />
-      <Script
-        id={'ga1'}
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-      />
-      <Analytics />
-      <Script id={'ga2'} strategy="lazyOnload">
-        {`
+    <SpeedInsights />
+    <Script
+      id={'ga1'}
+      strategy="lazyOnload"
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+    />
+    <Analytics />
+    <Script id={'ga2'} strategy="lazyOnload">
+      {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
@@ -62,24 +107,27 @@ export default function App({ Component, pageProps }: AppProps) {
                     page_path: window.location.pathname,
                     });
                 `}
-      </Script>
-      <style jsx global>
-        {`
+    </Script>
+    <style jsx global>
+      {`
           :root {
             --font-mono: ${mono.style.fontFamily};
             --font-sans: ${sans.style.fontFamily};
             --font-serif: ${serif.style.fontFamily};
           }
         `}
-      </style>
-      {!router?.pathname.startsWith('/studio') && (
-        <Navbar
-          menuItems={settings?.menuItems}
-          siteTitle={settings?.siteTitle}
-        />
+    </style>
+    {!router?.pathname.startsWith('/studio') && (
+      <Navbar
+        menuItems={settings?.menuItems}
+        siteTitle={settings?.siteTitle}
+      />
       )}
-      <Component />
-      <Footer footer={settings?.footer} />
+    <ContextWrappedPage
+      Component={Component}
+      pageProps={pageProps}
+      pathname={router.pathname}
+    />
     </>
-  )
+    )
 }

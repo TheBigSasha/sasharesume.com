@@ -23,8 +23,7 @@ interface HeaderProps {
   extra?: React.ReactNode
   backHidden?: boolean
 }
-
-const HeaderWithBack: React.FC<HeaderProps> = (props) => {
+export function Header(props: HeaderProps) {
   const {
     title,
     description,
@@ -32,9 +31,7 @@ const HeaderWithBack: React.FC<HeaderProps> = (props) => {
     backButtonDestination = false,
     slug = 'title',
     backHidden = false,
-  } = props;
-
-
+  } = props
 
   const [backlink, setBacklink] = useState(backButtonDestination)
   const [backlinkText, setBacklinkText] = useState('Back to All Work')
@@ -99,53 +96,4 @@ const HeaderWithBack: React.FC<HeaderProps> = (props) => {
       {props.extra ? props.extra : null}
     </SHeaderWrapper>
     )
-}
-export function Header(props: HeaderProps) {
-  const {
-    title,
-    description,
-    centered,
-    backButtonDestination = false,
-    slug = 'title',
-    backHidden = false,
-  } = props
-
-  if (!description && !title) {
-    return null
-  }
-
-  if(!centered) {
-    return <HeaderWithBack/>
-  }else{
-    return (
-      <SHeaderWrapper centered={centered}>
-        {title && (
-          <SHeaderTitle
-            id={'title'}
-            // className={centered ? 'textTrackSweep' : ''}
-            >
-            {props.animateTitle ? (
-              <CascadeText
-                text={title}
-                direction={'down'}
-                staggerLetters={0.05}
-                textStyles={{
-                fontSize: 'clamp(1.5rem, 5vw, 3rem)',
-                }}
-              />
-              ) : (
-                title
-                )}
-          </SHeaderTitle>
-          )}
-        {/* Description */}
-        {description && (
-          <SHeaderDescription>
-            <CustomPortableText value={description} />
-          </SHeaderDescription>
-          )}
-        {props.extra ? props.extra : null}
-      </SHeaderWrapper>
-    )
-  }
 }
