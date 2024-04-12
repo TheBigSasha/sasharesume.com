@@ -29,7 +29,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
     <>
     <PageHead page={page} settings={settings} title={homePageTitle} />
 
-    <Layout settings={settings} preview={preview}>
+    <Layout settings={settings} preview={preview} constrainWidth>
       <div>
         <div className="mb-14">
           {/* Header */}

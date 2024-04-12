@@ -223,7 +223,10 @@ export const SLayout = styled.div<{constrainWidth: boolean}>`
   min-height: 100vh;
   max-width: 100vw;
   flex-direction: column;
-  ${(props) => (props.constrainWidth ? 'max-width: 1200px' : '')};
+  ${(props) => (props.constrainWidth ? 'max-width: 1100px' : '')};
+  margin: auto;
+  justify-self: center;
+  align-self: center;
 `
 
 export const SBackground = styled.span`
