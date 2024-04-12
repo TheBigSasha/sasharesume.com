@@ -57,7 +57,6 @@ export const SiteMeta = ({
         <>
           <meta key="description" name="description" content={description} />
           <meta
-            key="description"
             property="og:description"
             content={description}
           />
