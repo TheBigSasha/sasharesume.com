@@ -28,6 +28,14 @@ export function CustomPortableText({
   value: PortableTextBlock[]
 }) {
   const components: PortableTextComponents = {
+    list: {
+      bullet: ({ children }) => {
+        return <PTul>{children}</PTul>
+      },
+      number: ({ children }) => {
+        return <PTol>{children}</PTol>
+      },
+    },
     block: {
       normal: ({ children }) => {
         return (
@@ -57,12 +65,6 @@ export function CustomPortableText({
             {children}
           </SLink>
         )
-      },
-      ol: ({ children }) => {
-        return <PTol>{children}</PTol>
-      },
-      ul: ({ children }) => {
-        return <PTul>{children}</PTul>
       },
     },
     types: {
