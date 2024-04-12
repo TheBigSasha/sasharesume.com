@@ -113,7 +113,7 @@ export function ProjectPage({
                 classesWrapper="relative aspect-dci contain"
               />
             </SProjectBox>
-            {tags.includes("Job") &&
+            {tags && tags.includes("Job") &&
               <SProjectDetailsGrid>
                 {/* Project */}
                 {role && (
