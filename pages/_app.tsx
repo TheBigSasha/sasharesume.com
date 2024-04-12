@@ -5,8 +5,6 @@ import 'tbsui-ssr/dist/assets/responsive.css'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import {
-  EB_Garamond,
-  Ibarra_Real_Nova,
   Inter,
   JetBrains_Mono,
   Manrope,
@@ -70,6 +68,12 @@ const fallbackSettings: SettingsPayload = {
   footer: [],
 }
 
+const rootPaths = ['/', '/blog', '/works', '/works/category']
+
+function deterimineIsRootPath(pathname: string) {
+  return rootPaths.includes(pathname) || pathname.startsWith("/works/category")
+}
+
 const ContextWrappedPage = (props) => {
   const { Component, pageProps, pathname } = props
   const { pageAnimation, setPageAnimation } = usePageAnimation()
@@ -97,8 +101,7 @@ const ContextWrappedPage = (props) => {
       exit: 0.2,
     },
   }
-  const isRootPath =
-    pathname === '/' || pathname === '/blog' || pathname === '/works'
+  const isRootPath = deterimineIsRootPath(pathname)
   const initial = isRootPath
     ? { translateX: '-100vw', translateZ: 0 }
     : { translateX: '100vw', translateZ: 0 }

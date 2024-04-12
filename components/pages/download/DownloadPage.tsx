@@ -35,7 +35,7 @@ export function DownloadPage({
         <title>sasharesume | Download {title}</title>
       </Head>
       <Layout settings={settings} preview={preview} constrainWidth>
-        <Header title={title} />
+        <Header backHidden title={title} />
         <SHugeGap />
         {/*TODO: Generify downloads*/}
         <LinkCardRender

@@ -33,21 +33,18 @@ export const PTh1 = styled.h1`
 export const PTh2 = styled.h2`
   font-size: 1.5rem;
   font-weight: 600;
-  margin: 0;
   font-family: var(--font-sans);
 `
 
 export const PTh3 = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
-  margin: 0;
   font-family: var(--font-sans);
 `
 
 export const PTh4 = styled.h4`
   font-size: 1rem;
   font-weight: 600;
-  margin: 0;
   font-family: var(--font-sans);
 `
 

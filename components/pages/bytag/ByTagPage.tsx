@@ -53,17 +53,22 @@ export function ByTagPage({
                   return null
                 }
                 const href = resolveHref(project._type, project.slug)
+                const backlinkName= encodeURIComponent (`Back to ${title}`)
+                const backlinkSlug = encodeURIComponent(`${resolveHref('tag', tag)}#${project.slug}`)
+
                 if (!href) {
                   return null
                 }
+
+                const hrefWithBacklinks = `${href}?backlink-text=${backlinkName}&backlink=${backlinkSlug}`
                 return (
                   <Link
                     replace
                     key={key}
-                    href={`${href}`}
+                    href={hrefWithBacklinks}
                     id={`${project.slug}`}
                     scroll={false}
-                  >
+                    >
                     <ProjectListItem project={project} odd={key % 2} />
                   </Link>
                 )

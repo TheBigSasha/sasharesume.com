@@ -2,7 +2,6 @@ import { CustomPortableText } from 'components/shared/CustomPortableText'
 import { Header } from 'components/shared/Header'
 import Layout from 'components/shared/Layout'
 import ScrollUp from 'components/shared/ScrollUp'
-import Head from 'next/head'
 import type { PagePayload, SettingsPayload } from 'types'
 
 import { HeroBlock } from '../../global/Hero'
@@ -28,14 +27,14 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
 
   return (
     <>
-      <PageHead page={page} settings={settings} title={homePageTitle} />
+    <PageHead page={page} settings={settings} title={homePageTitle} />
 
-      <Layout settings={settings} preview={preview}>
-        <div>
-          <div className="mb-14">
-            {/* Header */}
-            <Header title={title} />
-            {hero && (
+    <Layout settings={settings} preview={preview}>
+      <div>
+        <div className="mb-14">
+          {/* Header */}
+          <Header title={title} backHidden/>
+          {(hero && hero.banner) && (
               <>
                 <SMidGap />
                 <HeroBlock {...hero} />
