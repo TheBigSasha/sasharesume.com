@@ -23,9 +23,7 @@ interface SProjectLinkButtonProps {
   foregroundColor: string
 }
 
-export const SProjectLinkButtonGlow = styled(
-  SProjectLinkButton,
-) <SProjectLinkButtonProps>`
+export const SProjectLinkButtonGlow = styled(SProjectLinkButton) <SProjectLinkButtonProps>`
   background: ${({ glowColor }) => glowColor};
   color: ${({ foregroundColor }) => foregroundColor};
 `
