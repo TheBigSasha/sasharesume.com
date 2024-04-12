@@ -30,30 +30,38 @@ export function Header(props: HeaderProps) {
     centered,
     backButtonDestination = false,
     slug = 'title',
-    backHidden = false
+    backHidden = false,
   } = props
-  if (!description && !title) {
-    return null
-  }
-  const [backlink, setBacklink] = useState(backButtonDestination);
-  const [backlinkText, setBacklinkText] = useState("Back to All Work");
-  const router = useRouter();
+
+  const [backlink, setBacklink] = useState(backButtonDestination)
+  const [backlinkText, setBacklinkText] = useState('Back to All Work')
+  const router = useRouter()
 
   useEffect(() => {
     // Check if the URL has the "backlink" and "backlink-text" parameters
-    if (router.query['backlink'] && (router.query['backlink'] as string).startsWith("/")) {
-      setBacklink(`${router.query['backlink'] as string}`.replace("<HASH>", "#")); //TODO: issue: this arbitrary backlink is a bit of a threat, because someone could put a malicious URL here.
+    if (
+      router.query['backlink'] &&
+      (router.query['backlink'] as string).startsWith('/')
+    ) {
+      setBacklink(
+        `${router.query['backlink'] as string}`.replace('<HASH>', '#')
+      ) //TODO: issue: this arbitrary backlink is a bit of a threat, because someone could put a malicious URL here.
     }
     if (router.query['backlink-text']) {
-      setBacklinkText(router.query['backlink-text'] as string || backlinkText);
+      setBacklinkText((router.query['backlink-text'] as string) || backlinkText)
     }
-  }, [router.query]);
+    //@ts-ignore
+  }, [router])
+
+  if (!description && !title) {
+    return null
+  }
 
   return (
     <SHeaderWrapper centered={centered}>
       {/* Title */}
-      {(!centered && !backHidden) && (
-        <Link href={backlink as string || `/works/#${slug}`}>
+      {!centered && !backHidden && (
+        <Link href={(backlink as string) || `/works/#${slug}`}>
           <SHeaderBackButton>
             <FaChevronLeft /> {backlinkText}
           </SHeaderBackButton>
