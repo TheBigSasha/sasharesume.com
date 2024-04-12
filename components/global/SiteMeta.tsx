@@ -29,6 +29,7 @@ export const SiteMeta = ({
     <Head>
       <title>{metaTitle}</title>
       <meta property="og:title" content={metaTitle} key="title" />
+
       <meta name="viewport" content="width=device-width,initial-scale=1.0" />
       <link
         rel="apple-touch-icon"
@@ -55,7 +56,9 @@ export const SiteMeta = ({
       {description && (
         <meta key="description" name="description" content={description} />
       )}
-      {imageUrl && <meta property="og:image" content={imageUrl} />}
+      {imageUrl && <><meta property="og:image" content={imageUrl} />
+      <meta property="twitter:image" content={imageUrl}/>
+    </>}
     </Head>
   )
 }

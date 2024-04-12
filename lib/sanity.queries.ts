@@ -136,8 +136,9 @@ export const settingsQuery = groq`
         },
       }
     },
-
+    ogDescription,
     ogImage,
+    ...,
   }
 `
 

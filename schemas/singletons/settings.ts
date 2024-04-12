@@ -93,6 +93,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'ogDescription',
+      title: 'Open Graph Description',
+      type: 'string',
+    }),
+    defineField({
       name: 'menuItems',
       title: 'Menu Item list',
       description: 'Links displayed on the header of your site.',

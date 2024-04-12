@@ -103,6 +103,7 @@ export interface SettingsPayload {
   menuItems?: (MenuItem | ExternalMenuItem | InternalMenuItem)[]
   ogImage?: Image
   siteTitle?: string
+  ogDescription?: string
 }
 
 /*
