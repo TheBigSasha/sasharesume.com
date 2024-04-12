@@ -6,7 +6,7 @@ export const description = defineField({
   name: 'description',
   title: 'Project Description',
   type: 'array',
-  of: PTElements
+  of: PTElements,
 })
 
 export default defineType({
@@ -99,6 +99,11 @@ export default defineType({
     defineField({
       name: 'client',
       title: 'Client',
+      type: 'string',
+    }),
+    defineField({
+      name: 'role',
+      title: 'Role',
       type: 'string',
     }),
     defineField({

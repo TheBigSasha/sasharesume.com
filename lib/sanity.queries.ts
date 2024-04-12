@@ -70,6 +70,7 @@ export const blogPostsBySlugQuery = groq`
 
 export const projectBySlugQuery = groq`
   *[_type == "project" && slug.current == $slug][0] {
+    ...,
     _id,
     client,
     coverImage {
@@ -83,6 +84,7 @@ export const projectBySlugQuery = groq`
     "slug": slug.current,
     tags,
     title,
+    role,
     usePerspective,
     linkCards,
   }

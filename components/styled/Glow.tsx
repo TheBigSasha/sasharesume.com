@@ -6,11 +6,11 @@ interface SImageGlowProps {
   glowColor: string
 }
 
-export const SImageBoxGlow = styled(SImageBox)<SImageGlowProps>`
-  overflow: visible;
+export const SImageBoxGlow = styled(SImageBox) <SImageGlowProps>`
+  overflow: visible !important;
 `
 
-export const SImageGlow = styled(SImage)<SImageGlowProps>`
+export const SImageGlow = styled(SImage) <SImageGlowProps>`
   filter: drop-shadow(0 0 100px ${({ glowColor }) => glowColor});
   // the translate3d is to force safari to use GPU acceleration
   transform: translate3d(0, 0, 0);
@@ -25,7 +25,7 @@ interface SProjectLinkButtonProps {
 
 export const SProjectLinkButtonGlow = styled(
   SProjectLinkButton,
-)<SProjectLinkButtonProps>`
+) <SProjectLinkButtonProps>`
   background: ${({ glowColor }) => glowColor};
   color: ${({ foregroundColor }) => foregroundColor};
 `

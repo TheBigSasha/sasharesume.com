@@ -56,6 +56,7 @@ export interface ShowcaseProject {
   slug?: string
   tags?: string[]
   title?: string
+  role?: string
   usePerspective?: boolean
 }
 
@@ -94,6 +95,7 @@ export interface ProjectPayload {
   slug: string
   tags?: string[]
   title?: string
+  role?: string
   usePerspective?: boolean
   linkCards?: LinkCard[]
 }

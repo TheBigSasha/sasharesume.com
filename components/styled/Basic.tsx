@@ -457,15 +457,15 @@ export const SHLine = styled.hr`
 export const SProjectDetailsGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  border-top: 1px solid var(--gray-300);
+  border-top: 0.5px solid var(--gray-300);
   background: none;
   @media (min-width: 1024px) {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     border-top: 0;
-    border-right: 1px solid var(--gray-300);
+    // border-right: 1px solid var(--gray-300);
     & > * + * {
-      border-left: 1px solid var(--gray-300);
+      border-left: 0.5px solid var(--gray-300);
     }
   }
 

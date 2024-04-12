@@ -53,6 +53,7 @@ export function ProjectPage({
     title,
     slug,
     linkCards,
+    role,
   } = project || {}
 
   const { glowColor, foregroundColor } = coverImage?.palette
@@ -111,46 +112,60 @@ export function ProjectPage({
                 alt={`Cover image for ${title}`}
                 classesWrapper="relative aspect-dci contain"
               />
-              {/* <SProjectDetailsGrid>
+            </SProjectBox>
+            {tags.includes("Job") &&
+              <SProjectDetailsGrid>
+                {/* Project */}
+                {role && (
+                  <SProjectDetailsGridBox>
+                    <div className="text-xs md:text-sm">Role</div>
+                    <div className="text-md md:text-lg">{role}</div>
+                  </SProjectDetailsGridBox>
+                )}
                 {/* Duration */}
+                {!!(startYear && endYear) && (
+                  <SProjectDetailsGridBox>
+                    <div className="text-xs md:text-sm">Duration</div>
+                    <div className="text-md md:text-lg">{`${startYear} -  ${endYear}`}</div>
+                  </SProjectDetailsGridBox>
+                )}
 
+                {/* Client */}
+                {client && (
+                  <SProjectDetailsGridBox>
+                    <div className="text-xs md:text-sm">Company</div>
+                    <div className="text-md md:text-lg">{client}</div>
+                  </SProjectDetailsGridBox>
+                )}
+              </SProjectDetailsGrid>
+            }
 
-              {/* Client */}
-              {client && (
-                <SProjectDetailsGridBox>
-                  <div className="text-xs md:text-sm">Client</div>
-                  <div className="text-md md:text-lg">{client}</div>
-                </SProjectDetailsGridBox>
-              )}
-            </SProjectDetailsGrid> */}
-          </SProjectBox>
+            <SHLine />
 
-          <SHLine />
-
-          {/* Description */}
-          {description && (
-            <CustomPortableText
-              paragraphClasses="font-serif max-w-3xl text-xl text-gray-700"
-              value={description}
-            />
-          )}
-          {/* Links */}
-          {linkCards && (
-            <>
-              <SHugeGap />
-              <SResponsiveGrid>
-                {linkCards.map((card) => (
-                  <LinkCardRender {...card} key={card.title} />
-                ))}
-              </SResponsiveGrid>
-            </>
-          )}
-          {/* Workaround: scroll to top on route change */}
-          <ScrollUp />
-        </SProjectList>
-        <SHeaderBorder />
-      </div >
-    </Layout >
+            {/* Description */}
+            {description && (
+              <CustomPortableText
+                paragraphClasses="font-serif max-w-3xl text-xl text-gray-700"
+                value={description}
+              />
+            )}
+            {/* Links */}
+            {linkCards && (
+              <>
+                <SHugeGap />
+                <SResponsiveGrid>
+                  {linkCards.map((card) => (
+                    <LinkCardRender {...card} key={card.title} />
+                  ))}
+                </SResponsiveGrid>
+              </>
+            )}
+            {/* Workaround: scroll to top on route change */}
+            <ScrollUp />
+          </SProjectList>
+          <SHeaderBorder />
+        </div >
+      </Layout >
     </>
   )
 }
