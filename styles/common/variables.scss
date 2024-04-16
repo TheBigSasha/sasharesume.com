@@ -36,7 +36,7 @@ $secondary-color: complement($primary-color);
   --space-md: 1rem;
   --space-sm: 0.5rem;
   --navmenu-nestsize: var(--space-md);
-  --navmenu-dropdown-padding: var(--space-sm);
+  --navmenu-dropdown-padding: var(--space-md);
 }
 
 @media (prefers-color-scheme: dark) {
