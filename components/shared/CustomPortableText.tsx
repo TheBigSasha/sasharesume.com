@@ -66,6 +66,9 @@ export function CustomPortableText({
           </SLink>
         )
       },
+      internalLink: ({ children, value }) => {
+        return <SLink href={value?.slug}>{children}</SLink>
+      },
     },
     types: {
       image: ({

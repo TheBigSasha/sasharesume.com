@@ -1,5 +1,49 @@
 import { groq } from 'next-sanity'
 
+export const projectsListPageQuery = groq`
+  *[_type == "projectsList"][0]{
+    _id,
+    footer,
+    image,
+    overview,
+    showcaseProjects[]->{
+      _type,
+      coverImage,
+      overview,
+      "slug": slug.current,
+      tags,
+      title,
+      usePerspective,
+    },
+    title,
+    menuItems[] {
+      ...,
+      _type == "reference" => @-> {
+        ...,
+        _type == "page" => {
+          title,
+          "slug": slug.current,
+        },
+        _type == "SculptureModelEntry" => {
+          title,
+          "slug": slug.current,
+        },
+        _type == "home" => {
+          title,
+          "slug": slug.current,
+        },
+        _type == "internalLink" => {
+          ...,
+          "slug": slug.current,
+        },
+        _type == "externalLink" => {
+          ...,
+        },
+      },
+    },
+
+  }
+`
 export const homePageQuery = groq`
   *[_type == "home"][0]{
     _id,
@@ -147,6 +191,19 @@ export const settingsQuery = groq`
 // tags are just strings with no properties
 export const projectsByTagQuery = groq`
   *[_type == "project" && $tag in tags]{
+    _type,
+    coverImage,
+    overview,
+      duration,
+    "slug": slug.current,
+    tags,
+    title,
+    usePerspective,
+  } | order(duration.start desc, title asc)
+`
+
+export const allProjectsQuery = groq`
+  *[_type == "project"]{
     _type,
     coverImage,
     overview,

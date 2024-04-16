@@ -25,6 +25,7 @@ import home from 'schemas/singletons/home'
 import resume from 'schemas/singletons/resume'
 import settings from 'schemas/singletons/settings'
 import tagDetails from 'schemas/documents/tagDescription'
+import projectsListPage from 'schemas/singletons/projectsListPage'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'sasharesume'
 
@@ -47,6 +48,7 @@ export default defineConfig({
       home,
       settings,
       resume,
+      projectsListPage,
       // Documents
       duration,
       page,
@@ -63,7 +65,7 @@ export default defineConfig({
   },
   plugins: [
     deskTool({
-      structure: pageStructure([home, settings]),
+      structure: pageStructure([home, settings, projectsListPage]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
@@ -71,7 +73,7 @@ export default defineConfig({
     media(),
     // scheduledPublishing(),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name]),
+    singletonPlugin([home.name, settings.name, projectsListPage.name]),
     // Add the "Open preview" action
     productionUrl({
       apiVersion,

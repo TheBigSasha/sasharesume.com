@@ -39,27 +39,7 @@ export default defineType({
         'Used both for the <meta> description tag for SEO, and the personal website subheader.',
       title: 'Overview',
       type: 'array',
-      of: [
-        // Paragraphs
-        defineArrayMember({
-          lists: [],
-          marks: {
-            annotations: [],
-            decorators: [
-              {
-                title: 'Italic',
-                value: 'em',
-              },
-              {
-                title: 'Strong',
-                value: 'strong',
-              },
-            ],
-          },
-          styles: [],
-          type: 'block',
-        }),
-      ],
+      of: PTElements,
       validation: (rule) => rule.max(155).required(),
     }),
     defineField({
@@ -68,7 +48,7 @@ export default defineType({
       title: 'Body',
       description:
         "This is where you can write the page's content. Including custom blocks like timelines for more a more visual display of information.",
-      of: PTElements
+      of: PTElements,
     }),
     defineField({
       type: 'array',

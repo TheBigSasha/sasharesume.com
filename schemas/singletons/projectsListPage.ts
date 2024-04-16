@@ -3,8 +3,8 @@ import { defineArrayMember, defineField, defineType } from 'sanity'
 import { PTElements } from 'schemas/ptelements'
 
 export default defineType({
-  name: 'home',
-  title: 'Home',
+  name: 'projectsList',
+  title: 'Projects List',
   type: 'document',
   icon: HomeIcon,
   // Uncomment below to have edits publish automatically as you type
@@ -118,7 +118,7 @@ export default defineType({
     },
     prepare({ title }) {
       return {
-        subtitle: 'Home',
+        subtitle: 'Projects List',
         title,
       }
     },

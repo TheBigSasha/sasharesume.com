@@ -1,17 +1,17 @@
 import { WorksPage } from 'components/pages/works/WorksPage'
 import { PreviewSuspense } from 'components/preview/PreviewSuspense'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
-import { getProjectsListPage, getSettings } from 'lib/sanity.client'
+import { getAllProjects, getSettings } from 'lib/sanity.client'
 import { GetStaticProps } from 'next'
 import { lazy } from 'react'
-import { HomePagePayload, SettingsPayload } from 'types'
+import { HomePagePayload, ProjectPayload, SettingsPayload } from 'types'
 
 const WorksPagePreview = lazy(
   () => import('components/pages/works/WorksPagePreview'),
 )
 
 interface PageProps {
-  page: HomePagePayload
+  projects: ProjectPayload[]
   settings: SettingsPayload
   preview: boolean
   token: string | null
@@ -26,8 +26,12 @@ interface PreviewData {
 }
 
 export default function IndexPage(props: PageProps) {
-  const { page, settings, preview, token } = props
-
+  const { projects, settings, preview, token } = props
+  const page = {
+    showcaseProjects: projects,
+    title: 'All Projects & Jobs',
+    overview: [],
+  }
   if (preview) {
     return (
       <PreviewSuspense
@@ -59,14 +63,14 @@ export const getStaticProps: GetStaticProps<
   const { preview = false, previewData = {} } = ctx
 
   const token = previewData.token
-  const [settings, page = fallbackPage] = await Promise.all([
+  const [settings, projects] = await Promise.all([
     getSettings({ token }),
-    getProjectsListPage({ token }),
+    getAllProjects({ token }),
   ])
 
   return {
     props: {
-      page,
+      projects,
       settings,
       preview,
       token: previewData.token ?? null,

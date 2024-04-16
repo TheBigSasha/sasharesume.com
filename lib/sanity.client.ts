@@ -1,6 +1,7 @@
 import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api'
 import {
   allBlogPostsQuery,
+  allProjectsQuery,
   blogPostsBySlugQuery,
   blogPostsByTagQuery,
   homePageQuery,
@@ -10,6 +11,7 @@ import {
   projectBySlugQuery,
   projectPaths,
   projectsByTagQuery,
+  projectsListPageQuery,
   resumeFileBySlugQuery,
   settingsQuery,
   TAGDETAILS_BY_TAG_QUERY,
@@ -34,6 +36,14 @@ const sanityClient = (token?: string) => {
   return projectId
     ? createClient({ projectId, dataset, apiVersion, useCdn, token })
     : null
+}
+
+export async function getProjectsListPage({
+  token,
+}: {
+  token?: string
+}): Promise<HomePagePayload | undefined> {
+  return await sanityClient(token)?.fetch(projectsListPageQuery)
 }
 
 export async function getHomePage({
@@ -104,6 +114,14 @@ export async function getProjectPaths(): Promise<string[]> {
   return await sanityClient()?.fetch(projectPaths)
 }
 
+export async function getAllProjects({
+  token,
+}: {
+  token?: string
+}): Promise<ProjectPayload[]> {
+  return await sanityClient(token)?.fetch(allProjectsQuery)
+}
+
 export async function getTagPaths(): Promise<string[]> {
   return await sanityClient()?.fetch(tagPaths)
 }
@@ -114,7 +132,7 @@ export async function getPagePaths(): Promise<string[]> {
 
 export async function getDownloadsPaths(): Promise<string[]> {
   return await sanityClient()?.fetch(
-    `*[_type == "ResumeDownload" && slug.current != null].slug.current`
+    `*[_type == "ResumeDownload" && slug.current != null].slug.current`,
   )
 }
 
@@ -131,7 +149,7 @@ export async function getBlogPostsByTag({
 
 export async function getBlogPostPaths(): Promise<string[]> {
   return await sanityClient()?.fetch(
-    `*[_type == "blogPost" && slug.current != null].slug.current`
+    `*[_type == "blogPost" && slug.current != null].slug.current`,
   )
 }
 
