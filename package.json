@@ -48,7 +48,7 @@
     "server-only": "^0.0.1",
     "styled-components": "^6.1.8",
     "suspend-react": "^0.1.3",
-    "tbsui": "^0.6.1",
+    "tbsui": "^0.6.2",
     "tbsui-ssr": "^1.8.5"
   },
   "devDependencies": {
