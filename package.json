@@ -14,6 +14,7 @@
     "singleQuote": true
   },
   "dependencies": {
+    "@giscus/react": "^3.0.0",
     "@next/env": "^14.2.0",
     "@next/font": "^14.2.0",
     "@portabletext/react": "^3.0.18",

@@ -2,7 +2,6 @@ import { CustomPortableText } from 'components/shared/CustomPortableText'
 import { Header } from 'components/shared/Header'
 import ImageBox from 'components/shared/ImageBox'
 import ScrollUp from 'components/shared/ScrollUp'
-import Head from 'next/head'
 import Link from 'next/link'
 import type { ProjectPayload, SettingsPayload } from 'types'
 
@@ -14,9 +13,8 @@ import {
   SHugeGap,
   SProjectBox,
   SProjectDetails,
-  SProjectLinkButton,
-  SProjectDetailsGrid,
-  SProjectDetailsGridBox,
+    SProjectDetailsGrid,
+    SProjectDetailsGridBox,
   SProjectList,
   SResponsiveGrid,
   STagGroup,
@@ -27,6 +25,8 @@ import React from 'react'
 import { Tag } from '../../shared/Tag'
 import { LinkCardRender } from '../../global/LinkCard'
 import { SProjectLinkButtonGlow } from 'components/styled/Glow'
+import Giscus from '@giscus/react'
+import { NEXT_PUBLIC_GISCUS_DATA_CATEGORY, NEXT_PUBLIC_GISCUS_DATA_CATEGORY_ID, NEXT_PUBLIC_GISCUS_DATA_REPO, NEXT_PUBLIC_GISCUS_DATA_REPO_ID } from '../../../lib/env.getters'
 
 export interface ProjectPageProps {
   project: ProjectPayload | undefined
@@ -161,6 +161,22 @@ export function ProjectPage({
               </>
             )}
             {/* Workaround: scroll to top on route change */}
+            <SGap/>
+            <Giscus
+              id="comments"
+              repo={NEXT_PUBLIC_GISCUS_DATA_REPO as `${string}/${string}`}
+              repoId={NEXT_PUBLIC_GISCUS_DATA_REPO_ID}
+              category={NEXT_PUBLIC_GISCUS_DATA_CATEGORY}
+              categoryId={NEXT_PUBLIC_GISCUS_DATA_CATEGORY_ID}
+              mapping="specific"
+              term={`${title} (${slug})`}
+              reactionsEnabled="1"
+              emitMetadata="0"
+              inputPosition="top"
+              theme="preferred_color_scheme"
+              lang="en"
+              loading="lazy"
+            />
             <ScrollUp />
           </SProjectList>
           <SHeaderBorder />
