@@ -3,7 +3,7 @@ import { ExternalMenuItem, InternalMenuItem } from '../types'
 
 export function resolveHref(
   documentType?: string,
-  slug?: string | { slug: { current: string } } | { current: string }
+  slug?: string | { slug: { current: string } } | { current: string },
 ): string | undefined {
   if (!slug) {
     return '/'
@@ -46,7 +46,7 @@ export function resolveHref(
 
 export const unifyMenuItems = (
   menuItems: (InternalMenuItem | ExternalMenuItem | types.MenuItem)[],
-  indent = 0
+  indent = 0,
 ) => {
   var menuItemsFlattened = []
   if (!menuItems) {

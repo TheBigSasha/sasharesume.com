@@ -1,7 +1,6 @@
 import 'styles/index.scss'
-import 'tbsui-ssr/dist/assets/popup-message.css'
-import 'tbsui-ssr/dist/assets/navmenu.css'
-import 'tbsui-ssr/dist/assets/responsive.css'
+import 'tbsui-ssr/dist/assets/components/organisms/navmenu/navmenu.css'
+import 'tbsui-ssr/dist/assets/styles/responsive.css'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { Inter, JetBrains_Mono, Manrope } from '@next/font/google'
@@ -45,10 +44,10 @@ const ContextWrappedPage = (props) => {
 
   return (
     <>
-    {component}
-    <Footer footer={settings?.footer} />
+      {component}
+      <Footer footer={settings?.footer} />
     </>
-    )
+  )
 }
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -59,15 +58,15 @@ export default function App({ Component, pageProps }: AppProps) {
   const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
   return (
     <>
-    <SpeedInsights />
-    <Script
-      id={'ga1'}
-      strategy="lazyOnload"
-      src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-    />
-    <Analytics />
-    <Script id={'ga2'} strategy="lazyOnload">
-      {`
+      <SpeedInsights />
+      <Script
+        id={'ga1'}
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+      />
+      <Analytics />
+      <Script id={'ga2'} strategy="lazyOnload">
+        {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
@@ -75,27 +74,27 @@ export default function App({ Component, pageProps }: AppProps) {
                     page_path: window.location.pathname,
                     });
                 `}
-    </Script>
-    <style jsx global>
-      {`
+      </Script>
+      <style jsx global>
+        {`
           :root {
             --font-mono: ${mono.style.fontFamily};
             --font-sans: ${sans.style.fontFamily};
             --font-serif: ${serif.style.fontFamily};
           }
         `}
-    </style>
-    {!router?.pathname.startsWith('/studio') && (
-      <Navbar
-        menuItems={settings?.menuItems}
-        siteTitle={settings?.siteTitle}
-      />
+      </style>
+      {!router?.pathname.startsWith('/studio') && (
+        <Navbar
+          menuItems={settings?.menuItems}
+          siteTitle={settings?.siteTitle}
+        />
       )}
-    <ContextWrappedPage
-      Component={Component}
-      pageProps={pageProps}
-      pathname={router.pathname}
-    />
+      <ContextWrappedPage
+        Component={Component}
+        pageProps={pageProps}
+        pathname={router.pathname}
+      />
     </>
-    )
+  )
 }

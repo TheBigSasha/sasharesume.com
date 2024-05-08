@@ -35,8 +35,16 @@ $secondary-color: complement($primary-color);
   --padding: 1.6rem;
   --space-md: 1rem;
   --space-sm: 0.5rem;
+  --navmenu-background-color: #{rgba(lighten($primary-color, 70%), 0.6)};
+  --navmenu-background-color-collapsed: var(--tpcard-background-color);
   --navmenu-nestsize: var(--space-md);
   --navmenu-dropdown-padding: var(--space-md);
+  --navmenu-height-collapsed: 0.6rem;
+  --navmenu-height-expanded: 4rem;
+  --navmeu_header_expanded_font_size: 2rem;
+  --navmenu-card-width: min(90vw, 1200px);
+  --navmenu-expanded-width: min(100vw, 1600px);
+  --navmenu-expanded-padding: 3rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,7 +58,7 @@ $secondary-color: complement($primary-color);
     --background-3d-color: rgb(0, 0, 0);
     --info-color: #21f7ec;
     --navmenu-background-color: #{rgba(darken($primary-color, 90%), 0.7)};
-    --navmenu-background-color-collapsed: rgba(0,0,0,0);
+    --navmenu-background-color-collapsed: rgba(0, 0, 0, 0);
     --success-color: #00ff00;
     --warning-color: #ffcc00;
     --error-color: #ff0000;
