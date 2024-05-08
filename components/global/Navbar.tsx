@@ -18,6 +18,7 @@ export function Navbar({ menuItems: mnuis, siteTitle }: NavbarProps) {
       <SNavHeaderWrapper>
         <ResponsiveNavMenu
           headerItemPosition="left"
+          scrollCollapse="never"
           headerItem={
             <>
               <Link href="/">
