@@ -3,7 +3,7 @@ import 'tbsui-ssr/dist/assets/components/organisms/navmenu/navmenu.css'
 import 'tbsui-ssr/dist/assets/styles/responsive.css'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
-import { Inter, JetBrains_Mono, Manrope } from '@next/font/google'
+import { Inter, JetBrains_Mono, Manrope } from "next/font/google"
 import { Analytics } from '@vercel/analytics/react'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
