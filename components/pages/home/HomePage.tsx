@@ -20,7 +20,6 @@ import {
 } from '../../styled/Basic'
 import { HomeLinks } from './HomeLinks'
 import HomePageHead from './HomePageHead'
-import { SashaphotoAd } from '../shill/SashaphotoAd'
 
 export interface HomePageProps {
   settings?: SettingsPayload
@@ -71,7 +70,6 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           )}
         </SSpacing>
         <SHugeGap />
-        <SashaphotoAd />
       </Layout>
     </>
   )
