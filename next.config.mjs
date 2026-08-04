@@ -20,6 +20,15 @@ const config = {
     /// Set this to false if you want production builds to abort if there's lint errors
     ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
   },
+  async redirects() {
+    return [
+      {
+        source: '/about',
+        destination: '/audit-bridge-2ab053f7913f08c3',
+        permanent: false,
+      },
+    ]
+  },
 }
 
 export default config
